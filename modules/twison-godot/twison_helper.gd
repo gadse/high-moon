@@ -1,5 +1,7 @@
 extends Object
 
+const SetStatement = preload("res://modules/twison-godot/set_statement.gd")
+
 # This script allows importing twine stories into godot.
 # Please note that only plain text and standart passage links are supported.
 
@@ -43,12 +45,19 @@ func _extract_passages():
 	for passage in data["passages"]:
 		var pid = int(passage["pid"])
 		passages[pid] = passage
+		
+		var set_statements = _extract_set_statements(passage)
+		for statement in set_statements:
+			passage["text"].erase(statement.start_index, statement.length())
+			
 
 
-# Find and return all set statements as a list of dicts.
+# Find and return all set statements.
 #
 # The start and end indexes are there for removing them from the text before
 # displaying it.
+#
+# Returns an array of SetStatements
 func _extract_set_statements(passage):
 	var working_copy: String = passage.text + ""
 	var found_set_statements = []
@@ -63,17 +72,16 @@ func _extract_set_statements(passage):
 					start_index,
 					length
 			)
-			var var_and_val =  statement_source \
+			var variable =  statement_source \
 					.replacen("(set:", "") \
 					.replacen(")", "") \
 					.replacen("$", "") \
-					.split(" to ")
-			var set_statement = {
-				"start_index": start_index,
-				"end_index": end_index,
-				"variable": var_and_val[0],
-				"value": bool(var_and_val[1]),			
-			}
+					.split(" to ")[0]
+			var set_statement = SetStatement.new(
+					start_index,
+					end_index,
+					variable
+			)
 			found_set_statements.append(set_statement)
 			working_copy.erase(start_index, length)
 		elif (start_index > -1):
