@@ -43,6 +43,49 @@ func _extract_passages():
 	for passage in data["passages"]:
 		var pid = int(passage["pid"])
 		passages[pid] = passage
+
+
+# Find and return all set statements as a list of dicts.
+#
+# The start and end indexes are there for removing them from the text before
+# displaying it.
+func _extract_set_statements(passage):
+	var working_copy: String = passage.text + ""
+	var found_set_statements = []
+	
+	while true:
+		var start_index: int = working_copy.find("(set:")
+		var end_index: int = working_copy.substr(start_index + 1).find(")")
+		
+		if start_index > -1 and end_index > -1:
+			var length: int = end_index - start_index + 1
+			var statement_source: String = working_copy.substr(
+					start_index,
+					length
+			)
+			var var_and_val =  statement_source \
+					.replacen("(set:", "") \
+					.replacen(")", "") \
+					.replacen("$", "") \
+					.split(" to ")
+			var set_statement = {
+				"start_index": start_index,
+				"end_index": end_index,
+				"variable": var_and_val[0],
+				"value": bool(var_and_val[1]),			
+			}
+			found_set_statements.append(set_statement)
+			working_copy.erase(start_index, length)
+		elif (start_index > -1):
+			# Raise error
+			push_error("passage parser encountered '(set:' without ')'")
+			assert(false)
+		else:
+			# Nothing to do here
+			break
+	return found_set_statements	
+
+
 # Constructs tag db. If you pass true as an argument,
 # instead of assigning constructed db to global var,
 # this funtion will return it.
