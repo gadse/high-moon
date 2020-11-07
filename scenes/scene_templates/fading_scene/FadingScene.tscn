@@ -53,18 +53,26 @@ tracks/3/keys = {
 [node name="FadingScene" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/margin_right = 120
+custom_constants/margin_top = 120
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 120
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 1800.0
+margin_bottom = 960.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
+[node name="Caption" type="RichTextLabel" parent="."]
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 1800.0
+margin_bottom = 960.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 
@@ -72,9 +80,11 @@ bbcode_enabled = true
 anims/FadeIn = SubResource( 2 )
 
 [node name="FadeBlackRect" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-color = Color( 0, 0, 0, 0 )
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 1800.0
+margin_bottom = 960.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

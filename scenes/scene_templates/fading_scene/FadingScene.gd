@@ -10,12 +10,12 @@ var is_fading_in = true
 
 func _ready():
 	$BackgroundImage.texture = load(background_image)
-	$RichTextLabel.bbcode_text = caption
+	$Caption.bbcode_text = caption
 	$FadeOutTimer.wait_time = fade_out_timeout
 	
 	$FadeAnimationPlayer.play("FadeIn")
 	
-func _on_FadeAnimationPlayer_animation_finished(animation_name):
+func _on_FadeAnimationPlayer_animation_finished(_animation_name):
 	if is_fading_in:
 		is_fading_in = false
 		$FadeOutTimer.start()
