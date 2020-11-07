@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="High Moon"
-run/main_scene="res://mainMenu/MainMenu.tscn"
+run/main_scene="res://main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameState="*res://game_state/GameState.gd"
 
 [display]
 
