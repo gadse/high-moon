@@ -9,7 +9,8 @@ export(int) var fade_out_timeout = 10
 var is_fading_in = true
 
 func _ready():
-	$BackgroundImage.texture = load(background_image)
+	if background_image:
+		$BackgroundImage.texture = load(background_image)
 	$Caption.bbcode_text = caption
 	$FadeOutTimer.wait_time = fade_out_timeout
 	
