@@ -8,7 +8,7 @@ var messages = {
 var index_of_current_screen = 0
 var current_screen = null
 
-const FadingScene = preload("res://scenes/scene_templates/fading_scene/FadingScene.tscn")
+const EpiloguePage = preload("res://scenes/epilogue/EpiloguePage.tscn")
 
 func _init():
 	self._load_messages_from_json_file()
@@ -38,7 +38,7 @@ func _switch_to_next_screen():
 func _show_new_screen():
 	var screen_id = messages["allIds"][index_of_current_screen]
 	
-	current_screen = FadingScene.instance()
+	current_screen = EpiloguePage.instance()
 	current_screen.connect("tree_exited", self, "_on_next_screen_requested")
 	current_screen.caption = messages["byId"][screen_id]["text"]
 	self.add_child(current_screen)
