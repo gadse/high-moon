@@ -2,19 +2,24 @@ extends Node
 
 signal finished
 
-var messages = [
-	{
-		"text": "You stand above your victim. [color=red]Justice[/color] has been served."
-	},
-	{
-		"text": "The good townsfolk can rest easy now knowing that their town is safe once more."
-	}
-]
+var messages = {
+	"byId": {},
+	"allIds": []
+}
 
 var index_of_current_screen = 0
 var current_screen = null
 
 const FadingScene = preload("res://scenes/scene_templates/fading_scene/FadingScene.tscn")
+
+func _init():
+	self._load_messages_from_json_file()
+
+func _load_messages_from_json_file():
+	var file = File.new()
+	file.open("res://scenes/epilogue/Epilogue.tres", file.READ)
+	var data = file.get_as_text()
+	messages = parse_json(data)
 
 func _ready():
 	self._on_next_screen_requested()
@@ -26,7 +31,7 @@ func _on_next_screen_requested():
 		emit_signal("finished")
 
 func _is_next_screen_available():
-	return index_of_current_screen < messages.size()
+	return index_of_current_screen < messages["allIds"].size()
 	
 func _switch_to_next_screen():
 	self._delete_old_screen()
@@ -38,7 +43,9 @@ func _delete_old_screen():
 		self.remove_child(current_screen)
 
 func _show_new_screen():
+	var screen_id = messages["allIds"][index_of_current_screen]
+	
 	current_screen = FadingScene.instance()
 	current_screen.connect("faded_out", self, "_on_next_screen_requested")
-	current_screen.caption = messages[index_of_current_screen]["text"]
+	current_screen.caption = messages["byId"][screen_id]["text"]
 	self.add_child(current_screen)
