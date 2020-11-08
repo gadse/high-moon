@@ -72,7 +72,7 @@ func _extract_set_statements(passage):
 					start_index,
 					length
 			)
-			var variable =  statement_source \
+			var var_and_val =  statement_source \
 					.replacen("(set:", "") \
 					.replacen(")", "") \
 					.replacen("$", "") \
