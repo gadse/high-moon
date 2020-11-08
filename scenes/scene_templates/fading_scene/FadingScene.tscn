@@ -50,23 +50,14 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[node name="FadingScene" type="MarginContainer"]
+[node name="FadingScene" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 120
-custom_constants/margin_top = 120
-custom_constants/margin_left = 120
-custom_constants/margin_bottom = 120
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="BackgroundImage" type="TextureRect" parent="."]
-margin_left = 120.0
-margin_top = 120.0
-margin_right = 1800.0
-margin_bottom = 960.0
+background_image = "res://icon.png"
 
 [node name="Caption" type="RichTextLabel" parent="."]
 margin_left = 120.0
@@ -80,10 +71,8 @@ bbcode_enabled = true
 anims/FadeIn = SubResource( 2 )
 
 [node name="FadeBlackRect" type="ColorRect" parent="."]
-margin_left = 120.0
-margin_top = 120.0
-margin_right = 1800.0
-margin_bottom = 960.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,4 +81,5 @@ __meta__ = {
 [node name="FadeOutTimer" type="Timer" parent="."]
 one_shot = true
 [connection signal="animation_finished" from="FadeAnimationPlayer" to="." method="_on_FadeAnimationPlayer_animation_finished"]
+[connection signal="gui_input" from="FadeBlackRect" to="." method="_on_FadeBlackRect_gui_input"]
 [connection signal="timeout" from="FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
