@@ -10,11 +10,29 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Object",
+"class": "ConditionalStatement",
+"language": "GDScript",
+"path": "res://modules/twison-godot/conditional_statement.gd"
+}, {
+"base": "Object",
+"class": "DecStatement",
+"language": "GDScript",
+"path": "res://modules/twison-godot/dec_statement.gd"
+}, {
+"base": "Object",
+"class": "IncStatement",
+"language": "GDScript",
+"path": "res://modules/twison-godot/inc_statement.gd"
+}, {
+"base": "Object",
 "class": "SetStatement",
 "language": "GDScript",
 "path": "res://modules/twison-godot/set_statement.gd"
 } ]
 _global_script_class_icons={
+"ConditionalStatement": "",
+"DecStatement": "",
+"IncStatement": "",
 "SetStatement": ""
 }
 

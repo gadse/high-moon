@@ -72,15 +72,16 @@ func _extract_set_statements(passage):
 					start_index,
 					length
 			)
-			var variable =  statement_source \
+			var var_and_val =  statement_source \
 					.replacen("(set:", "") \
 					.replacen(")", "") \
 					.replacen("$", "") \
-					.split(" to ")[0]
+					.split(" to ")
 			var set_statement = SetStatement.new(
 					start_index,
 					end_index,
-					variable
+					var_and_val[0],
+					var_and_val[1]
 			)
 			found_set_statements.append(set_statement)
 			working_copy.erase(start_index, length)
