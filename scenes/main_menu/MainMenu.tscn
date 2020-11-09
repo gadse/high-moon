@@ -50,6 +50,7 @@ __meta__ = {
 [node name="NewGameButton" type="Button" parent="VBoxContainer"]
 margin_right = 286.0
 margin_bottom = 117.0
+focus_next = NodePath("../CreditsButton")
 theme = ExtResource( 5 )
 text = "New Game"
 
@@ -57,6 +58,8 @@ text = "New Game"
 margin_top = 121.0
 margin_right = 286.0
 margin_bottom = 238.0
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../NewGameButton")
 theme = ExtResource( 5 )
 text = "Credits"
 
@@ -64,6 +67,7 @@ text = "Credits"
 margin_top = 242.0
 margin_right = 286.0
 margin_bottom = 359.0
+focus_previous = NodePath("../CreditsButton")
 theme = ExtResource( 5 )
 text = "Exit"
 

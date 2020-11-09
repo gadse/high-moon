@@ -7,6 +7,7 @@ func _ready():
 	self._show_menu()
 
 func _show_menu():
+	$VBoxContainer/NewGameButton.grab_focus()
 	if not $BackgroundMusic.playing:
 		$BackgroundMusic.fade_in()
 	$Fader.fade_in()
