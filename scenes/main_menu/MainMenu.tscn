@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/main_menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main_menu/background.png" type="Texture" id=2]
 [ext_resource path="res://scenes/main_menu/music.ogg" type="AudioStream" id=3]
+[ext_resource path="res://fonts/Country Western/Country Western.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/main_menu/Buttons.tres" type="Theme" id=5]
 
+[sub_resource type="DynamicFont" id=1]
+size = 180
+outline_size = 10
+font_data = ExtResource( 4 )
 
 [node name="MainMenu" type="TextureRect"]
 anchor_right = 1.0
@@ -14,18 +20,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="Title" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 429.898
-margin_top = -63.6226
-margin_right = 464.898
-margin_bottom = -43.6226
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Exit"
+margin_left = -530.926
+margin_top = 71.2719
+margin_right = 399.073
+margin_bottom = 282.272
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HIGH MOON"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,4 +39,34 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
-[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 1379.11
+margin_top = 310.033
+margin_right = 1665.11
+margin_bottom = 657.033
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+margin_right = 286.0
+margin_bottom = 117.0
+theme = ExtResource( 5 )
+text = "New Game"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+margin_top = 121.0
+margin_right = 286.0
+margin_bottom = 238.0
+theme = ExtResource( 5 )
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_top = 242.0
+margin_right = 286.0
+margin_bottom = 359.0
+theme = ExtResource( 5 )
+text = "Exit"
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
