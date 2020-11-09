@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/town_overview/TownOverview.gd" type="Script" id=1]
+[ext_resource path="res://scenes/scene_templates/fading_scene/Fader.tscn" type="PackedScene" id=2]
+
+[node name="ColorRect" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.541176, 0.454902, 0.223529, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 2 )]
