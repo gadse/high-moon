@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 GameState="*res://scenes/game_state/GameState.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1920

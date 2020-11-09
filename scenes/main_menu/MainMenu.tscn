@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/main_menu/music.ogg" type="AudioStream" id=3]
 [ext_resource path="res://fonts/Country Western/Country Western.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/main_menu/Buttons.tres" type="Theme" id=5]
-[ext_resource path="res://scenes/scene_templates/fading_scene/Fader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 180
