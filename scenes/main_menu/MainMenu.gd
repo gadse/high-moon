@@ -8,16 +8,16 @@ func _ready():
 
 func _show_menu():
 	if not $BackgroundMusic.playing:
-		$BackgroundMusic.play()
+		$BackgroundMusic.fade_in()
 	$Fader.fade_in()
 
 func _on_NewGameButton_pressed():
 	$Fader.connect("faded_out", self, "_start_game")
+	$BackgroundMusic.fade_out()
 	$Fader.fade_out()
 
 func _start_game():
 	$Fader.disconnect("faded_out", self, "_start_game")
-	$BackgroundMusic.stop()
 
 	var game = Game.instance()
 	game.connect("tree_exited", self, "_show_menu")
@@ -35,6 +35,7 @@ func _show_credits():
 
 func _on_ExitButton_pressed():
 	$Fader.connect("faded_out", self, "_quit")
+	$BackgroundMusic.fade_out()
 	$Fader.fade_out()
 
 func _quit():
