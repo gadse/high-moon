@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/main_menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main_menu/background.png" type="Texture" id=2]
 [ext_resource path="res://scenes/main_menu/music.ogg" type="AudioStream" id=3]
 [ext_resource path="res://fonts/Country Western/Country Western.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/main_menu/Buttons.tres" type="Theme" id=5]
+[ext_resource path="res://scenes/scene_templates/fading_scene/Fader.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 180
@@ -36,9 +37,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 1379.11
@@ -68,5 +68,8 @@ margin_right = 286.0
 margin_bottom = 359.0
 theme = ExtResource( 5 )
 text = "Exit"
+
+[node name="Fader" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

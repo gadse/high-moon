@@ -1,18 +1,17 @@
 extends ColorRect
 
 signal faded_in
+signal faded_out
 
-var is_fading_in = true
-
-func _ready():
+func fade_in():
 	$FadeAnimationPlayer.play("FadeIn")
 	
-func _on_FadeAnimationPlayer_animation_finished(_animation_name):
-	if is_fading_in:
-		is_fading_in = false
-		emit_signal("faded_in")
-	else:
-		queue_free()
+func _on_FadeAnimationPlayer_animation_finished(animation_name):
+	match animation_name:
+		"FadeIn":
+			emit_signal("faded_in")
+		"FadeOut":
+			emit_signal("faded_out")
 
 func fade_out():
-	$FadeAnimationPlayer.play_backwards("FadeIn")
+	$FadeAnimationPlayer.play("FadeOut")
