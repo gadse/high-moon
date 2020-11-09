@@ -6,4 +6,5 @@ func _ready():
 	$Fader.fade_in()
 
 func _on_Credits_gui_input(event):
-	$Fader.fade_out()
+	if event.is_pressed():
+		$Fader.fade_out()
