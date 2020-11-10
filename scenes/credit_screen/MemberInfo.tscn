@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/staubach/Staubach.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="MemberInfo" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1905.0
+margin_bottom = 1065.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_bottom = 1050.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+margin_left = 4.0
+margin_right = 1890.0
+margin_bottom = 1050.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+scroll_active = false
