@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/town_overview/House.gd" type="Script" id=4]
 [ext_resource path="res://fonts/Country Western/Country Western.tres" type="DynamicFont" id=5]
 
-
 [node name="TownOverview" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -47,7 +46,7 @@ collision_layer = 2147483649
 script = ExtResource( 4 )
 house = "red"
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="RedHouse"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RedHouse"]
 position = Vector2( 167.044, 569.823 )
 polygon = PoolVector2Array( -5.89636, 4.44983, -109.241, 2.66797, 101.011, -211.148, 312.154, 1.7771, 207.028, 5.3407, 207.028, 208.466, -3.22366, 208.466 )
 
@@ -56,7 +55,7 @@ collision_layer = 2147483649
 script = ExtResource( 4 )
 house = "green"
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="GreenHouse"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GreenHouse"]
 position = Vector2( 799.788, 281.846 )
 polygon = PoolVector2Array( -225.264, 2.88385, 2.80634, -204.696, 223.749, -0.679749, 113.278, 3.77478, 115.06, 205.118, -113.01, 205.118, -112.12, 4.66565 )
 
