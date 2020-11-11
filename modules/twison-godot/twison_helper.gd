@@ -103,7 +103,7 @@ func _extract_conditional_statements(passage):
 					true,
 					var_and_text[1]
 			)
-			found_cond_statements.append(set_statement)
+			found_cond_statements.append(cond_statement)
 			working_copy.erase(start_index, length)
 		elif (start_index > -1):
 			# Raise error
