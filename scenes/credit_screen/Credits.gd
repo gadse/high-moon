@@ -1,7 +1,6 @@
 extends TextureRect
 
 func _ready():
-	self.grab_focus()
 	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
 
