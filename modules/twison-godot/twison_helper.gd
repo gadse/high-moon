@@ -116,7 +116,7 @@ func _extract_conditional_statements(passage):
 	return found_cond_statements
 
 
-func _insert_conditional_text(outer_text, knowledge_base, conditional_statement):
+func _insert_conditional_text(outer_text, knowledge_base, statement):
 	"""
 	If the given conditional_statement eval()uates to true, insert its optional
 	text at the appropriate position in the outer text.
