@@ -1,13 +1,21 @@
 extends Object
 
 const SetStatement = preload("res://modules/twison-godot/set_statement.gd")
-const IncStatement = preload("res://modules/twison-godot/inc_statement.gd")
-const DecStatement = preload("res://modules/twison-godot/dec_statement.gd")
 const ConditionalStatement = preload("res://modules/twison-godot/conditional_statement.gd")
 
 const statement_headers = {
-	"(set:)": SetStatement
+	"(set:": SetStatement,
+	"(if:": ConditionalStatement
 }
+
+var knowledge_base = GameState.KnowledgePiece
+
+class StatementSorter:
+	static func by_start_index_desc(a, b):
+		if a.get_start_index() < b.get_start_index():
+			return false
+		else:
+			return true
 
 # This script allows importing twine stories into godot.
 # Please note that only plain text and standart passage links are supported.
@@ -56,21 +64,89 @@ func _extract_passages():
 		var set_statements = _extract_set_statements(passage)
 		for statement in set_statements:
 			passage["text"].erase(statement.start_index, statement.length())
-			
+		
+		var conditional_statements: Array = _extract_conditional_statements(passage)
+		for statement in conditional_statements:
+			passage["text"].erase(statement.start_index, statement.length())
+			_insert_conditional_text(passage["text"], knowledge_base, statement)
 
 
-# Find and return all set statements.
-#
-# The start and end indexes are there for removing them from the text before
-# displaying it.
-#
-# Returns an array of SetStatements
+func _extract_conditional_statements(passage):
+	"""
+	Finds and returns all conditional statements. The sequence is the sequence
+	in which the statements should be evaluated (last to first).
+	
+	The iundex-descending order enables us to process the statements in sequence
+	without needing to build another structure.
+	"""
+	var working_copy: String = passage.text.duplicate()
+	var found_cond_statements = []
+	
+	while true:
+		var start_index: int = working_copy.find_last("(if:")
+		var end_index: int = working_copy.substr(start_index + 1).find("]")
+		
+		if start_index > -1 and end_index > -1:
+			var length: int = end_index - start_index + 1
+			var statement_source: String = working_copy.substr(
+					start_index,
+					length
+			)
+			var var_and_text =  statement_source \
+					.replacen("(if:$", "") \
+					.replacen("]", "") \
+					.split(")[")
+			var cond_statement = ConditionalStatement.new(
+					start_index,
+					end_index,
+					var_and_text[0],
+					true,
+					var_and_text[1]
+			)
+			found_cond_statements.append(set_statement)
+			working_copy.erase(start_index, length)
+		elif (start_index > -1):
+			# Raise error
+			push_error("passage parser encountered '(set:' without ')'")
+			assert(false)
+		else:
+			# Nothing to do here
+			break
+	found_cond_statements.sort_custom(StatementSorter, "by_start_index_desc")
+	return found_cond_statements
+
+
+func _insert_conditional_text(outer_text, knowledge_base, conditional_statement):
+	"""
+	If the given conditional_statement eval()uates to true, insert its optional
+	text at the appropriate position in the outer text.
+	
+	Args:
+		outer_text (String): The outer text of a passage.
+		knowledge_base (dict): Our character's knowledge.
+		conditional_statement (ConditionalStatement): The (if:)[] statement.
+	"""
+	if statement.eval(knowledge_base):
+		for ix in statement.get_optional_text().size():
+			outer_text.insert(
+				statement.get_start_index(),
+				statement.get_optional_text()[ix]
+			)
+
+
 func _extract_set_statements(passage):
+	"""
+	Finds and returns all set statements. The sequence is the sequence
+	in which the statements should be evaluated (last to first).
+	
+	The iundex-descending order enables us to process the statements in sequence
+	without needing to build another structure.
+	"""
 	var working_copy: String = passage.text + ""
 	var found_set_statements = []
 	
 	while true:
-		var start_index: int = working_copy.find("(set:")
+		var start_index: int = working_copy.find_last("(set:")
 		var end_index: int = working_copy.substr(start_index + 1).find(")")
 		
 		if start_index > -1 and end_index > -1:
@@ -80,9 +156,8 @@ func _extract_set_statements(passage):
 					length
 			)
 			var var_and_val =  statement_source \
-					.replacen("(set:", "") \
+					.replacen("(set:$", "") \
 					.replacen(")", "") \
-					.replacen("$", "") \
 					.split(" to ")
 			var set_statement = SetStatement.new(
 					start_index,
@@ -99,6 +174,7 @@ func _extract_set_statements(passage):
 		else:
 			# Nothing to do here
 			break
+	found_set_statements.sort_custom(StatementSorter, "by_start_index_desc")
 	return found_set_statements	
 
 

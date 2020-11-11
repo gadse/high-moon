@@ -5,11 +5,12 @@ class_name SetStatement
 var start_index: int = -1
 var end_index: int = -1
 var variable_name: String = ""
-var target_value = null
+var target_value: bool = false
 
 func _init(start_index, end_index, variable_name, target_value):
+	assert(typeof(target_value) == TYPE_BOOL)
 	self.start_index = start_index
-	self.end_index = start_index
+	self.end_index = end_index
 	self.variable_name = variable_name
 	self.target_value = target_value
 

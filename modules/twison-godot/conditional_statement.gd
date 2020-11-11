@@ -2,34 +2,29 @@ extends Object
 
 class_name ConditionalStatement
 
-enum ComparisonType {
-	eq,
-	gte
-}
-
-const comp_repr_to_type = {
-	"is": ComparisonType.eq ,
-	">=": ComparisonType.gte
-}
-
-var varible_name: String = ""
-var comparison_type = null
+var start_index: int = -1
+var end_index: int = -1
+var variable_name: String = ""
 var target_value = null
+var optional_text: String = ""
 
-func _init(variable_name, comparison_repr, target_value):
-	self.varible_name = variable_name
+func _init(
+	start_index,
+	end_index,
+	variable_name,
+	target_value,
+	optional_text
+):
+	self.start_index = start_index
+	self.end_index = end_index
+	self.variable_name = variable_name
+	self.optional_text = optional_text
 	
-	self.comparison_type = comp_repr_to_type.get(comparison_repr, null)
-	if self.comparison_type == null:
-		push_error("Illegal comparison used: {}".format(comparison_repr))
-		assert(false)
-	
-	if typeof(target_value) == TYPE_INT:
-		self.target_value = int(target_value)
+	if typeof(target_value) == TYPE_BOOL:
+		self.target_value = target_value
 	else:
-		self.target_value = bool(target_value)
-		# We want to allow expressions like (if: $knows >= True)
-		self.comparison_type = ComparisonType.eq
+		push_error("Illegal target value {}".format(typeof(target_value)))
+		assert(false)
 
 func eval(knowledge_base):
 	"""
@@ -45,17 +40,10 @@ func eval(knowledge_base):
 			evaluation's result and the current value in the knowledge base.
 	"""
 	var value = knowledge_base.get(self.varible_name, null)
-	
-	if self.comparison_type == ComparisonType.eq:
-		if value == self.target_value:
-			return {"ok": true, "val": value}
-		else:
-			return {"ok": false, "val": value}
-	elif self.comparison_type == ComparisonType.gte:
-		if value >= self.target_value:
-			return {"ok": true, "val": value}
-		else:
-			return {"ok": false, "val": value}
+	if value == self.target_value:
+		return {"ok": true, "val": value}
+	else:
+		return {"ok": false, "val": value}
 			
 
 # Called when the node enters the scene tree for the first time.
