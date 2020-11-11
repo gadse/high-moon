@@ -1,6 +1,13 @@
 extends Object
 
 const SetStatement = preload("res://modules/twison-godot/set_statement.gd")
+const IncStatement = preload("res://modules/twison-godot/inc_statement.gd")
+const DecStatement = preload("res://modules/twison-godot/dec_statement.gd")
+const ConditionalStatement = preload("res://modules/twison-godot/conditional_statement.gd")
+
+const statement_headers = {
+	"(set:)": SetStatement
+}
 
 # This script allows importing twine stories into godot.
 # Please note that only plain text and standart passage links are supported.
