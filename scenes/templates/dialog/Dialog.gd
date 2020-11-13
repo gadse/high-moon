@@ -1,5 +1,8 @@
 extends TextureRect
 
+const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-white-18dp.svg")
+const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
+
 var expanded = false
 
 var dialog_history = [
@@ -40,7 +43,9 @@ func _update_history():
 	dialog_history_label.bbcode_text = ""
 	for entry in dialog_history:
 		if entry["owner"] == "detective":
+			dialog_history_label.bbcode_text += "[color=gray]"
 			dialog_history_label.bbcode_text += entry["text"]
+			dialog_history_label.bbcode_text += "[/color]"
 			dialog_history_label.bbcode_text += "\n"
 		elif entry["owner"] == "npc":
 			dialog_history_label.bbcode_text += "[right]"
@@ -51,12 +56,15 @@ func _update_history():
 func _on_ExpandButton_pressed():
 	expanded = not expanded
 	if expanded:
-		dialog_history_container.visible = true
 		$ExtendableMarginContainer.set_margin_top(20)
-		expand_button.text = "v Hide dialog history v"
+		expand_button.icon = arrow_down_icon
+		expand_button.text = "Hide dialog history"
 		yield(get_tree(), "idle_frame")
-		dialog_history_container.scroll_vertical = dialog_history_container.get_v_scrollbar().max_value
+		dialog_history_container.visible = true
+		if dialog_history_container.get_v_scrollbar().visible:
+			dialog_history_container.scroll_vertical = dialog_history_container.get_v_scrollbar().max_value
 	else:
-		dialog_history_container.visible = false
 		$ExtendableMarginContainer.set_margin_top(400)
-		expand_button.text = "^ Show dialog history ^"
+		expand_button.icon = arrow_up_icon
+		expand_button.text = "Show dialog history"
+		dialog_history_container.visible = false

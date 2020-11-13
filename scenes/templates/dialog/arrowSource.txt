@@ -1,0 +1,2 @@
+Arrow icons are taken from Material UI icons 
+https://material.io/resources/icons/?search=arrow&icon=keyboard_arrow_up&style=round
