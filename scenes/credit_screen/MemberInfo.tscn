@@ -9,6 +9,7 @@ font_data = ExtResource( 2 )
 [node name="MemberInfo" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 15
@@ -32,6 +33,7 @@ margin_bottom = 1050.0
 margin_left = 4.0
 margin_right = 1890.0
 margin_bottom = 1050.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )

@@ -41,6 +41,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1900.0
 margin_bottom = 1060.0
+mouse_filter = 2
 custom_constants/hseparation = 50
 columns = 2
 
@@ -180,12 +181,14 @@ margin_left = 965.0
 margin_top = 696.0
 margin_right = 1880.0
 margin_bottom = 1040.0
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TeamContainer/GridContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 908.0
 margin_bottom = 337.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 text = "We'd also like to thank..."
 
