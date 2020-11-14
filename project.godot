@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="High Moon"
 run/main_scene="res://scenes/main_menu/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://HM_desktopicon.png"
 
 [autoload]
 
