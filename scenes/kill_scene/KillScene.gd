@@ -5,7 +5,7 @@ func _ready():
 	$Fader.connect("faded_out", self, "queue_free")
 
 	$ItsHighMoon.connect("finished", self, "_play_gunshot")
-	$GunShot.connect("finished", $Fader, "fade_out")
+	$GunShot.connect("finished", self, "_show_blood_animation")
 
 	$Fader.fade_in()
 
@@ -14,3 +14,9 @@ func _play_it_is_high_moon():
 
 func _play_gunshot():
 	$GunShot.play()
+
+func _show_blood_animation():
+	$BloodAnimation.play("BloodAnimation")
+
+func _on_BloodAnimation_animation_finished(anim_name):
+	$Fader.fade_out()
