@@ -18,5 +18,5 @@ func _play_gunshot():
 func _show_blood_animation():
 	$BloodAnimation.play("BloodAnimation")
 
-func _on_BloodAnimation_animation_finished(anim_name):
+func _on_BloodAnimation_animation_finished(_anim_name):
 	$Fader.fade_out()
