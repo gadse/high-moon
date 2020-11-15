@@ -79,7 +79,7 @@ func _extract_conditional_statements(passage):
 	The iundex-descending order enables us to process the statements in sequence
 	without needing to build another structure.
 	"""
-	var working_copy: String = passage.text.duplicate()
+	var working_copy: String = String(passage.text)
 	var found_cond_statements = []
 	
 	while true:
