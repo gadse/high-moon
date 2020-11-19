@@ -1,19 +1,83 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/town_overview/TownOverview.gd" type="Script" id=1]
 [ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/background/TownOverviewMock.png" type="Texture" id=3]
+[ext_resource path="res://scenes/town_overview/House.gd" type="Script" id=4]
+[ext_resource path="res://fonts/Country Western/Country Western.tres" type="DynamicFont" id=5]
 
-
-
-
-
-[node name="ColorRect" type="ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.541176, 0.454902, 0.223529, 1 )
+[node name="TownOverview" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Fader" parent="." instance=ExtResource( 2 )]
+
+[node name="TownOverviewMock" type="Sprite" parent="."]
+position = Vector2( 0.630005, -0.296234 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Experimental_FadeOut" type="Button" parent="."]
+margin_left = 1568.45
+margin_top = 25.5379
+margin_right = 1867.45
+margin_bottom = 120.538
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.67451, 0.00392157, 0.00392157, 1 )
+text = "Fade out"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fader" parent="." instance=ExtResource( 2 )]
+[node name="Info" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 944.0
+margin_right = 1912.0
+margin_bottom = 1070.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Die Nacht bricht an, und das Dorf schlaeft ein ..."
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedHouse" type="Area2D" parent="."]
+collision_layer = 2147483649
+script = ExtResource( 4 )
+house = "red"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RedHouse"]
+position = Vector2( 167.044, 569.823 )
+polygon = PoolVector2Array( -5.89636, 4.44983, -109.241, 2.66797, 101.011, -211.148, 312.154, 1.7771, 207.028, 5.3407, 207.028, 208.466, -3.22366, 208.466 )
+
+[node name="GreenHouse" type="Area2D" parent="."]
+collision_layer = 2147483649
+script = ExtResource( 4 )
+house = "green"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GreenHouse"]
+position = Vector2( 799.788, 281.846 )
+polygon = PoolVector2Array( -225.264, 2.88385, 2.80634, -204.696, 223.749, -0.679749, 113.278, 3.77478, 115.06, 205.118, -113.01, 205.118, -112.12, 4.66565 )
+
+[node name="BlueHouse" type="Area2D" parent="."]
+script = ExtResource( 4 )
+house = "I'm blue dabedi dabedei"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlueHouse"]
+position = Vector2( 1392, 728 )
+polygon = PoolVector2Array( -3.19434, 3.96155, 187.458, -198.272, 378.11, 3.96155, 283.675, 6.63422, 283.675, 203.523, 91.241, 205.305, 92.1318, 6.63422 )
+
+[node name="PurpleHouse" type="Area2D" parent="."]
+position = Vector2( 1333.12, 362.848 )
+script = ExtResource( 4 )
+house = "purple"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PurpleHouse"]
+position = Vector2( -0.629944, -1.25989 )
+scale = Vector2( 1.06299, 1 )
+polygon = PoolVector2Array( -154.736, 4.58301, 28.9789, -198.264, 212.101, 3.95303, 120.836, 4.58301, 119.651, 203.021, -65.2491, 203.021, -65.2491, 5.21295 )
+[connection signal="button_up" from="Experimental_FadeOut" to="." method="_on_Experimental_FadeOut_button_up"]
+[connection signal="input_event" from="RedHouse" to="RedHouse" method="_on_input_event"]
+[connection signal="input_event" from="GreenHouse" to="GreenHouse" method="_on_input_event"]
+[connection signal="input_event" from="BlueHouse" to="BlueHouse" method="_on_input_event"]
+[connection signal="input_event" from="PurpleHouse" to="PurpleHouse" method="_on_input_event"]
