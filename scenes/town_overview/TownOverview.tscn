@@ -9,17 +9,13 @@
 
 [node name="TownOverview" type="TextureRect"]
 mouse_filter = 2
+texture = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
-
-[node name="TownOverviewMock" type="Sprite" parent="."]
-position = Vector2( 0.630005, -0.296234 )
-texture = ExtResource( 3 )
-centered = false
 
 [node name="Experimental_FadeOut" type="Button" parent="."]
 margin_left = 1568.45

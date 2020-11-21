@@ -26,6 +26,10 @@ func _init(
 		push_error("Illegal target value {}".format(typeof(target_value)))
 		assert(false)
 
+
+func length():
+	return end_index - start_index + 1
+
 func eval(knowledge_base):
 	"""
 	We want to evaluate this expression in the context of our character's

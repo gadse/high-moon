@@ -1,6 +1,7 @@
 extends TextureRect
 
 var TwisonHelper = preload("res://modules/twison-godot/twison_helper.gd")
+var Dialog = preload("res://scenes/templates/dialog/Dialog.tscn")
 var story = TwisonHelper.new()
 
 const number_keys = [
@@ -21,10 +22,10 @@ var current_passage = null
 var just_starting = false
 
 func _ready():
-	$Fader.connect("faded_out", self, "queue_free")
+	#$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
 
-	story.parse_file("example_story.json")
+	story.parse_file("examples/example_story.json")
 	current_passage = story.start()
 	$Info.text = story.get_story_name() + "\n" + current_passage.text
 	_output_links(current_passage)
@@ -50,5 +51,16 @@ func _output_links(passage):
 		$Info.text += String(ix) + "> " + link.name
 
 func _on_Experimental_FadeOut_button_up():
+	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_out()
 	pass # Replace with function body.
+
+func _start_dialog():
+	print("_start_dialog")
+	$Fader.disconnect("faded_out", self, "_start_dialog")
+	var dialog = Dialog.instance()
+	dialog.connect("tree_exited", self, "_show_this")
+	self.add_child(dialog)
+
+func _show_this():
+	$Fader.fade_in()

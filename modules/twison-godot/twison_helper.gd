@@ -65,16 +65,19 @@ func _extract_passages():
 		passages[pid] = passage
 		
 		var set_statements = _extract_set_statements(passage)
-		passage.text = _remove_set_statements_from_passage_text(set_statements, passage)
+		passage.text = _remove_set_statements_from_passage_text(set_statements, passage.text)
 		
 		var conditional_statements: Array = _extract_conditional_statements(passage)
 		for statement in conditional_statements:
 			passage.text.erase(statement.start_index, statement.length())
 			_insert_conditional_text(passage.text, knowledge_base, statement)
 
-func _remove_set_statements_from_passage_text(set_statements, passage):
+func _remove_set_statements_from_passage_text(set_statements, text):
+	var working_copy :String = String(text)
 	for statement in set_statements:
-		passage.text.erase(statement.start_index, statement.length())
+		working_copy.erase(statement.start_index, statement.length())
+	return working_copy
+	
 
 
 func _extract_conditional_statements(passage):
@@ -153,7 +156,7 @@ func _extract_set_statements(passage):
 	
 	while true:
 		var start_index: int = working_copy.find_last("(set:")
-		var end_index: int = working_copy.substr(start_index + 1).find(")")
+		var end_index: int = working_copy.substr(start_index + 1).find(")") + start_index
 		
 		if start_index > -1 and end_index > -1:
 			var length: int = end_index - start_index + 1
@@ -169,12 +172,15 @@ func _extract_set_statements(passage):
 					start_index,
 					end_index,
 					var_and_val[0].strip_edges().to_lower(),
-					var_and_val[1].strip_edges().to_lower()
+					bool(var_and_val[1].strip_edges().to_lower())
 			)
 			
 			found_set_statements.append(set_statement)
 			working_copy.erase(start_index, length)
-		elif (end_index > -1):
+		elif start_index == -1:
+			# no set statements present
+			break
+		elif end_index == -1:
 			# Raise error
 			push_error("passage parser encountered '(set:' without ')'")
 			assert(false)
