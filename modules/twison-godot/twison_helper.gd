@@ -23,6 +23,9 @@ class StatementSorter:
 var passages = {}
 var data = {}
 
+var current_passage_id = null
+var current_passage = null
+
 # Tag db is a Dictionary with tag strings as keys, and Arrays of passage pids as values
 var _tag_db_enabled = false
 var tag_db = {}
@@ -57,18 +60,21 @@ func parse_file(filePath: String, \
 	_filter_links(linkFilter)
 
 func _extract_passages():
-	for passage in data["passages"]:
-		var pid = int(passage["pid"])
+	for passage in data.passages:
+		var pid = int(passage.pid)
 		passages[pid] = passage
 		
 		var set_statements = _extract_set_statements(passage)
-		for statement in set_statements:
-			passage["text"].erase(statement.start_index, statement.length())
+		passage.text = _remove_set_statements_from_passage_text(set_statements, passage)
 		
 		var conditional_statements: Array = _extract_conditional_statements(passage)
 		for statement in conditional_statements:
-			passage["text"].erase(statement.start_index, statement.length())
-			_insert_conditional_text(passage["text"], knowledge_base, statement)
+			passage.text.erase(statement.start_index, statement.length())
+			_insert_conditional_text(passage.text, knowledge_base, statement)
+
+func _remove_set_statements_from_passage_text(set_statements, passage):
+	for statement in set_statements:
+		passage.text.erase(statement.start_index, statement.length())
 
 
 func _extract_conditional_statements(passage):
@@ -142,7 +148,7 @@ func _extract_set_statements(passage):
 	The iundex-descending order enables us to process the statements in sequence
 	without needing to build another structure.
 	"""
-	var working_copy: String = passage.text + ""
+	var working_copy: String = String(passage.text)
 	var found_set_statements = []
 	
 	while true:
@@ -158,16 +164,17 @@ func _extract_set_statements(passage):
 			var var_and_val =  statement_source \
 					.replacen("(set:$", "") \
 					.replacen(")", "") \
-					.split(" to ")
+					.split("to")
 			var set_statement = SetStatement.new(
 					start_index,
 					end_index,
-					var_and_val[0],
-					var_and_val[1]
+					var_and_val[0].strip_edges().to_lower(),
+					var_and_val[1].strip_edges().to_lower()
 			)
+			
 			found_set_statements.append(set_statement)
 			working_copy.erase(start_index, length)
-		elif (start_index > -1):
+		elif (end_index > -1):
 			# Raise error
 			push_error("passage parser encountered '(set:' without ')'")
 			assert(false)
@@ -336,3 +343,46 @@ func get_story_name():
 		return data["name"]
 	else:
 		return "Error: Story name not found"
+
+
+func start():
+	self.current_passage_id = get_starting_node()
+	self.current_passage = _set_passage(self.current_passage_id)
+	return self.current_passage
+
+
+func traverse(link_ix):
+	return traverse_by_passage_id(current_passage.links[link_ix].pid)
+
+
+func traverse_by_passage_id(passage_id):
+	if passage_id in _get_reachable_passages():
+		return _set_passage(passage_id)
+	else:
+		push_error(
+			"You can't reach passage %s from passage %s".format(
+				passage_id,
+				current_passage_id
+			)
+		)
+		assert(false)
+
+
+func _get_reachable_passages():
+	var reachable_passages = []
+	for link in self.current_passage.links:
+		reachable_passages.append(link.pid)
+	return reachable_passages
+
+
+func _set_passage(passage_id):
+	self.current_passage_id = passage_id
+	self.current_passage = passages[int(current_passage_id)]
+	
+	return self.current_passage
+
+func is_finished():
+	if self.current_passage.has("links") and self.current_passage.links.size() > 0:
+		return false
+	else:
+		return true

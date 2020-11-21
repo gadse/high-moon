@@ -17,7 +17,7 @@ func _init(
 ):
 	self.start_index = start_index
 	self.end_index = end_index
-	self.variable_name = variable_name
+	self.variable_name = variable_name.to_lower()
 	self.optional_text = optional_text
 	
 	if typeof(target_value) == TYPE_BOOL:
@@ -39,11 +39,11 @@ func eval(knowledge_base):
 		result (dict): A dictionary with items 'ok' and 'value' denoting the
 			evaluation's result and the current value in the knowledge base.
 	"""
-	var value = knowledge_base.get(self.varible_name, null)
+	var value = knowledge_base.get(self.variable_name, false)
 	if value == self.target_value:
-		return {"ok": true, "val": value}
+		return true
 	else:
-		return {"ok": false, "val": value}
+		return false
 			
 
 # Called when the node enters the scene tree for the first time.
