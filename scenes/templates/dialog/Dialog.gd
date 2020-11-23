@@ -7,42 +7,51 @@ extends TextureRect
 
 const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-white-18dp.svg")
 const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
+const Story = preload("res://modules/twison-godot/twison_helper.gd")
 
 var expanded = false
+var story: Story = null
 
+
+const PLAYER = "detective"
+const NPC = "npc"
+func _new_dialog_entry(text: String, owner: String):
+	if owner != NPC and owner != PLAYER:
+		push_error("Unknown dialog entry owner: %s".format(owner))
+		assert(false)
+	else:
+		return {
+			"text": text,
+			"owner": owner
+		}
+
+# List of dicts of dialog entries
 var dialog_history = [
-	{
-		"text": "This is the first thing the NPC said.",
-		"owner": "npc"
-	},
-	{
-		"text": "This was our first answer.",
-		"owner": "detective"
-	},
-	{
-		"text": "The NPC came back with this clever answer.",
-		"owner": "npc"
-	},
-	{
-		"text": "But we had this important thing to say.",
-		"owner": "detective"
-	},
-	{
-		"text": "With this serendipitous line, the NPC settled the argument once and for all.",
-		"owner": "npc"
-	},
-	{
-		"text": "Unbelievably, we still had something to say. His turn...",
-		"owner": "detective"
-	}
 ]
 
 onready var dialog_history_label = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer/DialogHistory
 onready var dialog_history_container = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer
 onready var expand_button = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton
+onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children()
+
+func _init():
+	story = Story.new()
+	story.parse_file("examples/example_story.json")
+	var start_passage = story.start()
+	dialog_history.append(
+		_new_dialog_entry(start_passage.text, NPC)
+	)
 
 func _ready():
 	self._update_history()
+	
+	var ix = 0
+	for button in answer_buttons:
+		print(button.caption)
+		button.caption = String("PENIS %s" % ix)
+		print(button.caption)
+		button._ready()
+		ix += 1
 	
 func _update_history():
 	dialog_history_label.bbcode_text = ""
