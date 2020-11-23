@@ -11,6 +11,7 @@ const Story = preload("res://modules/twison-godot/twison_helper.gd")
 
 var expanded = false
 var story: Story = null
+var current_passage: Dictionary = {}
 
 
 const PLAYER = "detective"
@@ -37,17 +38,21 @@ onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxConta
 func _init():
 	story = Story.new()
 	story.parse_file("examples/example_story.json")
-	var start_passage = story.start()
+	current_passage = story.start()
 	dialog_history.append(
-		_new_dialog_entry(start_passage.text, NPC)
+		_new_dialog_entry(current_passage.text, NPC)
 	)
+
 
 func _ready():
 	self._update_history()
-	
+		
 	var ix = 0
 	for button in answer_buttons:
-		button.set_text("PENIS %s" % ix)
+		if ix < current_passage.links.size():
+			button.set_text(current_passage.links[ix].name)
+		else:
+			button.set_text("")
 		ix += 1
 	
 func _update_history():
