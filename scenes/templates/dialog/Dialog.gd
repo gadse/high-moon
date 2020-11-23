@@ -13,6 +13,7 @@ var expanded = false
 var story: Story = null
 var current_passage: Dictionary = {}
 
+var button_numbers: Dictionary = {}
 
 const PLAYER = "detective"
 const NPC = "npc"
@@ -46,14 +47,8 @@ func _init():
 
 func _ready():
 	self._update_history()
-		
-	var ix = 0
-	for button in answer_buttons:
-		if ix < current_passage.links.size():
-			button.set_text(current_passage.links[ix].name)
-		else:
-			button.set_text("")
-		ix += 1
+	self._fill_button_numbers_and_wire_signals()
+	self._fill_button_texts(current_passage)
 	
 func _update_history():
 	dialog_history_label.bbcode_text = ""
@@ -68,6 +63,25 @@ func _update_history():
 			dialog_history_label.bbcode_text += entry["text"]
 			dialog_history_label.bbcode_text += "[/right]"
 			dialog_history_label.bbcode_text += "\n"
+
+
+func _fill_button_numbers_and_wire_signals():
+	if button_numbers.size() == 0:
+		var ix = 0
+		for button in answer_buttons:
+			button_numbers[button] = ix
+			button.connect("answer_button_pressed", self, "_on_button_pressed")
+			ix += 1
+
+func _fill_button_texts(passage):
+	var ix = 0
+	for button in answer_buttons:
+		if ix < passage.links.size():
+			button.set_text(passage.links[ix].name)
+		else:
+			button.set_text("")
+		ix += 1
+
 
 func _on_ExpandButton_pressed():
 	expanded = not expanded
@@ -84,3 +98,15 @@ func _on_ExpandButton_pressed():
 		expand_button.icon = arrow_up_icon
 		expand_button.text = "Show dialog history"
 		dialog_history_container.visible = false
+		
+func _on_button_pressed(object):
+	self._choose_answer(button_numbers[object])
+
+func _choose_answer(answer_ix: int):
+	var answer_text = current_passage.links[answer_ix].name
+	dialog_history.append(_new_dialog_entry(answer_text, PLAYER))
+	current_passage = story.traverse(answer_ix)
+	_update_history()
+	self._fill_button_texts(current_passage)
+	pass
+	

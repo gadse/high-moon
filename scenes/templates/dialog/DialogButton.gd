@@ -2,6 +2,8 @@ extends Button
 
 export(String, MULTILINE) var caption
 
+signal answer_button_pressed(object)
+
 func _ready():
 	$MarginContainer/Label.text = caption
 	# pause one frame so the text gets updated
@@ -13,6 +15,10 @@ func _ready():
 func set_text(text: String):
 	self.caption = text
 	self._ready()
+
+func _pressed():
+	print("haha penis")
+	emit_signal("answer_button_pressed", self)
 
 func _exit_tree():
 	pass
