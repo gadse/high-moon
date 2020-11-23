@@ -1,9 +1,9 @@
 extends TextureRect
 
-# TODO: Start with empty dialog_history
-# TODO: Open Story (parse the dialog json)
-# TODO: Upon passage entry, add the passsage's text to the dialog_history
-# TODO: Upon user input, add the chosen option to the dialog_history and go to next passage
+################################
+# TODO (gadse): Add stuff to display upon story end.
+# TODO (gadse): Check if (set:) and (if:)[] work as intended.
+################################
 
 const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-white-18dp.svg")
 const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
