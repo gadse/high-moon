@@ -74,13 +74,18 @@ func _fill_button_numbers_and_wire_signals():
 			ix += 1
 
 func _fill_button_texts(passage):
-	var ix = 0
-	for button in answer_buttons:
-		if ix < passage.links.size():
-			button.set_text(passage.links[ix].name)
-		else:
+	for ix in answer_buttons.size():
+		var button = answer_buttons[ix]
+		if story.is_finished():
+			button.set_visible(true)
 			button.set_text("")
-		ix += 1
+		else:
+			if ix < passage.links.size():
+				button.set_visible(true)
+				button.set_text(passage.links[ix].name)
+			else:
+				button.set_visible(false)
+				button.set_text("")
 
 
 func _on_ExpandButton_pressed():

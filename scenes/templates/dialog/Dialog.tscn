@@ -15,7 +15,7 @@ content_margin_bottom = 10.0
 bg_color = Color( 0.2, 0.160784, 0.12549, 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
