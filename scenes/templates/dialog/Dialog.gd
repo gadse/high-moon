@@ -47,10 +47,7 @@ func _ready():
 	
 	var ix = 0
 	for button in answer_buttons:
-		print(button.caption)
-		button.caption = String("PENIS %s" % ix)
-		print(button.caption)
-		button._ready()
+		button.set_text("PENIS %s" % ix)
 		ix += 1
 	
 func _update_history():

@@ -9,7 +9,10 @@ func _ready():
 	# update button size to be equivalent to a label with the same text.
 	# Presumably, buttons don't resize to accommodate the text, whereas labels do?
 	self.rect_min_size.y = $MarginContainer/Label.rect_size.y + 15
-	
+
+func set_text(text: String):
+	self.caption = text
+	self._ready()
 
 func _exit_tree():
 	pass
