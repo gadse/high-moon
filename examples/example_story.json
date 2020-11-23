@@ -1,0 +1,80 @@
+{
+  "passages": [
+    {
+      "text": "The following link has a name/text (\"hello?\") and the target story part with the name \"world\".\n\n[[hello? ->world]]\n\nThe following link has \"bye\" both as name/text (\"hello?\") and as the target story part.\n\n[[bye]]\n",
+      "links": [
+        {
+          "name": "hello? ",
+          "link": "world",
+          "pid": "3"
+        },
+        {
+          "name": "bye",
+          "link": "bye",
+          "pid": "2"
+        }
+      ],
+      "name": "Greeting",
+      "pid": "1",
+      "position": {
+        "x": "601",
+        "y": "198"
+      }
+    },
+    {
+      "text": "(set:$hello_clicked to false)\n\nkthxbye.\n\n[[continue -> end]]",
+      "links": [
+        {
+          "name": "continue ",
+          "link": " end",
+          "pid": "4"
+        }
+      ],
+      "name": "bye",
+      "pid": "2",
+      "position": {
+        "x": "800",
+        "y": "201"
+      }
+    },
+    {
+      "text": "world!\n\n(set:$hello_clicked to true)\n\n[[continue -> end]]",
+      "links": [
+        {
+          "name": "continue ",
+          "link": " end",
+          "pid": "4"
+        }
+      ],
+      "name": "world",
+      "pid": "3",
+      "position": {
+        "x": "599",
+        "y": "449"
+      }
+    },
+    {
+      "text": "(if:$hello_clicked)[You clicked on hello!]\n\nFIN.",
+      "name": " end",
+      "pid": "4",
+      "position": {
+        "x": "800",
+        "y": "448"
+      }
+    },
+    {
+      "text": "You found the secret!\n",
+      "name": " secret",
+      "pid": "5",
+      "position": {
+        "x": "1037",
+        "y": "452"
+      }
+    }
+  ],
+  "name": "Example Story",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.9",
+  "ifid": "640B19B5-18B9-45D9-B315-2EB04051E5E7"
+}
