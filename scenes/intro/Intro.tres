@@ -1,0 +1,264 @@
+{
+  "passages": [
+    {
+      "text": "... wa ... u ...!\n[[...->Wake up]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "Wake up",
+          "pid": "2"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "860",
+        "y": "390"
+      }
+    },
+    {
+      "text": "Please, you need to wake up!\n[[Agnes? What- what is wrong?]]",
+      "links": [
+        {
+          "name": "Agnes? What- what is wrong?",
+          "link": "Agnes? What- what is wrong?",
+          "pid": "3"
+        }
+      ],
+      "name": "Wake up",
+      "pid": "2",
+      "position": {
+        "x": "860",
+        "y": "540"
+      }
+    },
+    {
+      "text": "Oh, I am so glad you are in town, something horrible has happened. I- I know you came here to visit your friend J-Jack, and- and…\n[[Yes, we've not seen each other years. Agnes, your hands are shaking, what is it?]]",
+      "links": [
+        {
+          "name": "Yes, we've not seen each other years. Agnes, your hands are shaking, what is it?",
+          "link": "Yes, we've not seen each other years. Agnes, your hands are shaking, what is it?",
+          "pid": "4"
+        }
+      ],
+      "name": "Agnes? What- what is wrong?",
+      "pid": "3",
+      "position": {
+        "x": "860",
+        "y": "690"
+      }
+    },
+    {
+      "text": "You- You might want to sit down.\n[[...->Jack was found]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "Jack was found",
+          "pid": "5"
+        }
+      ],
+      "name": "Yes, we've not seen each other years. Agnes, your hands are shaking, what is it?",
+      "pid": "4",
+      "position": {
+        "x": "860",
+        "y": "840"
+      }
+    },
+    {
+      "text": "Jack was found this morning.\n[[Found?]]",
+      "links": [
+        {
+          "name": "Found?",
+          "link": "Found?",
+          "pid": "6"
+        }
+      ],
+      "name": "Jack was found",
+      "pid": "5",
+      "position": {
+        "x": "860",
+        "y": "990"
+      }
+    },
+    {
+      "text": "Y-Yes. He- he was killed last night.\n[[What?!]]",
+      "links": [
+        {
+          "name": "What?!",
+          "link": "What?!",
+          "pid": "7"
+        }
+      ],
+      "name": "Found?",
+      "pid": "6",
+      "position": {
+        "x": "860",
+        "y": "1140"
+      }
+    },
+    {
+      "text": "Sheriff Short found him behind the saloon when he was making his morning round. I tried to talk to him already, but he won’t tell me much.\n[[...->So sorry]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "So sorry",
+          "pid": "8"
+        }
+      ],
+      "name": "What?!",
+      "pid": "7",
+      "position": {
+        "x": "860",
+        "y": "1290"
+      }
+    },
+    {
+      "text": "I’m so sorry. I know you were friends for a long time now. I- I thought you’d want to hear from someone familiar, so…\n[[...Thank you, Agnes.]]",
+      "links": [
+        {
+          "name": "...Thank you, Agnes.",
+          "link": "...Thank you, Agnes.",
+          "pid": "9"
+        }
+      ],
+      "name": "So sorry",
+      "pid": "8",
+      "position": {
+        "x": "860",
+        "y": "1440"
+      }
+    },
+    {
+      "text": "Of course.\n[[Any hunch on who did it?]]",
+      "links": [
+        {
+          "name": "Any hunch on who did it?",
+          "link": "Any hunch on who did it?",
+          "pid": "10"
+        }
+      ],
+      "name": "...Thank you, Agnes.",
+      "pid": "9",
+      "position": {
+        "x": "860",
+        "y": "1590"
+      }
+    },
+    {
+      "text": "Short's not a bad Sheriff, I'd wager he has some ideas already, but-\n[[I will find out who did it.]]",
+      "links": [
+        {
+          "name": "I will find out who did it.",
+          "link": "I will find out who did it.",
+          "pid": "11"
+        }
+      ],
+      "name": "Any hunch on who did it?",
+      "pid": "10",
+      "position": {
+        "x": "860",
+        "y": "1740"
+      }
+    },
+    {
+      "text": "I- I don’t know if this is a good idea, you-\n[[Jack saved my life. The least I can do now is find out who ended his.]]",
+      "links": [
+        {
+          "name": "Jack saved my life. The least I can do now is find out who ended his.",
+          "link": "Jack saved my life. The least I can do now is find out who ended his.",
+          "pid": "12"
+        }
+      ],
+      "name": "I will find out who did it.",
+      "pid": "11",
+      "position": {
+        "x": "860",
+        "y": "1890"
+      }
+    },
+    {
+      "text": "I know I can’t talk you out of this. But… be careful.\n[[I will find the bastard who did this and I will bring them to justice.]]",
+      "links": [
+        {
+          "name": "I will find the bastard who did this and I will bring them to justice.",
+          "link": "I will find the bastard who did this and I will bring them to justice.",
+          "pid": "13"
+        }
+      ],
+      "name": "Jack saved my life. The least I can do now is find out who ended his.",
+      "pid": "12",
+      "position": {
+        "x": "860",
+        "y": "2040"
+      }
+    },
+    {
+      "text": "Please just promise me you will make sure you know what you are doing before you challenge anyone to a duel.\n[[I will. But where should I start?]]",
+      "links": [
+        {
+          "name": "I will. But where should I start?",
+          "link": "I will. But where should I start?",
+          "pid": "14"
+        }
+      ],
+      "name": "I will find the bastard who did this and I will bring them to justice.",
+      "pid": "13",
+      "position": {
+        "x": "860",
+        "y": "2190"
+      }
+    },
+    {
+      "text": "You- You could probably talk to Sheriff Short and ask him if he suspects anyone. Or maybe ask Elizabeth at the saloon? She always seems to know what’s going on and the- the body was found around there…\n[[...->I hope you find out]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "I hope you find out",
+          "pid": "15"
+        }
+      ],
+      "name": "I will. But where should I start?",
+      "pid": "14",
+      "position": {
+        "x": "860",
+        "y": "2340"
+      }
+    },
+    {
+      "text": "I hope you can find out who’s behind all of this. Just- Just the thought of whoever did this being here in town with us, free to do whatever, is horrifying.\n[[...->I will be over]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "I will be over",
+          "pid": "16"
+        }
+      ],
+      "name": "I hope you find out",
+      "pid": "15",
+      "position": {
+        "x": "860",
+        "y": "2490"
+      }
+    },
+    {
+      "text": "I will be over at the Apothecary if you need to talk to me. Good luck and… be careful.\n[[Leave]]",
+      "links": [
+        {
+          "name": "[Leave]",
+          "link": "exit"
+        }
+      ],
+      "name": "I will be over",
+      "pid": "16",
+      "position": {
+        "x": "860",
+        "y": "2640"
+      }
+    }
+  ],
+  "name": "Intro",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.9",
+  "ifid": "46BA3F6E-2291-4324-BF39-E07040C6EB97"
+}
