@@ -9,14 +9,47 @@ const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-w
 const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
 const Story = preload("res://modules/twison-godot/twison_helper.gd")
 
+const PLAYER = "detective"
+const NPC = "npc"
+
+export(String, FILE) var story_file
+export(String, FILE) var background_image
+export(String, FILE) var character_image
+
 var expanded = false
 var story: Story = null
 var current_passage: Dictionary = {}
 
 var button_numbers: Dictionary = {}
 
-const PLAYER = "detective"
-const NPC = "npc"
+# List of dicts of dialog entries
+var dialog_history = []
+
+onready var dialog_history_label = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer/DialogHistory
+onready var dialog_history_container = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer
+onready var expand_button = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton
+onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children()
+onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/NpcText
+
+func _ready():
+	story = Story.new()
+	story.parse_file(story_file)
+	current_passage = story.start()
+	dialog_history.append(
+		_new_dialog_entry(current_passage.text, NPC)
+	)
+	
+	self.texture = load(background_image)
+	$CharacterPicture.texture = load(character_image)
+	
+	self._update_history()
+	self._fill_button_numbers_and_wire_signals()
+	self._fill_button_texts(current_passage)
+	self._fill_npc_text(current_passage)
+	
+	$Fader.connect("faded_out", self, "queue_free")
+	$Fader.fade_in()
+
 func _new_dialog_entry(text: String, owner: String):
 	if owner != NPC and owner != PLAYER:
 		push_error("Unknown dialog entry owner: %s".format(owner))
@@ -27,29 +60,6 @@ func _new_dialog_entry(text: String, owner: String):
 			"owner": owner
 		}
 
-# List of dicts of dialog entries
-var dialog_history = [
-]
-
-onready var dialog_history_label = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer/DialogHistory
-onready var dialog_history_container = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer
-onready var expand_button = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton
-onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children()
-
-func _init():
-	story = Story.new()
-	story.parse_file("examples/example_story.json")
-	current_passage = story.start()
-	dialog_history.append(
-		_new_dialog_entry(current_passage.text, NPC)
-	)
-
-
-func _ready():
-	self._update_history()
-	self._fill_button_numbers_and_wire_signals()
-	self._fill_button_texts(current_passage)
-	
 func _update_history():
 	dialog_history_label.bbcode_text = ""
 	for entry in dialog_history:
@@ -63,7 +73,6 @@ func _update_history():
 			dialog_history_label.bbcode_text += entry["text"]
 			dialog_history_label.bbcode_text += "[/right]"
 			dialog_history_label.bbcode_text += "\n"
-
 
 func _fill_button_numbers_and_wire_signals():
 	if button_numbers.size() == 0:
@@ -87,6 +96,8 @@ func _fill_button_texts(passage):
 				button.set_visible(false)
 				button.set_text("")
 
+func _fill_npc_text(passage):
+	npc_text.bbcode_text = "[right]" + passage.text
 
 func _on_ExpandButton_pressed():
 	expanded = not expanded
@@ -111,7 +122,9 @@ func _choose_answer(answer_ix: int):
 	var answer_text = current_passage.links[answer_ix].name
 	dialog_history.append(_new_dialog_entry(answer_text, PLAYER))
 	current_passage = story.traverse(answer_ix)
-	_update_history()
-	self._fill_button_texts(current_passage)
-	pass
-	
+	if not current_passage.empty():
+		self._update_history()
+		self._fill_npc_text(current_passage)
+		self._fill_button_texts(current_passage)
+	else:
+		$Fader.fade_out()

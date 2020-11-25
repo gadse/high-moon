@@ -32,8 +32,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fader" parent="." instance=ExtResource( 1 )]
-
 [node name="ExtendableMarginContainer" parent="." instance=ExtResource( 5 )]
 margin_left = 1.33484
 margin_top = -1.33484
@@ -71,14 +69,14 @@ align = 0
 [node name="PanelContainer" type="PanelContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
 margin_top = 54.0
 margin_right = 1286.0
-margin_bottom = 200.0
+margin_bottom = 116.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1276.0
-margin_bottom = 136.0
+margin_bottom = 52.0
 
 [node name="HistoryContainer" type="ScrollContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 visible = false
@@ -89,7 +87,7 @@ size_flags_vertical = 3
 
 [node name="DialogHistory" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer"]
 margin_right = 1266.0
-margin_bottom = 52.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
@@ -97,19 +95,13 @@ fit_content_height = true
 
 [node name="NpcText" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 margin_right = 1266.0
-margin_bottom = 126.0
+margin_bottom = 42.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[right]This is a test.
-Of course, we could also have multiple lines.
-When we increase the space required here, we'll have less space for the answers."
-text = "This is a test.
-Of course, we could also have multiple lines.
-When we increase the space required here, we'll have less space for the answers."
 fit_content_height = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
-margin_top = 230.0
+margin_top = 146.0
 margin_right = 1286.0
 margin_bottom = 646.0
 size_flags_horizontal = 3
@@ -183,6 +175,19 @@ margin_bottom = 164.0
 caption = "I want you to display a scroll bar, you stupid f*ck!!!!
 Do it already!
 Finally..."
+
+[node name="CharacterPicture" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -547.455
+margin_top = -435.945
+margin_right = -47.4551
+margin_bottom = 524.055
+
+[node name="Fader" parent="." instance=ExtResource( 1 )]
+visible = false
 [connection signal="pressed" from="ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton" to="." method="_on_ExpandButton_pressed"]
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]
