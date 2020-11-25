@@ -123,6 +123,7 @@ func _choose_answer(answer_ix: int):
 	dialog_history.append(_new_dialog_entry(answer_text, PLAYER))
 	current_passage = story.traverse(answer_ix)
 	if not current_passage.empty():
+		dialog_history.append(_new_dialog_entry(current_passage.text, NPC))
 		self._update_history()
 		self._fill_npc_text(current_passage)
 		self._fill_button_texts(current_passage)
