@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BG_hotelroom_v1.png-6ae76171ac55a73c10d9f0a02ba49156.stex"
+path="res://.import/BG_saloon_final.png-07cf9e89e68e3a1e9faab624268c3f65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/hotelroom/BG_hotelroom_v1.png"
-dest_files=[ "res://.import/BG_hotelroom_v1.png-6ae76171ac55a73c10d9f0a02ba49156.stex" ]
+source_file="res://scenes/saloon/BG_saloon_final.png"
+dest_files=[ "res://.import/BG_saloon_final.png-07cf9e89e68e3a1e9faab624268c3f65.stex" ]
 
 [params]
 

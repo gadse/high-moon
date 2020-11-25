@@ -2,9 +2,8 @@
 
 [ext_resource path="res://scenes/templates/dialog/Dialog.tscn" type="PackedScene" id=1]
 
-[node name="Intro" instance=ExtResource( 1 )]
-story_file = "res://scenes/intro/Intro.tres"
-background_image = "res://scenes/intro/BG_hotelroom_v1.png"
-character_image = "res://scenes/lab/Charsprite_researcher_v2.png"
+[node name="Saloon" instance=ExtResource( 1 )]
+background_image = "res://scenes/saloon/BG_saloon_final.png"
+character_image = "res://scenes/saloon/Charsprite_saloongirl_v1.png"
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

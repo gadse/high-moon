@@ -14,8 +14,6 @@ outline_size = 10
 font_data = ExtResource( 4 )
 
 [node name="MainMenu" type="TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 mouse_filter = 2
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -50,31 +48,29 @@ __meta__ = {
 
 [node name="NewGameButton" type="Button" parent="VBoxContainer"]
 margin_right = 286.0
-margin_bottom = 24.0
+margin_bottom = 110.0
 focus_next = NodePath("../CreditsButton")
 theme = ExtResource( 5 )
 text = "New Game"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
-margin_top = 28.0
+margin_top = 114.0
 margin_right = 286.0
-margin_bottom = 52.0
+margin_bottom = 224.0
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../NewGameButton")
 theme = ExtResource( 5 )
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
-margin_top = 56.0
+margin_top = 228.0
 margin_right = 286.0
-margin_bottom = 80.0
+margin_bottom = 338.0
 focus_previous = NodePath("../CreditsButton")
 theme = ExtResource( 5 )
 text = "Exit"
 
 [node name="Fader" parent="." instance=ExtResource( 6 )]
-anchor_top = 0.000925926
-anchor_bottom = 1.00093
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 7 )]
 stream = ExtResource( 3 )

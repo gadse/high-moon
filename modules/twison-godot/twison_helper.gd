@@ -358,7 +358,11 @@ func start():
 
 
 func traverse(link_ix):
-	return traverse_by_passage_id(current_passage.links[link_ix].pid)
+	var next_passage = current_passage.links[link_ix]
+	if "pid" in next_passage:
+		return traverse_by_passage_id(next_passage.pid)
+	else:
+		return {}
 
 
 func traverse_by_passage_id(passage_id):

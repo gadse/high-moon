@@ -17,7 +17,6 @@ func set_text(text: String):
 	self._ready()
 
 func _pressed():
-	print("haha penis")
 	emit_signal("answer_button_pressed", self)
 
 func _exit_tree():
