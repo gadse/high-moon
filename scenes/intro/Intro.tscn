@@ -7,7 +7,7 @@ story_file = "res://scenes/intro/Intro.tres"
 background_image = "res://scenes/intro/BG_hotelroom_v1.png"
 character_image = "res://scenes/lab/Charsprite_researcher_v2.png"
 
-[node name="Fader" parent="." index="2"]
+[node name="Fader" parent="." index="3"]
 visible = true
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

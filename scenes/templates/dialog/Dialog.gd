@@ -16,6 +16,7 @@ export(String, FILE) var story_file
 export(String, FILE) var background_image
 export(String, FILE) var character_image
 
+var is_click_to_leave_scene_enabled = false
 var expanded = false
 var story: Story = null
 var current_passage: Dictionary = {}
@@ -128,4 +129,10 @@ func _choose_answer(answer_ix: int):
 		self._fill_npc_text(current_passage)
 		self._fill_button_texts(current_passage)
 	else:
+		$ExtendableMarginContainer.visible = false
+		$ClickToContinueLabel.visible = true
+		is_click_to_leave_scene_enabled = true
+
+func _on_Dialog_gui_input(event):
+	if event.is_pressed() and event.button_index == BUTTON_LEFT and is_click_to_leave_scene_enabled:
 		$Fader.fade_out()
