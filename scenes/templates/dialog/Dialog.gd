@@ -9,8 +9,10 @@ const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-w
 const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
 const Story = preload("res://modules/twison-godot/twison_helper.gd")
 
-const PLAYER = "detective"
-const NPC = "npc"
+enum TextOwner {
+	Player,
+	Npc
+}
 
 export(String, FILE) var story_file
 export(String, FILE) var background_image
@@ -33,47 +35,17 @@ onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxConta
 onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/NpcText
 
 func _ready():
-	story = Story.new()
-	story.parse_file(story_file)
-	current_passage = story.start()
-	dialog_history.append(
-		_new_dialog_entry(current_passage.text, NPC)
-	)
-	
+	self._fill_button_numbers_and_wire_signals()
+
 	self.texture = load(background_image)
 	$CharacterPicture.texture = load(character_image)
-	
-	self._update_history()
-	self._fill_button_numbers_and_wire_signals()
-	self._fill_button_texts(current_passage)
-	self._fill_npc_text(current_passage)
-	
+
+	if not story_file.empty():
+		self._load_story()
+	self._update_content_to_current_passage()
+
 	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
-
-func _new_dialog_entry(text: String, owner: String):
-	if owner != NPC and owner != PLAYER:
-		push_error("Unknown dialog entry owner: %s".format(owner))
-		assert(false)
-	else:
-		return {
-			"text": text,
-			"owner": owner
-		}
-
-func _update_history():
-	dialog_history_label.bbcode_text = ""
-	for entry in dialog_history:
-		if entry["owner"] == "detective":
-			dialog_history_label.bbcode_text += "[color=gray]"
-			dialog_history_label.bbcode_text += entry["text"]
-			dialog_history_label.bbcode_text += "[/color]"
-			dialog_history_label.bbcode_text += "\n"
-		elif entry["owner"] == "npc":
-			dialog_history_label.bbcode_text += "[right]"
-			dialog_history_label.bbcode_text += entry["text"]
-			dialog_history_label.bbcode_text += "[/right]"
-			dialog_history_label.bbcode_text += "\n"
 
 func _fill_button_numbers_and_wire_signals():
 	if button_numbers.size() == 0:
@@ -82,6 +54,24 @@ func _fill_button_numbers_and_wire_signals():
 			button_numbers[button] = ix
 			button.connect("answer_button_pressed", self, "_on_button_pressed")
 			ix += 1
+
+func _load_story():
+	story = Story.new()
+	story.parse_file(story_file)
+	current_passage = story.start()
+
+func _add_text_to_history(text, owner):
+	match owner:
+		TextOwner.Player:
+			dialog_history_label.bbcode_text += "[color=gray]"
+			dialog_history_label.bbcode_text += text
+			dialog_history_label.bbcode_text += "[/color]"
+			dialog_history_label.bbcode_text += "\n"
+		TextOwner.Npc:
+			dialog_history_label.bbcode_text += "[right]"
+			dialog_history_label.bbcode_text += text
+			dialog_history_label.bbcode_text += "[/right]"
+			dialog_history_label.bbcode_text += "\n"
 
 func _fill_button_texts(passage):
 	for ix in answer_buttons.size():
@@ -121,11 +111,13 @@ func _on_button_pressed(object):
 
 func _choose_answer(answer_ix: int):
 	var answer_text = current_passage.links[answer_ix].name
-	dialog_history.append(_new_dialog_entry(answer_text, PLAYER))
+	self._add_text_to_history(answer_text, TextOwner.Player)
 	current_passage = story.traverse(answer_ix)
+	self._update_content_to_current_passage()
+	
+func _update_content_to_current_passage():
 	if not current_passage.empty():
-		dialog_history.append(_new_dialog_entry(current_passage.text, NPC))
-		self._update_history()
+		self._add_text_to_history(current_passage.text, TextOwner.Npc)
 		self._fill_npc_text(current_passage)
 		self._fill_button_texts(current_passage)
 	else:
