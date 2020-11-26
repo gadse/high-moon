@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/town_overview/location_marker/LocationMarker.gd" type="Script" id=2]
+
+[node name="LocationMarker" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -124.732, -126.507 )
+scale = Vector2( 1, 1.0016 )
+polygon = PoolVector2Array( 33.9658, 42.0445, 23.2564, 69.7628, 28.2961, 104.411, 56.0144, 173.076, 107.041, 244.262, 117.751, 247.412, 133.5, 243.632, 178.227, 181.266, 207.205, 134.019, 224.844, 74.8025, 219.174, 44.5644, 199.015, 22.5158, 163.108, 6.76676, 134.759, 1.72707, 100.112, 4.24692, 71.1335, 8.65664, 50.9747, 18.736 )
+
+[node name="Sprite" type="Sprite" parent="."]
+[connection signal="input_event" from="." to="." method="_on_LocationMarker_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_LocationMarker_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_LocationMarker_mouse_exited"]

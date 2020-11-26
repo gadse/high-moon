@@ -5,6 +5,8 @@ extends TextureRect
 # TODO (gadse): Check if (set:) and (if:)[] work as intended.
 ################################
 
+signal kill_scene_triggered
+
 const arrow_up_icon = preload("res://scenes/templates/dialog/keyboard_arrow_up-white-18dp.svg")
 const arrow_down_icon = preload("res://scenes/templates/dialog/keyboard_arrow_down-white-18dp.svg")
 const Story = preload("res://modules/twison-godot/twison_helper.gd")
