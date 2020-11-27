@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/kill_scene/Charsprite_priest_confrontation.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="William1" instance=ExtResource( 2 )]
+
+[node name="HBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 1032.0
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1381.0
+margin_bottom = 972.0
+text = "William’s funeral is an awkward affair. Sheriff Short reads a litany and the townsfolk quickly disperse afterwards, none wanting to stay for long.
+A mysterious stranger rides into town a few days later, asking if William is truly dead, but refusing to divulge why he is here. Rumors circulate about the visitor being an outlaw and belonging to a bandit gang, but he leaves without incident soon after."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1385.0
+margin_bottom = 972.0
+texture = ExtResource( 1 )
