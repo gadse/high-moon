@@ -23,7 +23,7 @@ size = 30
 extra_spacing_top = -10
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.2, 0.2, 0.2, 0.784314 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -32,7 +32,7 @@ corner_radius_bottom_left = 10
 expand_margin_left = 10.0
 expand_margin_right = 10.0
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 60
 font_data = ExtResource( 2 )
 
@@ -209,8 +209,8 @@ margin_left = -587.0
 margin_top = -200.0
 margin_right = -100.0
 margin_bottom = -100.0
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Click to continue..."
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]

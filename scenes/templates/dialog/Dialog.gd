@@ -124,6 +124,7 @@ func _update_content_to_current_passage():
 		self._fill_button_texts(current_passage)
 	else:
 		$ExtendableMarginContainer.visible = false
+		$CharacterPicture.visible = false
 		$ClickToContinueLabel.visible = true
 		is_click_to_leave_scene_enabled = true
 

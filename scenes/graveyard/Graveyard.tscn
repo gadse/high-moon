@@ -3,6 +3,7 @@
 [ext_resource path="res://scenes/templates/dialog/Dialog.tscn" type="PackedScene" id=1]
 
 [node name="Graveyard" instance=ExtResource( 1 )]
+background_image = "res://scenes/graveyard/BG_graveyard.png"
 character_image = "res://scenes/graveyard/Charsprite_priest_v3.png"
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]
