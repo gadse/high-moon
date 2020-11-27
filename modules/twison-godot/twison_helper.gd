@@ -72,6 +72,8 @@ func _extract_passages():
 		#		then or else bracket pair. (check if count is > 2?)
 		
 		var set_statements = _extract_set_statements(passage)
+		for statement in set_statements:
+			statement.eval(knowledge_base)
 		passage.text = _remove_set_statements_from_passage_text(set_statements, passage.text)
 
 func _remove_set_statements_from_passage_text(set_statements, text):
