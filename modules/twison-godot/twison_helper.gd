@@ -168,11 +168,21 @@ func _extract_set_statements(passage):
 					.replacen("(set:$", "") \
 					.replacen(")", "") \
 					.split("to")
+			var value: bool
+			if var_and_val.size() == 1:
+				value = true
+			elif var_and_val.size() == 2:
+				value = bool(var_and_val[1].strip_edges().to_lower())
+			else:
+				push_error(
+					"Set statement parsing error at\npassage with pid %s" % passage.pid
+				)
+				assert(false)
 			var set_statement = SetStatement.new(
 					start_index,
 					end_index,
 					var_and_val[0].strip_edges().to_lower(),
-					bool(var_and_val[1].strip_edges().to_lower())
+					value
 			)
 			
 			found_set_statements.append(set_statement)
