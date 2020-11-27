@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/epilogue/Elizabeth1.gd" type="Script" id=2]
+[ext_resource path="res://scenes/kill_scene/Charsprite_saloongirl_confrontation.png" type="Texture" id=3]
+
+[node name="Elizabeth1" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 1032.0
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1226.0
+margin_bottom = 972.0
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1230.0
+margin_bottom = 972.0
+texture = ExtResource( 3 )

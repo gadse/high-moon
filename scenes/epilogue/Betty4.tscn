@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/forge/Charsprite_Blacksmith_v1.png" type="Texture" id=2]
+
+[node name="Betty4" instance=ExtResource( 1 )]
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1296.0
+text = "Betty left behind neither husband nor child, so her belongings are divided among the townsfolk. A chest turns up in her attic and everyone is disappointed when it holds no riches – none of monetary value, that is. There are letters, nearly five dozen of them, exchanged between lovers trying to overcome their differences and find a place at each other’s side."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1300.0
+texture = ExtResource( 2 )

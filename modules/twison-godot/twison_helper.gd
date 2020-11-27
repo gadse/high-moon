@@ -64,13 +64,15 @@ func _extract_passages():
 		var pid = int(passage.pid)
 		passages[pid] = passage
 		
+		print("Raw text:\n %s" % passage.text)
+		var new_text = _evaluate_and_replace_conditional_statements(passage)
+		print("New text:\n %s" % new_text)
+		passage.text = new_text
+		# TODO: Delete links from link list if they were included inside a 
+		#		then or else bracket pair. (check if count is > 2?)
+		
 		var set_statements = _extract_set_statements(passage)
 		passage.text = _remove_set_statements_from_passage_text(set_statements, passage.text)
-		
-		var conditional_statements: Array = _extract_conditional_statements(passage)
-		for statement in conditional_statements:
-			passage.text.erase(statement.start_index, statement.length())
-			_insert_conditional_text(passage.text, knowledge_base, statement)
 
 func _remove_set_statements_from_passage_text(set_statements, text):
 	var working_copy :String = String(text)
@@ -80,7 +82,7 @@ func _remove_set_statements_from_passage_text(set_statements, text):
 	
 
 
-func _extract_conditional_statements(passage):
+func _evaluate_and_replace_conditional_statements(passage):
 	"""
 	Finds and returns all conditional statements. The sequence is the sequence
 	in which the statements should be evaluated (last to first).
@@ -89,40 +91,142 @@ func _extract_conditional_statements(passage):
 	without needing to build another structure.
 	"""
 	var working_copy: String = String(passage.text)
-	var found_cond_statements = []
-	
+	var found_cond_statements = 0
+
 	while true:
+		# Let's try to find the outer edges...
 		var start_index: int = working_copy.find_last("(if:")
-		var end_index: int = working_copy.substr(start_index + 1).find("]")
-		
-		if start_index > -1 and end_index > -1:
-			var length: int = end_index - start_index + 1
-			var statement_source: String = working_copy.substr(
-					start_index,
-					length
-			)
-			var var_and_text =  statement_source \
-					.replacen("(if:$", "") \
-					.replacen("]", "") \
-					.split(")[")
-			var cond_statement = ConditionalStatement.new(
-					start_index,
-					end_index,
-					var_and_text[0],
-					true,
-					var_and_text[1]
-			)
-			found_cond_statements.append(cond_statement)
-			working_copy.erase(start_index, length)
-		elif (start_index > -1):
-			# Raise error
-			push_error("passage parser encountered '(set:' without ')'")
-			assert(false)
-		else:
-			# Nothing to do here
+		if start_index == -1:
 			break
-	found_cond_statements.sort_custom(StatementSorter, "by_start_index_desc")
-	return found_cond_statements
+		var end_index: int = working_copy.substr(start_index + 1).find_last("]")
+		var length = end_index - start_index + 1
+		
+		# Not let's try to make sense of the stuff...
+		var parsing_result = _parse_if_then_else(
+			working_copy.substr(start_index, length)
+		)
+		assert(parsing_result != null)
+		
+		var before_and_after = working_copy.split(
+				working_copy.substr(start_index, length)
+			)
+		var new_text: String
+		if knowledge_base.get(parsing_result.condition):
+			new_text = before_and_after[0] \
+				+ parsing_result.then_text \
+				+ before_and_after[1]
+		else:
+			new_text = before_and_after[0] \
+				+ parsing_result.else_text \
+				+ before_and_after[1]
+		
+		found_cond_statements += 1
+	return working_copy
+
+func _parse_if_then_else(substring: String) -> Dictionary:
+	"""
+	Conditionals can contain links. We need to count brackets... *sigh*
+	
+	Form: (if:$CONDITION)[THEN_BRANCH](else:)[ELSE_BRANCH]
+	"""
+	print("parsing %s" % substring )
+	var working_copy = String(substring)
+	var then_branch_complete = false
+	var condition_complete = false
+	
+	var condition: Dictionary = {}
+	var then_branch: Dictionary = {}
+	var else_branch: Dictionary = {}
+	
+	var first_opening_square_bracket = -1
+	var last_closing_square_bracket = -1
+	var first_opening_round_bracket = -1
+	var last_closing_round_bracket = -1
+	
+	var opening_square_brackets = 0
+	var closing_square_brackets = 0
+	var opening_round_brackets = 0
+	var closing_round_brackets = 0
+	
+	for ix in working_copy.length():
+		var character = working_copy[ix]
+		print("Found char %s" % character)
+		if character == "[":
+			opening_square_brackets += 1
+			if first_opening_square_bracket < 0:
+				first_opening_square_bracket = ix
+		elif character == "]":
+			closing_square_brackets += 1
+			last_closing_square_bracket = ix
+		elif character == "(":
+			opening_round_brackets += 1
+			if first_opening_round_bracket < 0:
+				first_opening_round_bracket = ix
+		elif character == ")":
+			closing_round_brackets += 1
+			last_closing_round_bracket = ix
+		else:
+			pass
+		
+		# First time here: We found our IF
+		# Second time here: We found our ELSE
+		if opening_round_brackets > 0 and \
+				opening_round_brackets == closing_round_brackets:
+			if not then_branch_complete:
+				condition.start_index = first_opening_round_bracket
+				condition.end_index = last_closing_round_bracket
+				var length = condition.end_index - condition.start_index + 1
+				# Leave out the brackets themselves
+				condition.text = working_copy.substr(condition.start_index + 1, length - 1)
+				condition_complete = true
+			else:
+				# This part contains no useful info
+				pass
+		# First time here: We found our THEN
+		# Second time here: WE found our ELSE
+		if opening_square_brackets > 0 \
+				and opening_square_brackets == closing_square_brackets:
+			if not then_branch_complete:
+				then_branch.start_index = first_opening_square_bracket
+				then_branch.end_index = last_closing_square_bracket
+				var length = then_branch.end_index - then_branch.start_index + 1
+				# Leave out the brackets themselves
+				then_branch.text = working_copy.substr(then_branch.start_index + 1, length - 1)
+				
+				then_branch_complete = true
+				
+				if working_copy.substr(ix).begins_with("(else"):
+					# Our (if:) has an (else:)!
+					first_opening_square_bracket = -1
+				else:
+					return {
+						"condition": condition,
+						"then_text": then_branch.text,
+						"else_text": ""
+					}
+			else:
+				else_branch.start_index = first_opening_square_bracket
+				else_branch.end_index = last_closing_square_bracket
+				var length = else_branch.end_index - else_branch.start_index + 1
+				else_branch.text = working_copy.substr(else_branch.start_index + 1, length - 1)
+				
+				return {
+					"condition": condition,
+					"then_text": then_branch.text,
+					"else_text": else_branch.text
+				}
+	
+	# We can land here for several reasons:
+	# a) We never found a point where opening and closing round brackets match.
+	if not condition_complete:
+		_abort("Parsing error at condition. Matching round brackets not found")
+
+	# b) We did but then we found no matching square brackets.
+	if not then_branch_complete:
+		_abort("Parsing error at then branch. Matching square brackets not found.")
+	return {}
+
+
 
 
 func _insert_conditional_text(outer_text, knowledge_base, statement):
@@ -406,3 +510,8 @@ func is_finished():
 		return false
 	else:
 		return true
+
+
+func _abort(message="ABORTING DUE TO PROGRAMMING ERROR"):
+	push_error(message)
+	assert(true)
