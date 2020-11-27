@@ -32,6 +32,8 @@ var current_passage = null
 var _tag_db_enabled = false
 var tag_db = {}
 
+const link_regex = "\\[\\[(.+?(?=\\]\\]))\\]\\]"
+
 # Parses the file for passages
 # If this script was already filled with data, it will be lost.
 # --------------------------------------------------------------------------------
@@ -66,15 +68,33 @@ func _extract_passages():
 		var pid = int(passage.pid)
 		passages[pid] = passage
 		
-		var new_text = _evaluate_and_replace_conditional_statements(passage)
+		var new_text = self._evaluate_and_replace_conditional_statements(passage)
 		passage.text = new_text
-		# TODO: Delete links from link list if they were included inside a 
-		#		then or else bracket pair. (check if count is > 2?)
 		
-		var set_statements = _extract_set_statements(passage)
+		# Evaluating the conditional statements can lead to links being deleted
+		# self._remove_links_if_not_found_in_text(passage)
+		
+		var set_statements = self._extract_set_statements(passage)
 		for statement in set_statements:
 			statement.eval(knowledge_base)
 		passage.text = _remove_set_statements_from_passage_text(set_statements, passage.text)
+
+
+# NOT WORKING! WE need to also check if these links were inside a conditional
+# statement. So we can't do it HERE and push it into the conditional parsing...
+# func _remove_links_if_not_found_in_text(passage):
+# 	var links_to_remove = []
+# 	for link in passage.links:
+# 		var candidate_ix = passage.text.find(link.name)
+# 		if candidate_ix > -1 and \
+# 				passage.text.substr(0, candidate_ix).find("[[") > -1 and \
+# 				passage.text.substr(candidate_ix).rfind("]]") > -1:
+# 			pass
+#  		else:
+# 			links_to_remove.append(link)
+# 			
+# 	for link in links_to_remove:
+# 		passage.links.erase(link)
 
 func _remove_set_statements_from_passage_text(set_statements, text):
 	var working_copy :String = String(text)
@@ -93,8 +113,8 @@ func _evaluate_and_replace_conditional_statements(passage):
 	without needing to build another structure.
 	"""
 	var working_copy: String = String(passage.text)
+	
 	var found_cond_statements = 0
-
 	var recent_search_position = LARGE_INT
 	while true:
 		# Let's try to find the outer edges...
@@ -109,17 +129,14 @@ func _evaluate_and_replace_conditional_statements(passage):
 			_abort()
 		var length = end_index - start_index + 1
 		
-		# Not let's try to make sense of the stuff...
 		var parsing_result = _parse_if_then_else(
 			working_copy.substr(start_index, length)
 		)
 		assert(parsing_result != null)
 		
 		var before_and_after = working_copy.split(
-				working_copy.substr(start_index, length)
-			)
-		print("SPLITTED: >>>%s<<<" % before_and_after)
-		print("PARSING RESULT: >>>%s<<<" % parsing_result)
+			working_copy.substr(start_index, length)
+		)
 		if knowledge_base.get(parsing_result.variable):
 			working_copy = before_and_after[0] \
 				+ parsing_result.then_text \
@@ -130,7 +147,6 @@ func _evaluate_and_replace_conditional_statements(passage):
 				+ before_and_after[1]
 		
 		found_cond_statements += 1
-	print("Returning as %s" % working_copy)
 	return working_copy
 
 func _parse_if_then_else(substring: String) -> Dictionary:
@@ -138,7 +154,7 @@ func _parse_if_then_else(substring: String) -> Dictionary:
 	Conditionals can contain links. We need to count brackets... *sigh*
 	
 	Form: (if:$CONDITION)[THEN_BRANCH](else:)[ELSE_BRANCH]
-	"""
+	"""	
 	var if_location = substring.find("(if:")
 	var text_before_conditional_statement = substring.substr(0, if_location)
 	
@@ -151,7 +167,7 @@ func _parse_if_then_else(substring: String) -> Dictionary:
 	return {
 		"variable": parse_if_then_result.variable,
 		"then_text": parse_if_then_result.text,
-		"else_text": parse_else_result.text
+		"else_text": parse_else_result.text,
 	}
 	
 func _parse_if_then(substring: String) -> Dictionary:
@@ -375,7 +391,6 @@ func _construct_tag_db(return_it: bool = false):
 
 func _filter_links(linkFilter: FuncRef):
 	# \[\[(.+?(?=\]\]))\]\]
-	var link_regex = "\\[\\[(.+?(?=\\]\\]))\\]\\]"
 	var reg = RegEx.new()
 	reg.compile(link_regex)
 	
