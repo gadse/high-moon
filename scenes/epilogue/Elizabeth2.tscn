@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/kill_scene/Charsprite_saloongirl_confrontation.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="Elizabeth2" instance=ExtResource( 2 )]
+
+[node name="HBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 1032.0
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1226.0
+margin_bottom = 972.0
+text = "In the week after Elizabeth’s death, her saloon is thoroughly searched. A grisly discovery awaits under the floorboards of her bedroom: The cleaned skulls of her seven husbands are hidden away here. The rest of their corpses are never found."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1230.0
+margin_bottom = 972.0
+texture = ExtResource( 1 )
