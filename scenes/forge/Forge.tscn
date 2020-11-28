@@ -4,5 +4,6 @@
 
 [node name="Forge" instance=ExtResource( 1 )]
 character_image = "res://scenes/forge/Charsprite_Blacksmith_v1.png"
+character_color = Color( 0.705882, 0.498039, 0.498039, 1 )
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

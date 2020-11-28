@@ -6,5 +6,6 @@
 story_file = "res://scenes/sheriffs office/SheriffsOffice.tres"
 background_image = "res://scenes/sheriffs office/BG_sheriffs_office.png"
 character_image = "res://scenes/sheriffs office/Charsprite_Sheriff_v1.png"
+character_color = Color( 0.827451, 0.682353, 0.490196, 1 )
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

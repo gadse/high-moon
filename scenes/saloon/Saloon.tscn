@@ -3,7 +3,9 @@
 [ext_resource path="res://scenes/templates/dialog/Dialog.tscn" type="PackedScene" id=1]
 
 [node name="Saloon" instance=ExtResource( 1 )]
+story_file = "res://scenes/saloon/Saloon.tres"
 background_image = "res://scenes/saloon/BG_saloon_final.png"
 character_image = "res://scenes/saloon/Charsprite_saloongirl_v1.png"
+character_color = Color( 0.686275, 0.309804, 0.309804, 1 )
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

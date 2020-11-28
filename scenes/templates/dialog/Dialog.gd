@@ -19,6 +19,7 @@ enum TextOwner {
 export(String, FILE) var story_file
 export(String, FILE) var background_image
 export(String, FILE) var character_image
+export(Color, RGB) var character_color
 
 var is_click_to_leave_scene_enabled = false
 var expanded = false
@@ -29,21 +30,23 @@ var button_numbers: Dictionary = {}
 # List of dicts of dialog entries
 var dialog_history = []
 
-onready var dialog_history_label = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer/DialogHistory
-onready var dialog_history_container = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer
+onready var dialog_history_container = $ExtendableMarginContainer/PanelContainer/VBoxContainer/HistoryContainer
+onready var dialog_history_scroll_container = dialog_history_container.get_node("ScrollContainer")
+onready var dialog_history_label = dialog_history_scroll_container.get_node("DialogHistory")
 onready var expand_button = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton
 onready var answer_buttons = $ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children()
-onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/NpcText
+onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/NpcText
 
 func _ready():
 	self._fill_button_numbers_and_wire_signals()
 
 	self.texture = load(background_image)
 	$CharacterPicture.texture = load(character_image)
+	npc_text.add_color_override("default_color", character_color)
 
 	if not story_file.empty():
 		self._load_story()
-	self._update_content_to_current_passage()
+		self._update_content_to_current_passage()
 
 	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
@@ -70,14 +73,12 @@ func _load_story():
 func _add_text_to_history(text, owner):
 	match owner:
 		TextOwner.Player:
-			dialog_history_label.bbcode_text += "[color=gray]"
 			dialog_history_label.bbcode_text += text
-			dialog_history_label.bbcode_text += "[/color]"
 			dialog_history_label.bbcode_text += "\n"
 		TextOwner.Npc:
-			dialog_history_label.bbcode_text += "[right]"
+			dialog_history_label.bbcode_text += "[right][color=#" + character_color.to_html(false) + "]"
 			dialog_history_label.bbcode_text += text
-			dialog_history_label.bbcode_text += "[/right]"
+			dialog_history_label.bbcode_text += "[/color][/right]"
 			dialog_history_label.bbcode_text += "\n"
 
 func _fill_button_texts():
@@ -102,10 +103,10 @@ func _on_ExpandButton_pressed():
 		expand_button.text = "Hide dialog history"
 		yield(get_tree(), "idle_frame")
 		dialog_history_container.visible = true
-		if dialog_history_container.get_v_scrollbar().visible:
-			dialog_history_container.scroll_vertical = dialog_history_container.get_v_scrollbar().max_value
+		if dialog_history_scroll_container.get_v_scrollbar().visible:
+			dialog_history_scroll_container.scroll_vertical = dialog_history_scroll_container.get_v_scrollbar().max_value
 	else:
-		$ExtendableMarginContainer.set_margin_top(400)
+		$ExtendableMarginContainer.set_margin_top(600)
 		expand_button.icon = arrow_up_icon
 		expand_button.text = "Show dialog history"
 		dialog_history_container.visible = false
@@ -114,6 +115,8 @@ func _on_button_pressed(object):
 	self._choose_answer(button_numbers[object])
 
 func _choose_answer(answer_ix: int):
+	var npc_text = self.dialog_walker.get_npc_text()
+	self._add_text_to_history(npc_text, TextOwner.Npc)
 	var answer_text = self.dialog_walker.get_my_texts()[answer_ix]
 	self._add_text_to_history(answer_text, TextOwner.Player)
 	self.dialog_walker.answer(answer_text)
@@ -130,7 +133,6 @@ func _update_content_to_current_passage():
 		$ClickToContinueLabel.visible = true
 		is_click_to_leave_scene_enabled = true
 	else:
-		self._add_text_to_history(text, TextOwner.Npc)
 		self._fill_npc_text(text)
 		self._fill_button_texts()
 
