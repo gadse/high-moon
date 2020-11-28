@@ -1,0 +1,324 @@
+{
+	"start": [
+			{
+				"passageId": "alreadyTalkedStart",
+				"isSet": "TalkedWithElizabeth"
+			},
+			"firstTimeStart"
+	],
+	"passages": {
+		"firstTimeStart": {
+			"set": "TalkedWithElizabeth",
+			"type": "choice",
+			"npc": "Hey! What can I get ya?",
+			"me": [
+				{
+					"text": "Good day, Mrs. Parker. I have some questions I’d like to ask you.",
+					"goto": "politeGreeting"
+				},
+				{
+					"text": "Some answers, hopefully! And I want to hear the truth.",
+					"goto": "directGreeting"
+				}
+			]
+		},
+		"politeGreeting": {
+			"type": "linear",
+			"flow": [
+				[
+					"I see. This is about Jack, no? What was he to you?"
+				],
+				[
+					"Jack was my friend. I intend to find out who killed him and bring the killer to justice."
+				]
+			],
+			"goto": "intro"
+		},
+		"directGreeting": {
+			"type": "linear",
+			"flow": [
+				[
+					"You’ve sure got some nerve talking to me like that. Is this about Jack?"
+				],
+				[
+					"Jack was my friend. I intend to find out who killed him and bring the killer to justice."
+				]
+			],
+			"goto": "intro"
+		},
+		"intro": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! Sure sounds gloriously righteous when you put it that way, doesn’t it? Very well, Detective."
+				]
+			],
+			"goto": "drinks"
+		},
+		"drinks": {
+			"type": "choice",
+			"npc": "Order a drink and then you can humor me with whatever the hell you’d like to know.",
+			"me": [
+				{
+					"text": "Bourbon. Pure, nothing else.",
+					"goto": "bourbon"
+				},
+				{
+					"text": "I’ll take a beer.",
+					"goto": "beer"
+				},
+				{
+					"text": "Some wine, please.",
+					"goto": "wine"
+				},
+				{
+					"text": "All right, get me a Gin.",
+					"goto": "gin"
+				},
+				{
+					"text": "Just a glass of water, please.",
+					"goto": "water"
+				},
+				{
+					"text": "You know what we usually drink.",
+					"goto": "usual"
+				}
+			]
+		},
+		"bourbon": {
+			"type": "linear",
+			"flow": [
+				[
+					"I keep hearing that one. Most of my regular patrons think it’s the rugged, manly option. Needs a little more to impress me, though."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			],
+			"goto": "questions"
+		},
+		"beer": {
+			"type": "linear",
+			"flow": [
+				[
+					"The safe option, hm? Unexpected from someone in such a… risky profession. But I appreciate level-headedness."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			],
+			"goto": "questions"
+		},
+		"wine": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ooh, how very… cultured. Sophisticated. I respect that."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			],
+			"goto": "questions"
+		},
+		"gin": {
+			"type": "linear",
+			"flow": [
+				[
+					"Plain and simple, huh? Sure. Has its own appeal."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			],
+			"goto": "questions"
+		},
+		"water": {
+			"type": "linear",
+			"flow": [
+				[
+					"… Are you serious? You are, aren’t you? All right, I’ll get you one. You could have had a beer, think on that."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			]
+		},
+		"usual": {
+			"type": "linear",
+			"flow": [
+				[
+					"Sorry, pal. I had a service set up where folks like us could get some fresh blood from… paid company decades ago, but it was too risky. People could notice. I’ll get you a beer."
+				],
+				[
+					"…Right. Now, the questions?"
+				],
+				[
+					"Sure, ask away, Detective."
+				]
+			],
+			"goto": "questions"
+		},
+		"somethingElse": {
+			"type": "linear",
+			"flow": [
+				[
+					"Now, was there something else you needed?"
+				]
+			],
+			"goto": "questions"
+		},
+		"questions": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Tell me what you did last night when Jack was murdered.",
+					"goto": "alibi"
+				},
+				{
+					"text": "Did you notice anything unusual last night?",
+					"goto": "notice"
+				},
+				{
+					"text": "Tell me a bit about yourself, please.",
+					"goto": "aboutYou"
+				},
+				{
+					"text": "What do you think of Sheriff Short?",
+					"goto": "lucas"
+				},
+				{
+					"text": "Anything interesting you can tell me about Agnes Somerville?",
+					"goto": "agnes"
+				},
+				{
+					"text": "Do you know anything of interest about Reverend Pierce?",
+					"goto": "william"
+				},
+				{
+					"text": "What about Betty Henderson?",
+					"goto": "betty"
+				},
+				{
+					"text": "I will be back later.",
+					"goto": "exit"
+				}
+			]
+		},
+		"alibi": {
+			"type": "linear",
+			"flow": [
+				[
+					"Yesterday? You mean after you stumbled in and rented a room?",
+					"Hm. I was here at my saloon, as the regulars could probably tell you.",
+					"I always open up come sundown and work through the night ‘till sunrise. Not that folks like us could do much during the day, huh?",
+					"Anyway, I’ve been doing brisk business last night, since some miners came through on their days off, looking to gamble away their wage.",
+					"Was a rowdy night, so I had my hands full here, keeping the crowd in check and making sure whiskey flowed out as money flowed in."
+				],
+				[
+					"I see. I just wondered because the corpse was found behind your saloon."
+				],
+				[
+					"Ugh. If I had wanted to kill Jack, I’d have picked a less busy night and a place further away from my doorstep, don’t you think?"
+				],
+				[
+					"Maybe."
+				]
+			],
+			"goto": "somethingElse"
+		},
+		"notice": {
+			"type": "linear",
+			"flow": [
+				[
+					"Actually, I did. Was a pretty busy night yesterday and we had a rowdy crowd here, but I remember hearing something.",
+					"That was actually rather early in the morning, but nowhere near sunrise yet. Someone fired a pistol outside.",
+					"Y’know, I didn’t give it much thought yesterday, drunks usually are clumsy and stupid. But now that Jack’s been murdered…",
+					"It was behind the saloon, somewhere close to where Jack was found, by my guess."
+				],
+				[
+					"A gunshot? Interesting. I’ll keep it in mind."
+				]
+			],
+			"goto": "somethingElse"
+		},
+		"aboutYou": {
+			"type": "linear",
+			"flow": [
+				[
+					"About myself? Oh, what’s there to tell… I came to town some decades ago and set up this saloon.",
+					"The town grew with it. Towns always grow with saloons and gambling dens. Don’t let Pierce tell you otherwise.",
+					"Well, I was happily married, but my husband was outside of town one night, and a pack of coyotes got him."
+				],
+				[
+					"I am sorry to hear that."
+				],
+				[
+					"*Sob* My poor darling, there was almost nothing of him left.",
+					"He was always so good to me. But what can ya do? Life here is harsh.",
+					"I'm a widow now, doing my best to stay afloat. But I learned to fend for myself, I manage."
+				],
+				[
+					"Indeed. Thank you for telling me."
+				]
+			],
+			"goto": "somethingElse"
+		},
+		"lucas": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hm. He’s doing his job well enough, I suppose. During business hours, I don’t see him as much as I’d like to, and outside of them, far more than I’d like.",
+					"Our old Sheriff, bless his soul, now he was a better sport! Always dropped by to down a shot or five before he did his duty."
+				],
+				[
+					"Sounds… healthy…"
+				],
+				[
+					"Good fellow, he. Sadly, Short broke this tradition. He only talks to me to hear about rumors, y’know?",
+					"Bit like you actually, come to think of it. Only you had the decency to at least buy a drink first."
+				],
+				[
+					"You’re welcome, I guess..."
+				]
+			],
+			"goto": "somethingElse"
+		},
+		"agnes": {
+			"set": "AgnesIsObsessed",
+			"type": "linear",
+			"flow": [
+				[
+					"Our local madwoman? The better question is: what’s not interesting about her?",
+					"Has she pestered you about blood samples yet? Asked if she could touch your teeth or if you could change into a bat for her?"
+				],
+				[
+					"Uh, yeah, she actually did."
+				],
+				[
+					"She’s completely consumed by folks like us, – pun not intended – and always teetering on that fine line between harmless wonder and crazy obsession.",
+					"She can be surprisingly sweet though. But sadly, I cannot tell you that she’s harmless, if you’re hoping to hear that from me."
+				],
+				[
+					"I can see why she can be a bit much, I guess."
+				]
+			],
+			"goto": "somethingElse"
+		}
+	}
+} 

@@ -28,11 +28,11 @@ enum KnowledgePiece {
 	BettyHadIncidentWithJack,
 	BettyIsWerewolf,
 	
-	ElizabethIsVampire,
 	ElizabethHadManyHusbands,
 	ElizabethsHusbandsDisappeared,
 	ElizabethLoanedMoneyToJack,
 	
+	LucasHidesCorpse,
 	LucasIsVampireHunter,
 	
 	WilliamWasBandit,
@@ -61,11 +61,11 @@ func _update_dependent_values():
 
 	self._update_CanBeDueled(KnowledgePiece.ElizabethCanBeDueled,
 		[KnowledgePiece.ElizabethHadManyHusbands, KnowledgePiece.ElizabethsHusbandsDisappeared,
-		 KnowledgePiece.ElizabethIsVampire, KnowledgePiece.ElizabethLoanedMoneyToJack],
+		KnowledgePiece.ElizabethLoanedMoneyToJack],
 		2)
 	
 	self._update_CanBeDueled(KnowledgePiece.LucasCanBeDueled,
-		[KnowledgePiece.LucasIsVampireHunter],
+		[KnowledgePiece.LucasIsVampireHunter, KnowledgePiece.LucasHidesCorpse],
 		1)
 	
 	self._update_CanBeDueled(KnowledgePiece.WilliamCanBeDueled,
