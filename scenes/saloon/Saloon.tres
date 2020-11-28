@@ -50,7 +50,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Hah! Sure sounds gloriously righteous when you put it that way, doesn’t it? Very well, Detective."
+					"Hah! Sure sounds gloriously righteous when you put it that way, doesn’t it?\nVery well, Detective."
 				]
 			],
 			"goto": "drinks"
@@ -89,7 +89,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"I keep hearing that one. Most of my regular patrons think it’s the rugged, manly option. Needs a little more to impress me, though."
+					"I keep hearing that one. Most of my regular patrons think it’s the rugged, manly option.\nNeeds a little more to impress me, though."
 				],
 				[
 					"…Right. Now, the questions?"
@@ -104,7 +104,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"The safe option, hm? Unexpected from someone in such a… risky profession. But I appreciate level-headedness."
+					"The safe option, hm? Unexpected from someone in such a… risky profession.\nBut I appreciate level-headedness."
 				],
 				[
 					"…Right. Now, the questions?"
@@ -149,7 +149,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"… Are you serious? You are, aren’t you? All right, I’ll get you one. You could have had a beer, think on that."
+					"… Are you serious? You are, aren’t you? All right, I’ll get you one.\nYou could have had a beer, think on that."
 				],
 				[
 					"…Right. Now, the questions?"
@@ -157,7 +157,8 @@
 				[
 					"Sure, ask away, Detective."
 				]
-			]
+			],
+			"goto": "questions"
 		},
 		"usual": {
 			"type": "linear",
@@ -196,7 +197,8 @@
 					"Well, shoot! I’ll get you another drink."
 				]
 			],
-			"goto": "somethingElse"
+			"goto": "questions"
+		},
 		"questions": {
 			"type": "choice",
 			"me": [
@@ -229,11 +231,13 @@
 					"goto": "betty"
 				},
 				{
-					"text": "Someone told me something very interesting about your tragically shortcut marriage… Or should I say marriages?",
+					"text": "Someone told me something very interesting about your tragically shortcut marriage…\nOr should I say marriages?",
+					"isSet": "ElizabethsHusbandsDisappeared",
 					"goto": "marriages"
 				},
 				{
 					"text": "Jack was owing you a lot of cash, wasn’t he?",
+					"isSet": "ElizabethLoanedMoneyToJack",
 					"goto": "indebt"
 				},
 				{
@@ -253,9 +257,9 @@
 				[
 					"Yesterday? You mean after you stumbled in and rented a room?",
 					"Hm. I was here at my saloon, as the regulars could probably tell you.",
-					"I always open up come sundown and work through the night ‘till sunrise. Not that folks like us could do much during the day, huh?",
-					"Anyway, I’ve been doing brisk business last night, since some miners came through on their days off, looking to gamble away their wage.",
-					"Was a rowdy night, so I had my hands full here, keeping the crowd in check and making sure whiskey flowed out as money flowed in."
+					"I always open up come sundown and work through the night ‘till sunrise.\nNot that folks like us could do much during the day, huh?",
+					"Anyway, I’ve been doing brisk business last night,\nsince some miners came through on their days off, looking to gamble away their wage.",
+					"Was a rowdy night, so I had my hands full here,\nkeeping the crowd in check and making sure whiskey flowed out as money flowed in."
 				],
 				[
 					"I see. I just wondered because the corpse was found behind your saloon."
@@ -273,9 +277,9 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Actually, I did. Was a pretty busy night yesterday and we had a rowdy crowd here, but I remember hearing something.",
-					"That was actually rather early in the morning, but nowhere near sunrise yet. Someone fired a pistol outside.",
-					"Y’know, I didn’t give it much thought yesterday, drunks usually are clumsy and stupid. But now that Jack’s been murdered…",
+					"Actually, I did. Was a pretty busy night yesterday and we had a rowdy crowd here,\nbut I remember hearing something.",
+					"That was actually rather early in the morning, but nowhere near sunrise yet.\nSomeone fired a pistol outside.",
+					"Y’know, I didn’t give it much thought yesterday, drunks usually are clumsy and stupid.\nBut now that Jack’s been murdered…",
 					"It was behind the saloon, somewhere close to where Jack was found, by my guess."
 				],
 				[
@@ -288,9 +292,9 @@
 			"type": "linear",
 			"flow": [
 				[
-					"About myself? Oh, what’s there to tell… I came to town some decades ago and set up this saloon.",
-					"The town grew with it. Towns always grow with saloons and gambling dens. Don’t let Pierce tell you otherwise.",
-					"Well, I was happily married, but my husband was outside of town one night, and a pack of coyotes got him."
+					"About myself?\nOh, what’s there to tell… I came to town some decades ago and set up this saloon.",
+					"The town grew with it. Towns always grow with saloons and gambling dens.\nDon’t let Pierce tell you otherwise.",
+					"Well, I was happily married, but my husband was outside of town one night,\nand a pack of coyotes got him."
 				],
 				[
 					"I am sorry to hear that."
@@ -310,15 +314,15 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Hm. He’s doing his job well enough, I suppose. During business hours, I don’t see him as much as I’d like to, and outside of them, far more than I’d like.",
-					"Our old Sheriff, bless his soul, now he was a better sport! Always dropped by to down a shot or five before he did his duty."
+					"Hm. He’s doing his job well enough, I suppose. During business hours,\nI don’t see him as much as I’d like to, and outside of them, far more than I’d like.",
+					"Our old Sheriff, bless his soul, now he was a better sport!\nAlways dropped by to down a shot or five before he did his duty."
 				],
 				[
 					"Sounds… healthy…"
 				],
 				[
-					"Good fellow, he. Sadly, Short broke this tradition. He only talks to me to hear about rumors, y’know?",
-					"Bit like you actually, come to think of it. Only you had the decency to at least buy a drink first."
+					"Good fellow, he. Sadly, Short broke this tradition.\nHe only talks to me to hear about rumors, y’know?",
+					"Bit like you actually, come to think of it.\nOnly you had the decency to at least buy a drink first."
 				],
 				[
 					"You’re welcome, I guess..."
@@ -332,14 +336,14 @@
 			"flow": [
 				[
 					"Our local madwoman? The better question is: what’s not interesting about her?",
-					"Has she pestered you about blood samples yet? Asked if she could touch your teeth or if you could change into a bat for her?"
+					"Has she pestered you about blood samples yet?\nAsked if she could touch your teeth or if you could change into a bat for her?"
 				],
 				[
 					"Uh, yeah, she actually did."
 				],
 				[
-					"She’s completely consumed by folks like us, – pun not intended – and always teetering on that fine line between harmless wonder and crazy obsession.",
-					"She can be surprisingly sweet though. But sadly, I cannot tell you that she’s harmless, if you’re hoping to hear that from me."
+					"She’s completely consumed by folks like us, – pun not intended –\nand always teetering on that fine line between harmless wonder and crazy obsession.",
+					"She can be surprisingly sweet though.\nBut sadly, I cannot tell you that she’s harmless, if you’re hoping to hear that from me."
 				],
 				[
 					"I can see why she can be a bit much, I guess."
@@ -352,37 +356,37 @@
 			"set": "WilliamWasFriendsWithJack",
 			"flow": [
 				[
-					"I can’t stand him. He is such a presumptuous, hypocritic prick. Don’t give me that look, you don’t know him as long as I do.",
-					"He acts all upstanding-citizen and you’d sure think he is one, especially by the amount of unwanted moral counsel he dishes out, but I know things about him that would make your neck hair stand up."
+					"I can’t stand him. He is such a presumptuous, hypocritic prick.\nDon’t give me that look, you don’t know him as long as I do.",
+					"He acts all upstanding-citizen and you’d sure think he is one,\nespecially by the amount of unwanted moral counsel he dishes out,\nbut I know things about him that would make your neck hair stand up."
 				],
 				[
 					"Things like… what exactly?"
 				],
 				[
 					"He’s got a dark past and I’ve heard rumors about it.",
-					"He keeps the details hidden, and he’s keeping things quiet enough for me to know he did something really hideous.",
-					"And then, some years ago, he suddenly rides into town acting all regretful, doing repentance for his past? Bullshit.",
+					"He keeps the details hidden,\nand he’s keeping things quiet enough for me to know he did something really hideous.",
+					"And then, some years ago, he suddenly rides into town acting all regretful,\ndoing repentance for his past? Bullshit.",
 					"The others don’t know what I know, they just see a polite man that came to town and is… creepy but nice to them. But I know better."
 				],
 				[
 					"What makes you think that?"
 				],
 				[
-					"What sets him apart from folks like you and me is his eyes. There is something about people who are killers, you can see it in their eyes.",
-					"I would not be surprised if it was him who did Jack in, y’know? Those two have quite the history with ‘doin’."
+					"What sets him apart from folks like you and me is his eyes.\nThere is something about people who are killers, you can see it in their eyes.",
+					"I would not be surprised if it was him who did Jack in, y’know?\nThose two have quite the history with ‘doin’."
 				],
 				[
 					"Uhhh…"
 				],
 				[
-					"He bloody berates me about remarrying while he and Jack meet up late at night, polishing each other’s ‘guns’ ‘til early morning, all on their lonesome, unmarried."
+					"He bloody berates me about remarrying while he and Jack meet up late at night,\npolishing each other’s ‘guns’ ‘til early morning, all on their lonesome, unmarried."
 				]
 			],	
 			"goto": "williamparttwo"
 		},	
 		"williamparttwo": {
 			"type": "choice",
-			"npc": "Where’s the decency in that? Maybe Jack wanted to break up and Pierce snapped? Who knows.",
+			"npc": "Where’s the decency in that?\nMaybe Jack wanted to break up and Pierce snapped? Who knows.",
 			"me": [
 				{
 					"text": "I… I’ll have to ask him about it, I guess.",
@@ -398,32 +402,32 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Oh darling, you’d be surprised what people tell you once they are drunk enough. Just being in my saloon, I hear all the gossip.",
-					"Enough people saw Jack visiting William late at night and put one and one together. Also, don’t you think it’s strange that Pierce never married?",
+					"Oh darling, you’d be surprised what people tell you once they are drunk enough.\nJust being in my saloon, I hear all the gossip.",
+					"Enough people saw Jack visiting William late at night and put one and one together.\nAlso, don’t you think it’s strange that Pierce never married?"
 				],
 				[
 					"I’ll think on it. Thanks."
-				],
+				]
 			],
 			"goto": "somethingElse"
-		}
+		},
 		"betty": {
 			"type": "linear",
 			"flow": [
 				[
-					"What about her indeed? I don’t see her all that much, so I can’t really tell you anything interesting.",
-					"Keeps to herself, that one. Though not as much as the bloody priest. I’ve heard some rumors about Betty, though…"
+					"What about her indeed?\nI don’t see her all that much, so I can’t really tell you anything interesting.",
+					"Keeps to herself, that one. Though not as much as the bloody priest.\nI’ve heard some rumors about Betty, though…"
 				]
 			
 			],
 			"goto": "bettyparttwo"
+		},
 		"bettyparttwo": {
 			"type": "choice",
-			"npc": "Seems she, just like some other folks in town, is not quite what she seems to be, if you catch my drift.",
+			"npc": "Seems she, just like some other folks in town, is not quite what she seems to be,\nif you catch my drift.",
 			"me": [
 				{
 					"text": "Can’t say I do, sorry.",
-					"set": "BettyIsWerewolf",
 					"goto": "noclueaboutbetty"
 				},
 				{
@@ -432,23 +436,27 @@
 					"goto": "letstalkaboutwerewolves"
 				}
 			]
-		}
+		},
 		"noclueaboutbetty": {
 			"type": "linear",
+			"set": "BettyIsWerewolf",
 			"flow": [
 				[
 					"I’ll be a little clearer, then.",
-					"I heard she has a certain penchant for extended walks during full moon nights, and I sometimes hear howling that is definitely not a coyote…"
+					"I heard she has a certain penchant for extended walks during full moon nights,\nand I sometimes hear howling that is definitely not a coyote…"
+				],
+				[
+					"Oh. Oh!"
 				]
+			],
 			"goto": "letstalkaboutwerewolves"
-			]
-		}
+		},
 		"letstalkaboutwerewolves": {
-		"type": "linear",
+			"type": "linear",
 			"flow": [
 				[
-					"Can’t say I really like the thought of having one of her kind around town. Violent, bloodthirsty animals, the whole lot of them.",
-					"She started a few brawls at my saloon. I’ve banned her eventually, and have not seen much of her since."
+					"Can’t say I really like the thought of having one of her kind around town.\nViolent, bloodthirsty animals, the whole lot of them.",
+					"She started a few brawls at my saloon.\nI’ve banned her eventually, and have not seen much of her since."
 				],
 				[
 					"I can’t stand them either. Stinking, uncivilized dog-people.",
@@ -460,19 +468,19 @@
 				[
 					"That’s an interesting set of priorities, but I guess it works out for you."
 				]
+			],
 			"goto": "somethingElse"
-			]
-		}
+		},
 		"marriages": {
 			"type": "linear",
 			"flow": [
 				[
-					"Well, if that someone had any idea what he was talking about – and I have a good idea who it might be – he’d know I was never convicted of anything.",
-					"Is this… this curse I suffer from not bad enough? I loved every one of them! There’s no blood on my hands!"
+					"Well, if that someone had any idea what he was talking about\n– and I have a good idea who it might be – he’d know I was never convicted of anything.",
+					"Is this… this curse I suffer from not bad enough?\nI loved every one of them! There’s no blood on my hands!"
 				]
+			],
 			"goto": "marriagesparttwo"
-			]
-		}
+		},
 		"marriagesparttwo": {
 			"type": "choice",
 			"npc": "And it is honestly really rude and insensitive of you to bring that up again. Very tasteless.",
@@ -486,32 +494,32 @@
 					"goto": "marriagespartthree"
 				}
 			]
-		}
+		},
 		"marriagespartthree": {
 			"type": "linear",
 			"flow": [
 				[
 					"Are you trying to accuse me of something or are you just pestering me?",
-					"Because if you’ve found any ‘evidence’ I suggest you take it to the Sheriff – you know, the real one – and leave me alone.",
-					"What, no further accusations? I knew it. You have nothing, don’t you? Because there is nothing to have.",
-					"I am innocent. Pierce put you up to this, didn’t he? Did he tell you what a horrible harlot I am und you gobbled it right up?",
+					"Because if you’ve found any ‘evidence’ I suggest you take it to the Sheriff\n– you know, the real one – and leave me alone.",
+					"What, no further accusations? I knew it. You have nothing, don’t you?\nBecause there is nothing to have.",
+					"I am innocent. Pierce put you up to this, didn’t he?\nDid he tell you what a horrible harlot I am und you gobbled it right up?",
 					"I tell you, it was him who killed Jack!"
-				]
+				],
 				[
 					"We’ll see."
 				]
+			],
 			"goto": "somethingElse"
-			]
-		}
+		},
 		"indebt": {
 			"type": "linear",
 			"flow": [
 				[
-					"I really have to find out who’s telling you all that stuff. I don’t like people talking business behind my back. But you are right, he was."
+					"I really have to find out who’s telling you all that stuff.\nI don’t like people talking business behind my back. But you are right, he was."
 				]
+			],
 			"goto": "indebtparttwo"
-			]
-		}
+		},
 		"indebtparttwo": {
 			"type": "choice",
 			"npc": "He sometimes spent half the night at the gambling tables.",
@@ -523,63 +531,63 @@
 				{
 					"text": "Well, everybody makes their own decisions.",
 					"goto": "indebtowndecision"
-				}
+				},
 				{
 					"text": "Sounds like fun.",
 					"goto": "indebtfun"
 				}
 			]
-		}
+		},
 		"indebtnostop": {
 			"type": "linear",
 			"flow": [
 				[
 					"Who do you take me for, his mother?! He can do whatever the hell he wants, this is a saloon. The bloody church is down the street."
-				]
+				],
 				[
-					"But he kept taking loans so he could gamble… And he could not pay you back for quite a while…"
+					"But he kept taking loans so he could gamble…\nAnd he could not pay you back for quite a while…"
 				]
+			],
 			"goto": "indebtpartthree"
-			]
-		}
+		},
 		"indebtowndecision": {
 			"type": "linear",
 			"flow": [
 				[
 					"Right! And he did. Though it sure didn’t win him any coin."
-				]
+				],
 				[
 					"But he kept taking loans so he could gamble… And he could not pay you back for quite a while…"
 				]
+			],
 			"goto": "indebtpartthree"
-			]
-		}
-		"indebt": {
+		},
+		"indebtfun": {
 			"type": "linear",
 			"flow": [
 				[
 					"If you need a little break, just say so. Your money is always welcome at my table."
-				]
+				],
 				[
-					"Let's talk about Jack first. He kept taking loans so he could gamble… And he could not pay you back for quite a while…"
+					"Let's talk about Jack first. He kept taking loans so he could gamble…\nAnd he could not pay you back for quite a while…"
 				]
+			],
 			"goto": "indebtpartthree"
-			]
-		}
+		},
 		"indebtpartthree": {
 			"type": "linear",
 			"flow": [
 				[
 					"I know where you’re going with this. You can stop right there. Think.",
-					"He was indebted to me. Jack was a vampire – like you and me! I was in no hurry for him to pay me back.",
-					"Folks like us can take our time. But now, him being dead… Dead folks have a hard time repaying anything they owe, you know?"
-				]
+					"He was indebted to me. Jack was a vampire – like you and me!\nI was in no hurry for him to pay me back.",
+					"Folks like us can take our time. But now, him being dead…\nDead folks have a hard time repaying anything they owe, you know?"
+				],
 				[
 					"Hm, if you put it that way…"
 				]
+			],
 			"goto": "somethingElse"
-			]
-		}
+		},
 		"duelChallenge": {
 			"type": "linear",
 			"flow": [

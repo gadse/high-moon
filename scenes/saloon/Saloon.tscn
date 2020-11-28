@@ -8,4 +8,7 @@ background_image = "res://scenes/saloon/BG_saloon_final.png"
 character_image = "res://scenes/saloon/Charsprite_saloongirl_v1.png"
 character_color = Color( 0.686275, 0.309804, 0.309804, 1 )
 
+[node name="Fader" parent="." index="3"]
+visible = true
+
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

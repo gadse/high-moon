@@ -28,7 +28,6 @@ enum KnowledgePiece {
 	BettyHadIncidentWithJack,
 	BettyIsWerewolf,
 	
-	ElizabethHadManyHusbands,
 	ElizabethsHusbandsDisappeared,
 	ElizabethLoanedMoneyToJack,
 	
@@ -40,12 +39,7 @@ enum KnowledgePiece {
 	WilliamHadFightWithJack,
 }
 
-var player_knowledge = [
-	KnowledgePiece.WilliamKilled,
-	KnowledgePiece.WilliamWasFriendsWithJack,
-	KnowledgePiece.WilliamHadFightWithJack,
-	KnowledgePiece.WilliamWasBandit
-]
+var player_knowledge = []
 
 func append(enumString):
 	var enumValue = self._stringToEnum(enumString)
@@ -65,9 +59,8 @@ func _update_dependent_values():
 		2)
 
 	self._update_CanBeDueled(KnowledgePiece.ElizabethCanBeDueled,
-		[KnowledgePiece.ElizabethHadManyHusbands, KnowledgePiece.ElizabethsHusbandsDisappeared,
-		KnowledgePiece.ElizabethLoanedMoneyToJack],
-		2)
+		[KnowledgePiece.ElizabethsHusbandsDisappeared, KnowledgePiece.ElizabethLoanedMoneyToJack],
+		1)
 	
 	self._update_CanBeDueled(KnowledgePiece.LucasCanBeDueled,
 		[KnowledgePiece.LucasIsVampireHunter, KnowledgePiece.LucasHidesCorpse],

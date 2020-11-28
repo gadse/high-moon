@@ -13,7 +13,7 @@
 			"npc": "Howdy! What can I do for you?",
 			"me": [
 				{
-					"text": "Greetings, Sheriff. Agnes just told me about Jack. He was my friend and I want to help investigate his murder.",
+					"text": "Greetings, Sheriff. Agnes just told me about Jack.\nHe was my friend and I want to help investigate his murder.",
 					"goto": "enthusiastic"
 				},
 				{
@@ -61,7 +61,7 @@
 					"Then there’s your friend Agnes Somerville.\nDon’t give me that look – we can’t rule her out just yet.",
 					"We also have our Reverend William Pierce and finally our blacksmith, Betty Henderson.",
 					"Find out who did it, and then, well…\nFor murder, I’d hang or shoot them.",
-					"Seeing as you probably don’t hide gallows under your coat, you might want to challenge the bastard to a duel."
+					"Seeing as you probably don’t hide gallows under your coat,\nyou might want to challenge the bastard to a duel."
 				],
 				[
 					"Got it."
@@ -106,6 +106,7 @@
 				},
 				{
 					"text": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
+					"isSet": "LucasHidesCorpse",
 					"goto": "agnesAndCorpse"
 				},
 				{
@@ -126,10 +127,10 @@
 		},
 		"corpse": {
 			"type": "choice",
-			"npc": "No, I don’t think that’s a good idea. It is… rather gruesome, you know. You were his friend and all…",
+			"npc": "No, I don’t think that’s a good idea. It is… rather gruesome, you know.\nYou were his friend and all…",
 			"me": [
 				{
-					"text": "But I should probably see what exactly killed him so I can investigate properly. You said you don’t want me to shoot anyone wrong. I can handle seeing him.",
+					"text": "But I should probably see what exactly killed him so I can investigate properly.\nYou said you don’t want me to shoot anyone wrong. I can handle seeing him.",
 					"goto": "seeCorpse"
 				},
 				{
@@ -142,7 +143,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"No, I insist. We’ll have enough trouble getting him in some form of shape for the funeral, don’t need you poking around in there too.",
+					"No, I insist. We’ll have enough trouble getting him in some form of shape for the funeral,\ndon’t need you poking around in there too.",
 					"He looks like he was mauled by something, all right? See how that helps you."
 				]
 			],
@@ -153,7 +154,7 @@
 			"flow": [
 				[
 					"Hm, Mrs. Parker is our local saloon owner.",
-					"If you ask me, she’s among the top suspects for at least two reasons: One, we found Jack’s corpse behind her damn saloon, and two, she was involved into the strange disappearances of folks before."
+					"If you ask me, she’s among the top suspects for at least two reasons:\nOne, we found Jack’s corpse behind her damn saloon, and two,\nshe was involved into the strange disappearances of folks before."
 				],
 				[
 					"How so?"
@@ -188,7 +189,7 @@
 					"What… what shady stuff?"
 				],
 				[
-					"She gets on people’s nerves about blood samples and nonsense like that. Can’t really tell you why, though.",
+					"She gets on people’s nerves about blood samples and nonsense like that.\nCan’t really tell you why, though.",
 					"Just… Let me tell you, something’s not all that right about that girl.",
 					"She already asked me what the corpse looks like and if she could take notes and whatnot.",
 					"That’s not a normal reaction to hearing someone was murdered, that’s for sure."
@@ -206,9 +207,9 @@
 				[
 					"Reverend Pierce is… sort of his own phenomenon. Keeps to himself, that one.",
 					"I think I’ve never seen him outside during the day, to be honest.",
-					"But, despite his weirdness, he’s a cornerstone of our community, that’s for sure; what with him being our priest and our undertaker.",
-					"But I know him and Jack had a fight the night he turned up dead, which is kinda suspicious, don’t ya think?",
-					"I’ve also heard that those two have history, though you better ask someone else about that, I’m not big on gossip.",
+					"But, despite his weirdness, he’s a cornerstone of our community, that’s for sure;\nwhat with him being our priest and our undertaker.",
+					"But I know him and Jack had a fight the night he turned up dead,\nwhich is kinda suspicious, don’t ya think?",
+					"I’ve also heard that those two have history,\nthough you better ask someone else about that, I’m not big on gossip.",
 					"Maybe Elizabeth at the saloon, she always seems to know everything."
 				],
 				[
@@ -223,30 +224,31 @@
 			"flow": [
 				[
 					"Betty is our local blacksmith. Hard-working woman, that one. I like her.",
-					"But when I stopped by this morning to ask her if she saw anything suspicious, she wouldn’t even look at me.",
+					"But when I stopped by this morning to ask her if she saw anything suspicious,\nshe wouldn’t even look at me.",
 					"She answered my questions, but you could tell she was really itchin’ for me to go away.",
-					"She’s usually not the cheeriest of spirits, that much is true, but I’ve not seen her like this before.",
-					"And y’know, Jack was… mutilated. Betty was in brawls before, she has trouble controlling that temper of hers.",
-					"I don’t know what her angle is with Jack, but what if she did it? She has been behaving very strange today…"
+					"She’s usually not the cheeriest of spirits, that much is true,\nbut I’ve not seen her like this before.",
+					"And y’know, Jack was… mutilated. Betty was in brawls before,\nshe has trouble controlling that temper of hers.",
+					"I don’t know what her angle is with Jack, but what if she did it?\nShe has been behaving very strange today…"
 				],
 				[
 					"If she did it, I will find out."
 				]
-			]
+			],
+			"goto": "menuWithQuestion"
 		},
 		"agnesAndCorpse": {
 			"set": "AgnesPerformedDissection",
 			"type": "linear",
 			"flow": [
 				[
-					"She told you that, huh? Did she also tell you what she did to the last corpse I left with her for ‘examination’?"
+					"She told you that, huh?\nDid she also tell you what she did to the last corpse I left with her for ‘examination’?"
 				],
 				[
 					"Uh, no, she actually didn’t."
 				],
 				[
 					"Well, she fucking dissected him! Completely!",
-					"He had been shot once and she mutilated him to the point he was all but butchered, she cut him up so bad!",
+					"He had been shot once and she mutilated him to the point he was all but butchered,\nshe cut him up so bad!",
 					"I had to come up with a reason as to why the family was not allowed to open the casket so they wouldn’t faint from shock!"
 				]
 			],
@@ -287,7 +289,7 @@
 			"flow": [
 				[
 					"Hah! Cute Agnes, huh?",
-					"You think she’s just a sweet girl who’s lost some of her marbles? A bit crazy maybe, but generally harmless?",
+					"You think she’s just a sweet girl who’s lost some of her marbles?\nA bit crazy maybe, but generally harmless?",
 					"I’m not so sure, and the stuff she keeps pestering townsfolk about is creepy enough to have me taking her sweet attitude with a grain of salt."
 				],
 				[
@@ -310,9 +312,9 @@
 			"type": "linear",
 			"flow": [
 				[
-					"She keeps harassing folks for stuff like blood samples and wants to measure people, but she’s also asked some if she could operate on them.",
-					"And I know she once asked Elizabeth for one of her fingers! A bloody finger, can you imagine?",
-					"Said Mrs. Parker would be able to serve drinks even if she missed a finger! She’s crazy, I tell you."
+					"She keeps harassing folks for stuff like blood samples and wants to measure people,\nbut she’s also asked some if she could operate on them.",
+					"And I know she once asked Elizabeth for one of her fingers!\nA bloody finger, can you imagine?",
+					"Said Mrs. Parker would be able to serve drinks even if she missed a finger!\nShe’s crazy, I tell you."
 				],
 				[
 					"I… have to admit, that’s rather… extreme. I should probably go talk to her again."
