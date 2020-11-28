@@ -40,7 +40,12 @@ enum KnowledgePiece {
 	WilliamHadFightWithJack,
 }
 
-var player_knowledge = []
+var player_knowledge = [
+	KnowledgePiece.WilliamKilled,
+	KnowledgePiece.WilliamWasFriendsWithJack,
+	KnowledgePiece.WilliamHadFightWithJack,
+	KnowledgePiece.WilliamWasBandit
+]
 
 func append(enumString):
 	var enumValue = self._stringToEnum(enumString)

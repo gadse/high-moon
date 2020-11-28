@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/kill_scene/Charsprite_researcher_confrontation.png" type="Texture" id=2]
+[ext_resource path="res://scenes/epilogue/Agnes1.gd" type="Script" id=3]
 
 [node name="Agnes1" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
 margin_right = 1352.0
-text = "During your friendship, you quickly learned about her fascination, nay, obsession with the supernatural. But only now did you realize what lengths she will go to, to satisfy her thirst for knowledge."
 
 [node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
 margin_left = 1356.0

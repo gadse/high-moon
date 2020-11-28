@@ -31,6 +31,3 @@ align = 1
 margin_left = 1680.0
 margin_right = 1680.0
 margin_bottom = 840.0
-
-[node name="Fader" parent="." index="1"]
-visible = false
