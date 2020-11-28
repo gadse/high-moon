@@ -183,6 +183,20 @@
 			],
 			"goto": "questions"
 		},
+		"alreadyTalkedStart": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hi handsome. Decided to have another chat with lil’ old me?"
+				],
+				[
+					"Yes, I wanted to talk about something else."
+				],
+				[
+					"Well, shoot! I’ll get you another drink."
+				]
+			],
+			"goto": "somethingElse"
 		"questions": {
 			"type": "choice",
 			"me": [
@@ -213,6 +227,19 @@
 				{
 					"text": "What about Betty Henderson?",
 					"goto": "betty"
+				},
+				{
+					"text": "Someone told me something very interesting about your tragically shortcut marriage… Or should I say marriages?",
+					"goto": "marriages"
+				},
+				{
+					"text": "Jack was owing you a lot of cash, wasn’t he?",
+					"goto": "indebt"
+				},
+				{
+					"text": "I have made my decision. I challenge you to a duel!",
+					"isSet": "ElizabethCanBeDueled",
+					"goto": "duelChallenge"
 				},
 				{
 					"text": "I will be back later.",
@@ -319,6 +346,261 @@
 				]
 			],
 			"goto": "somethingElse"
+		},
+		"william": {
+			"type": "linear",
+			"set": "WilliamWasFriendsWithJack",
+			"flow": [
+				[
+					"I can’t stand him. He is such a presumptuous, hypocritic prick. Don’t give me that look, you don’t know him as long as I do.",
+					"He acts all upstanding-citizen and you’d sure think he is one, especially by the amount of unwanted moral counsel he dishes out, but I know things about him that would make your neck hair stand up."
+				],
+				[
+					"Things like… what exactly?"
+				],
+				[
+					"He’s got a dark past and I’ve heard rumors about it.",
+					"He keeps the details hidden, and he’s keeping things quiet enough for me to know he did something really hideous.",
+					"And then, some years ago, he suddenly rides into town acting all regretful, doing repentance for his past? Bullshit.",
+					"The others don’t know what I know, they just see a polite man that came to town and is… creepy but nice to them. But I know better."
+				],
+				[
+					"What makes you think that?"
+				],
+				[
+					"What sets him apart from folks like you and me is his eyes. There is something about people who are killers, you can see it in their eyes.",
+					"I would not be surprised if it was him who did Jack in, y’know? Those two have quite the history with ‘doin’."
+				],
+				[
+					"Uhhh…"
+				],
+				[
+					"He bloody berates me about remarrying while he and Jack meet up late at night, polishing each other’s ‘guns’ ‘til early morning, all on their lonesome, unmarried."
+				]
+			],	
+			"goto": "williamparttwo"
+		},	
+		"williamparttwo": {
+			"type": "choice",
+			"npc": "Where’s the decency in that? Maybe Jack wanted to break up and Pierce snapped? Who knows.",
+			"me": [
+				{
+					"text": "I… I’ll have to ask him about it, I guess.",
+					"goto": "somethingElse"
+				},
+				{
+					"text": "Uhm, thanks for telling me. How do you even know about these kinds of things?",
+					"goto": "williampartthree"
+				}
+			]
+		},
+		"williampartthree": {
+			"type": "linear",
+			"flow": [
+				[
+					"Oh darling, you’d be surprised what people tell you once they are drunk enough. Just being in my saloon, I hear all the gossip.",
+					"Enough people saw Jack visiting William late at night and put one and one together. Also, don’t you think it’s strange that Pierce never married?",
+				],
+				[
+					"I’ll think on it. Thanks."
+				],
+			],
+			"goto": "somethingElse"
+		}
+		"betty": {
+			"type": "linear",
+			"flow": [
+				[
+					"What about her indeed? I don’t see her all that much, so I can’t really tell you anything interesting.",
+					"Keeps to herself, that one. Though not as much as the bloody priest. I’ve heard some rumors about Betty, though…"
+				]
+			
+			],
+			"goto": "bettyparttwo"
+		"bettyparttwo": {
+			"type": "choice",
+			"npc": "Seems she, just like some other folks in town, is not quite what she seems to be, if you catch my drift.",
+			"me": [
+				{
+					"text": "Can’t say I do, sorry.",
+					"set": "BettyIsWerewolf",
+					"goto": "noclueaboutbetty"
+				},
+				{
+					"text": "Oh yes, I heard she is a little… lupine from time to time.",
+					"isSet": "BettyIsWerewolf",
+					"goto": "letstalkaboutwerewolves"
+				}
+			]
+		}
+		"noclueaboutbetty": {
+			"type": "linear",
+			"flow": [
+				[
+					"I’ll be a little clearer, then.",
+					"I heard she has a certain penchant for extended walks during full moon nights, and I sometimes hear howling that is definitely not a coyote…"
+				]
+			"goto": "letstalkaboutwerewolves"
+			]
+		}
+		"letstalkaboutwerewolves": {
+		"type": "linear",
+			"flow": [
+				[
+					"Can’t say I really like the thought of having one of her kind around town. Violent, bloodthirsty animals, the whole lot of them.",
+					"She started a few brawls at my saloon. I’ve banned her eventually, and have not seen much of her since."
+				],
+				[
+					"I can’t stand them either. Stinking, uncivilized dog-people.",
+					"Some of them aren’t all that bad, though."
+				],
+				[
+					"Well, I guess I can tolerate them as long as they buy enough drinks and don’t stay too long."
+				],
+				[
+					"That’s an interesting set of priorities, but I guess it works out for you."
+				]
+			"goto": "somethingElse"
+			]
+		}
+		"marriages": {
+			"type": "linear",
+			"flow": [
+				[
+					"Well, if that someone had any idea what he was talking about – and I have a good idea who it might be – he’d know I was never convicted of anything.",
+					"Is this… this curse I suffer from not bad enough? I loved every one of them! There’s no blood on my hands!"
+				]
+			"goto": "marriagesparttwo"
+			]
+		}
+		"marriagesparttwo": {
+			"type": "choice",
+			"npc": "And it is honestly really rude and insensitive of you to bring that up again. Very tasteless.",
+			"me": [
+				{
+					"text": "I am sorry, Madam. I was just curious and meant no harm.",
+					"goto": "somethingElse"
+				},
+				{
+					"text": "It would have been if it was your first or second husband. But it’s just happened to every one of them.",
+					"goto": "marriagespartthree"
+				}
+			]
+		}
+		"marriagespartthree": {
+			"type": "linear",
+			"flow": [
+				[
+					"Are you trying to accuse me of something or are you just pestering me?",
+					"Because if you’ve found any ‘evidence’ I suggest you take it to the Sheriff – you know, the real one – and leave me alone.",
+					"What, no further accusations? I knew it. You have nothing, don’t you? Because there is nothing to have.",
+					"I am innocent. Pierce put you up to this, didn’t he? Did he tell you what a horrible harlot I am und you gobbled it right up?",
+					"I tell you, it was him who killed Jack!"
+				]
+				[
+					"We’ll see."
+				]
+			"goto": "somethingElse"
+			]
+		}
+		"indebt": {
+			"type": "linear",
+			"flow": [
+				[
+					"I really have to find out who’s telling you all that stuff. I don’t like people talking business behind my back. But you are right, he was."
+				]
+			"goto": "indebtparttwo"
+			]
+		}
+		"indebtparttwo": {
+			"type": "choice",
+			"npc": "He sometimes spent half the night at the gambling tables.",
+			"me": [
+				{
+					"text": "And you didn’t put a stop to it?",
+					"goto": "indebtnostop"
+				},
+				{
+					"text": "Well, everybody makes their own decisions.",
+					"goto": "indebtowndecision"
+				}
+				{
+					"text": "Sounds like fun.",
+					"goto": "indebtfun"
+				}
+			]
+		}
+		"indebtnostop": {
+			"type": "linear",
+			"flow": [
+				[
+					"Who do you take me for, his mother?! He can do whatever the hell he wants, this is a saloon. The bloody church is down the street."
+				]
+				[
+					"But he kept taking loans so he could gamble… And he could not pay you back for quite a while…"
+				]
+			"goto": "indebtpartthree"
+			]
+		}
+		"indebtowndecision": {
+			"type": "linear",
+			"flow": [
+				[
+					"Right! And he did. Though it sure didn’t win him any coin."
+				]
+				[
+					"But he kept taking loans so he could gamble… And he could not pay you back for quite a while…"
+				]
+			"goto": "indebtpartthree"
+			]
+		}
+		"indebt": {
+			"type": "linear",
+			"flow": [
+				[
+					"If you need a little break, just say so. Your money is always welcome at my table."
+				]
+				[
+					"Let's talk about Jack first. He kept taking loans so he could gamble… And he could not pay you back for quite a while…"
+				]
+			"goto": "indebtpartthree"
+			]
+		}
+		"indebtpartthree": {
+			"type": "linear",
+			"flow": [
+				[
+					"I know where you’re going with this. You can stop right there. Think.",
+					"He was indebted to me. Jack was a vampire – like you and me! I was in no hurry for him to pay me back.",
+					"Folks like us can take our time. But now, him being dead… Dead folks have a hard time repaying anything they owe, you know?"
+				]
+				[
+					"Hm, if you put it that way…"
+				]
+			"goto": "somethingElse"
+			]
+		}
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"What?! You’re mad! I told you I didn’t do it! You stupid, pitiful idiot!",
+					"Just wait until I have my gun, you’ll pay for this farce!"
+				],
+				[
+					"Let's get to it!"
+				]
+			],
+			"goto": "duel"
+		},
+		"duel": {
+			"type": "choice",
+			"set": "ElizabethKilled",
+			"npc": "Duel"
+		},
+		"exit": {
+			"type": "choice",
+			"npc": "Exit"
 		}
 	}
-} 
+}
