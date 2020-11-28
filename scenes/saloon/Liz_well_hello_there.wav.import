@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Liz_well_hello_there.wav-a8e8085caab5b758f8def6efbf18656a.sample"
+
+[deps]
+
+source_file="res://scenes/saloon/Liz_well_hello_there.wav"
+dest_files=[ "res://.import/Liz_well_hello_there.wav-a8e8085caab5b758f8def6efbf18656a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Agnes_hey_youre_back.wav-541502b3a2aec32e144ef89feda86679.sample"
+
+[deps]
+
+source_file="res://scenes/lab/Agnes_hey_youre_back.wav"
+dest_files=[ "res://.import/Agnes_hey_youre_back.wav-541502b3a2aec32e144ef89feda86679.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
