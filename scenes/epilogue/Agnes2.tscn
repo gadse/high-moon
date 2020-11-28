@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/kill_scene/Charsprite_researcher_confrontation.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="Agnes2" instance=ExtResource( 2 )]
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1352.0
+text = "A few days after Agnes’ death, her apothecary is being cleaned out. Brains, eyes, hearts and other human remains conserved in formaldehyde turn up, as well as a collection of fangs that are identified as a coyote’s, though you know them to have belonged to a vampire."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1356.0
+texture = ExtResource( 1 )

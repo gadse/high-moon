@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/lab/Charsprite_researcher_v2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="Agnes3" instance=ExtResource( 2 )]
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1296.0
+text = "While shocking at first, these finds turn out to be inconclusive, however. The organs and their containers look very old and they were likely harvested even before Agnes’ birth. You find documents detailing where the scientist purchased the jars and dug up the fangs. As you inspect the teeth more closely, you indeed find traces of dirt on them, supporting the theory that she killed for neither of these possessions."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1300.0
+texture = ExtResource( 1 )
