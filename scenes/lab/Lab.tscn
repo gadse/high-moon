@@ -4,5 +4,6 @@
 
 [node name="Lab" instance=ExtResource( 1 )]
 character_image = "res://scenes/lab/Charsprite_researcher_v2.png"
+character_color = Color( 0.309804, 0.611765, 0.415686, 1 )
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

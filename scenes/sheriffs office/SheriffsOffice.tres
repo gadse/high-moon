@@ -35,7 +35,7 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Hold your horses, all right? The last thing I need right now is another maniac with a gun on the loose.",
+					"Hold your horses, all right?\nThe last thing I need right now is another maniac with a gun on the loose."
 				]
 			],
 			"goto": "offeredHelp"
@@ -44,23 +44,23 @@
 			"type": "linear",
 			"flow": [
 				[
-					"But then again… I have to admit I haven’t really found out much so far. It’s not like I can afford to turn down a hand if it’s offered, I guess.",
-					"*Sigh* I get wanting to avenge your friend, I really do. Just… don’t make me regret this, yeah?"
+					"But then again… I have to admit I haven’t really found out much so far.\nIt’s not like I can afford to turn down a hand if it’s offered, I guess.",
+					"*Sigh*\nI get wanting to avenge your friend, I really do. Just… don’t make me regret this, yeah?"
 				],
 				[
 					"Sure."
 				],
 				[
-					"No need to go around bothering random townsfolk though, all right? I’ve narrowed this down on four suspects and I’m pretty sure one of them did it."
+					"No need to go around bothering random townsfolk though, all right?\nI’ve narrowed this down on four suspects and I’m pretty sure one of them did it."
 				],
 				[
 					"Who are they?"
 				],
 				[
 					"Well, we have Elizabeth Parker, our local saloon owner.",
-					"Then there’s your friend Agnes Somerville. Don’t give me that look – we can’t rule her out just yet.",
+					"Then there’s your friend Agnes Somerville.\nDon’t give me that look – we can’t rule her out just yet.",
 					"We also have our Reverend William Pierce and finally our blacksmith, Betty Henderson.",
-					"Find out who did it, and then, well… For murder, I’d hang or shoot them.",
+					"Find out who did it, and then, well…\nFor murder, I’d hang or shoot them.",
 					"Seeing as you probably don’t hide gallows under your coat, you might want to challenge the bastard to a duel."
 				],
 				[
@@ -105,8 +105,7 @@
 					"goto": "betty"
 				},
 				{
-					"text": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not
-squeamish and we might need her insight as a scientist. Why is that?",
+					"text": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
 					"goto": "agnesAndCorpse"
 				},
 				{
