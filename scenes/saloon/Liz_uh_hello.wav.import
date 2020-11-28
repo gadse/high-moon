@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Liz_uh_hello.wav-8dec581eb4becc5b983149b46a971cd6.sample"
+
+[deps]
+
+source_file="res://scenes/saloon/Liz_uh_hello.wav"
+dest_files=[ "res://.import/Liz_uh_hello.wav-8dec581eb4becc5b983149b46a971cd6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -8,10 +8,9 @@ export(PackedScene) var dialog_scene
 func _ready():
 	$Sprite.texture = load(character_icon)
 
-func _on_LocationMarker_input_event(viewport, event, shape_idx):
+func _on_LocationMarker_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
 		emit_signal("clicked", dialog_scene)
-
 
 func _on_LocationMarker_mouse_entered():
 	self.scale.x = 1.2
