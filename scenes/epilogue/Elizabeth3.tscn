@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/saloon/Charsprite_saloongirl_v1.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="Elizabeth2" instance=ExtResource( 2 )]
+
+[node name="HBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 1032.0
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1296.0
+margin_bottom = 972.0
+text = "Without Elizabeth, the town’s only saloon has to close down and the miners and cowboys that came here to drink and gamble after a hard day’s work don’t come back. Only with the saloon owner gone do you realize how much the small community relied on the economical opportunities her business provided."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1300.0
+margin_bottom = 972.0
+texture = ExtResource( 1 )

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/lab/Charsprite_researcher_v2.png" type="Texture" id=2]
+[ext_resource path="res://scenes/graveyard/Charsprite_priest_v3.png" type="Texture" id=3]
+[ext_resource path="res://scenes/forge/Charsprite_Blacksmith_v1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/saloon/Charsprite_saloongirl_v1.png" type="Texture" id=5]
+
+[node name="PeacefulEnding1" instance=ExtResource( 1 )]
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+text = "Peace has been restored, and the small community is haunted by a murderer no more. You stay for a while until the call of adventure beckons you to the road again."
+valign = 0
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+margin_left = 983.709
+margin_top = 364.344
+margin_right = 1483.71
+margin_bottom = 1324.34
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="." index="2"]
+margin_left = 116.063
+margin_top = 367.013
+margin_right = 616.063
+margin_bottom = 1327.01
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="." index="3"]
+margin_left = 532.669
+margin_top = 382.367
+margin_right = 1032.67
+margin_bottom = 1342.37
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="." index="4"]
+margin_left = 1447.88
+margin_top = 360.057
+margin_right = 1947.88
+margin_bottom = 1318.06
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

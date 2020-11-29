@@ -15,12 +15,14 @@ func _fill_page_list():
 		page_list.append(preload("res://scenes/epilogue/Elizabeth0.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Elizabeth1.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Elizabeth2.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Elizabeth3.tscn"))
 		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
 	elif GameState.player_knowledge.has(GameState.KnowledgePiece.AgnesKilled):
 		page_list.append(preload("res://scenes/epilogue/Agnes0.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Agnes1.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Agnes2.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Agnes3.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Agnes4.tscn"))
 		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
 	elif GameState.player_knowledge.has(GameState.KnowledgePiece.WilliamKilled):
 		page_list.append(preload("res://scenes/epilogue/William0.tscn"))
@@ -37,6 +39,7 @@ func _fill_page_list():
 		page_list.append(preload("res://scenes/epilogue/Lucas3.tscn"))
 		page_list.append(preload("res://scenes/epilogue/PeacefulEnding0.tscn"))
 		page_list.append(preload("res://scenes/epilogue/PeacefulEnding1.tscn"))
+		page_list.append(preload("res://scenes/epilogue/PeacefulEnding2.tscn"))
 	elif GameState.player_knowledge.has(GameState.KnowledgePiece.BettyKilled):
 		page_list.append(preload("res://scenes/epilogue/Betty0.tscn"))
 		if GameState.player_knowledge.has(GameState.KnowledgePiece.BettyIsWerewolf):
@@ -47,6 +50,7 @@ func _fill_page_list():
 			page_list.append(preload("res://scenes/epilogue/Betty3.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Betty4.tscn"))
 		page_list.append(preload("res://scenes/epilogue/Betty5.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Betty6.tscn"))
 		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
 
 func _on_next_screen_requested():

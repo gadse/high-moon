@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Main_Menu_Guitar_V2.ogg-7ef6093a1a6cdcf31c9870d38beb2d05.oggstr"
+
+[deps]
+
+source_file="res://scenes/main_menu/Main_Menu_Guitar_V2.ogg"
+dest_files=[ "res://.import/Main_Menu_Guitar_V2.ogg-7ef6093a1a6cdcf31c9870d38beb2d05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

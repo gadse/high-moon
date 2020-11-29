@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/lab/Charsprite_researcher_v2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/epilogue/EpiloguePage.tscn" type="PackedScene" id=2]
+
+[node name="Agnes3" instance=ExtResource( 2 )]
+
+[node name="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_right = 1296.0
+text = "Worse is the fact that she was the town’s only pharmacist and physician. There is now no one left to treat the sick and perform surgeries. As dubious as some of her skills seemed, folks now have to trek through the desert for hours to the next town to have their ails treated – and many do not make the journey."
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" index="1"]
+margin_left = 1300.0
+texture = ExtResource( 1 )

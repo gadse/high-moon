@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cool_Shorty_V2.ogg-c6fe82f70ca8d06b610d3d7290848f67.oggstr"
+
+[deps]
+
+source_file="res://scenes/sheriffs office/Cool_Shorty_V2.ogg"
+dest_files=[ "res://.import/Cool_Shorty_V2.ogg-c6fe82f70ca8d06b610d3d7290848f67.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
