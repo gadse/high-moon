@@ -1,3 +1,4 @@
+```
   ___ ___ .__       .__         _____                             ____ 
  /   |   \|__| ____ |  |__     /     \   ____   ____   ____      /  _ \  
 /    ~    \  |/ ___\|  |  \   /  \ /  \ /  _ \ /  _ \ /    \    /   \\ \ 
@@ -5,6 +6,7 @@
  \___|_  /|__\___  /|___|  / \____|__  /\____/ \____/|___|  /    \___d .)
        \/   /_____/      \/          \/                   \/         /_/  
 
+```
 # Welcome to High Moon!
 
 **This is a Mystery Text Adventure set right in the middle of a small town in the West.
@@ -24,7 +26,5 @@ by **handcrafted art** and a **unique soundtrack**.
 
 ## Ready? Get out your gun - it's High Moon!
 
-
-***********
 This game was created during the GitHub Game Off 2020 themed MOONSHOT -> https://itch.io/jam/game-off-2020
 This is version 1.0 - Have fun :)
