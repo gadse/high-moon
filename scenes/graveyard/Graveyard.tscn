@@ -6,5 +6,6 @@
 background_image = "res://scenes/graveyard/BG_graveyard.png"
 character_image = "res://scenes/graveyard/Charsprite_priest_v3.png"
 character_color = Color( 0.309804, 0.392157, 0.576471, 1 )
+background_music = "res://scenes/graveyard/Hit_The_Graveyard_William.ogg"
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

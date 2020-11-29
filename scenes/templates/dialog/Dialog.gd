@@ -20,6 +20,7 @@ export(String, FILE) var story_file
 export(String, FILE) var background_image
 export(String, FILE) var character_image
 export(Color, RGB) var character_color
+export(String, FILE) var background_music
 
 var is_click_to_leave_scene_enabled = false
 var expanded = false
@@ -40,6 +41,7 @@ onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/P
 func _ready():
 	self._fill_button_numbers_and_wire_signals()
 
+	$BackgroundMusic.stream = load(background_music)
 	self.texture = load(background_image)
 	$CharacterPicture.texture = load(character_image)
 	npc_text.add_color_override("default_color", character_color)
@@ -50,6 +52,7 @@ func _ready():
 
 	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
+	$BackgroundMusic.fade_in()
 
 func _fill_button_numbers_and_wire_signals():
 	if button_numbers.size() == 0:
@@ -126,6 +129,7 @@ func _update_content_to_current_passage():
 	var text = self.dialog_walker.get_npc_text()
 	if text == "Duel":
 		emit_signal("kill_scene_triggered")
+		$BackgroundMusic.fade_out()
 		$Fader.fade_out()
 	elif text == "Exit":
 		$ExtendableMarginContainer.visible = false
@@ -138,4 +142,5 @@ func _update_content_to_current_passage():
 
 func _on_Dialog_gui_input(event):
 	if event.is_pressed() and event.button_index == BUTTON_LEFT and is_click_to_leave_scene_enabled:
+		$BackgroundMusic.fade_out()
 		$Fader.fade_out()

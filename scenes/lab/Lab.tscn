@@ -7,5 +7,6 @@ story_file = "res://scenes/lab/Lab.tres"
 background_image = "res://scenes/lab/BG_lab.png"
 character_image = "res://scenes/lab/Charsprite_researcher_v2.png"
 character_color = Color( 0.309804, 0.611765, 0.415686, 1 )
+background_music = "res://scenes/lab/Four_Chord_Agnes.ogg"
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]
