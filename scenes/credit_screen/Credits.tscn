@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/credit_screen/Creditssprite_Peter_human.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
+size = 25
 font_data = ExtResource( 5 )
 
 [node name="Credits" type="TextureRect"]
@@ -149,9 +149,9 @@ margin_left = 304.0
 margin_right = 885.0
 margin_bottom = 314.0
 bbcode_text = "[center][color=red]Simone Kilian[/color]
-Main Writing"
+Writing"
 text = "Simone Kilian
-Main Writing"
+Writing"
 
 [node name="Adrian" parent="TeamContainer/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -178,32 +178,26 @@ Coding"
 text = "Adrian Schneble
 Coding"
 
-[node name="PanelContainer" type="PanelContainer" parent="TeamContainer/GridContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TeamContainer/GridContainer"]
 margin_left = 965.0
 margin_top = 696.0
 margin_right = 1880.0
 margin_bottom = 1040.0
 mouse_filter = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TeamContainer/GridContainer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 908.0
-margin_bottom = 337.0
-mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]We'd also like to thank:[/center]
+bbcode_text = "
+[center]We'd also like to thank:[/center]
 - The creators and contributors of the Godot game engine
 - The makers of What We Do In The Shadows for their wonderfully inspring Episode \"On The Run\"
 - Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic"
-text = "We'd also like to thank:
+text = "
+We'd also like to thank:
 - The creators and contributors of the Godot game engine
 - The makers of What We Do In The Shadows for their wonderfully inspring Episode \"On The Run\"
 - Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic"
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
-visible = false
 [connection signal="gui_input" from="." to="." method="_on_Credits_gui_input"]
 
 [editable path="TeamContainer/GridContainer/Peter"]
