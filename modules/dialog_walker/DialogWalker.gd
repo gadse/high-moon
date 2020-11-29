@@ -69,6 +69,8 @@ func _get_my_texts_from_choice(choice):
 	for option in choice["me"]:
 		if option.has("isSet") and not self.knowledge.has(option["isSet"]):
 			continue
+		if option.has("isNotSet") and self.knowledge.has(option["isNotSet"]):
+			continue
 		answers.append(option["text"])
 	return answers
 
@@ -108,7 +110,13 @@ func _change_npc_passage(passage_id):
 	self.current_flow_npc_line_index = 0
 	
 	if self.current_npc_passage.has("set"):
-		self.knowledge.append(self.current_npc_passage["set"])
+		var set_content = self.current_npc_passage["set"]
+		match typeof(set_content):
+			TYPE_STRING:
+				self.knowledge.append(self.current_npc_passage["set"])
+			TYPE_ARRAY:
+				for entry in set_content:
+					self.knowledge.append(entry)
 
 func _find_answer_option_with_text(text):
 	var options = self.current_player_passage["me"]

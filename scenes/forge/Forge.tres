@@ -1,0 +1,635 @@
+{
+	"start": [
+		{
+			"passageId": "youAgain",
+			"isSet": "DetectiveToldBettyHeKnowsAboutRelationshipWithJack"
+		},
+		"firstTimeStart"
+	],
+	"passages": {
+		"firstTimeStart": {
+			"type": "choice",
+			"npc": "The forge is closed. Go away.",
+			"me": [
+				{
+					"text": "I am actually here to ask you a few questions regarding the murder of Jack Daytona.",
+					"goto": "polite"
+				},
+				{
+					"text": "I don’t care! I am investigating a murder and you will give me answers!",
+					"goto": "direct"
+				},
+				{
+					"text": "I know about you and Jack. Please help me solve his murder.",
+					"isSet": "BettyHadRomanceWithJack",
+					"goto": "intro"
+				},
+				{
+					"text": "I understand your grief. I heard about you and Jack. Please, talk to me.",
+					"isSet": "BettyHadRomanceWithJack",
+					"goto": "intro"
+				},
+				{
+					"text": "I don’t know whether you meant to do it, but you killed Jack. I will bring you to justice.",
+					"isSet": "BettyCanBeDueled",
+					"goto": "duelConfirmation"
+				}
+			]
+		},
+		"polite": {
+			"type": "linear",
+			"flow": [
+				[
+					"I’ve already talked to the Sheriff."
+				],
+				[
+					"It won’t be long, I promise. It is really important."
+				],
+				[
+					"Yeah? I don’t care. Go away."
+				]
+			],
+			"goto": "exit"
+		},
+		"direct": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! Fuck off. Come back when you are the Sheriff of this godforsaken hole."
+				],
+				[
+					"You are acting sort of suspicious."
+				],
+				[
+					"Yeah? I don’t care. Go away."
+				]
+			],
+			"goto": "exit"
+		},
+		"intro": {
+			"type": "linear",
+			"set": "DetectiveToldBettyHeKnowsAboutRelationshipWithJack",
+			"flow": [
+				[
+					"W- What?!"
+				],
+				[
+					"I know you loved Jack. I need to talk to you."
+				]
+			],
+			"goto": "howDidYouKnow"
+		},
+		"howDidYouKnow": {
+			"type": "choice",
+			"npc": "How- how did you know? Jack promised to tell no one…",
+			"me": [
+				{
+					"text": "He didn’t. William shared his knowledge with me.",
+					"goto": "williamToldMe"
+				},
+				{
+					"text": "Well, seems he didn’t keep his promise then, doesn’t it?",
+					"goto": "jackToldPeople"
+				}
+			]
+		},
+		"williamToldMe": {
+			"type": "linear",
+			"flow": [
+				[
+					"I… I see. William and Jack were very close. He would have known, of course."
+				],
+				[
+					"Please, I need your help in solving this murder. Let me ask you some questions. For Jack."
+				],
+				[
+					"…Did you know Jack?"
+				],
+				[
+					"Yes, he was my friend. We traveled together for a while, got into quite a bit of mischief together."
+				],
+				[
+					"Oh, that was you! He- he told me about you. I… Very well, what do you want?"
+				]
+			],
+			"goto": "menu"
+		},
+		"jackToldPeople": {
+			"type": "linear",
+			"flow": [
+				[
+					"No! No, he promised! That’s not true!"
+				],
+				[
+					"Well, maybe I overexaggerated a little…"
+				],
+				[
+					"You… You miserable wretch. Get lost!"
+				],
+				[
+					"No, please wait! I did not mean to- I was Jack’s friend, that’s why I want to avenge him. Please talk to me, for him?"
+				],
+				[
+					"You are a real piece of work, you know that? Ask your stuff and then get lost."
+				]
+			],
+			"goto": "menu"
+		},
+		"menuWithQuestion": {
+			"type": "linear",
+			"flow": [
+				[
+					"Are we done now?"
+				]
+			],
+			"goto": "menu"
+		},
+		"menu": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Where were you last night when Jack was killed? And what did you do?",
+					"goto": "alibi"
+				},
+				{
+					"text": "Was there anything unusual you noticed yesterday?",
+					"goto": "notice"
+				},
+				{
+					"text": "Tell me a bit about yourself, please.",
+					"goto": "betty"
+				},
+				{
+					"text": "What do you think of Agnes Summerville?",
+					"goto": "agnes"
+				},
+				{
+					"text": "Anything interesting you can tell me about Sheriff Short?",
+					"goto": "lucas"
+				},
+				{
+					"text": "Do you know anything of interest about Reverend Pierce?",
+					"goto": "william"
+				},
+				{
+					"text": "What about Elizabeth Parker?",
+					"goto": "elizabeth"
+				},
+				{
+					"text": "I heard Jack and William were very close. As in, very, very close.",
+					"isSet": "WilliamWasFriendsWithJack",
+					"goto": "williamWasFriendsWithJack"
+				},
+				{
+					"text": "You have a bit of a reputation around town, you know that? Folks seem to think you can be quite volatile.",
+					"isSet": "BettyHasBadTemper",
+					"goto": "badTemper"
+				},
+				{
+					"text": "I don’t know whether you meant to do it, but you killed Jack.\nI will bring you to justice.",
+					"isSet": "BettyCanBeDueled",
+					"goto": "duelConfirmation"
+				},
+				{
+					"text": "I will be back later.",
+					"goto": "exit"
+				}
+			]
+		},
+		"alibi": {
+			"type": "linear",
+			"flow": [
+				[
+					"I… I was here. I went to bed early."
+				],
+				[
+					"Did anyone see that?"
+				],
+				[
+					"I live alone, what do you think?"
+				],
+				[
+					"I take that as a no."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"notice": {
+			"type": "linear",
+			"flow": [
+				[
+					"The moon was very bright. But not as bright and full as it is tonight."
+				],
+				[
+					"Uhm, okay?"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"betty": {
+			"type": "linear",
+			"flow": [
+				[
+					"I’m a blacksmith. I mainly forge horseshoes\nbut also anything else folks might need, from hinges to chandeliers.",
+					"Moved to town three years ago after Springdale was hit by bandits.\nI worked here ever since."
+				],
+				[
+					"How did you meet Jack?"
+				],
+				[
+					"He- He dropped by one day to buy a knife. We talked for a bit and…\nWhy do you even want to know?!"
+				],
+				[
+					"Curiosity. He wasn’t really the steady type when we traveled;\nI want to know what happened."
+				],
+				[
+					"Well, it’s none of your business! P- Please, leave it be."
+				],
+				[
+					"All right, sorry."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"agnes": {
+			"type": "linear",
+			"flow": [
+				[
+					"She’s horrible. She kept following me after I moved here, lurking around my house,\ntrying to peek into windows…",
+					"She attacked me, once.\nSheriff Short forbade her from being around me and my life is better for it."
+				],
+				[
+					"She attacked you?"
+				],
+				[
+					"Yes. Broke her wrist and her leg fending her off, that felt really good.\nThat woman is definitely dangerous, I tell you!"
+				],
+				[
+					"I’ll keep it in mind, thank you."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"lucas": {
+			"type": "choice",
+			"npc": "Quite a few things, actually. I don’t like him.",
+			"me": [
+				{
+					"text": "Why is that?",
+					"goto": "whyIsThat"
+				},
+				{
+					"text": "To be fair, do you like anyone?",
+					"goto": "likeAnyone"
+				}
+			]
+		},
+		"whyIsThat": {
+			"type": "linear",
+			"set": "LucasIsVampireHunter",
+			"flow": [
+				[
+					"J- Jack told me Short was following him, it was really strange.",
+					"He seemed to know where Jack was going, like he was watching him constantly,\nreally creepy.",
+					"And Short dropped by shortly after I had set up shop here.\nHe wanted to buy silver bullets."
+				],
+				[
+					"As in ‘for killing vampires’?"
+				],
+				[
+					"Or werewolves.\nHe sure as hell didn’t want them for one of those little swinging ball click toys."
+				],
+				[
+					"Do you think he might have killed Jack?"
+				],
+				[
+					"I… am not sure.",
+					"Jack and I feared Short might be a vampire hunter –\nthis was actually one of the reasons we kept everything a secret.",
+					"We- we wanted t- to elope together."
+				],
+				[
+					"I am sorry."
+				],
+				[
+					"Don’t be, just- just leave me be."
+				],
+				[
+					"I will make it quick."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"likeAnyone": {
+			"type": "linear",
+			"flow": [
+				[
+					"Oh, fuck off. I sure as hell know I don’t like you, and yet you keep pestering me."
+				],
+				[
+					"Sorry, that was rude. I- I will leave as soon as I know what I need to know."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"william": {
+			"type": "linear",
+			"set": "WilliamHadFightWithJack",
+			"flow": [
+				[
+					"I respect him. People think he’s weird but I believe he’s looking out for this town.",
+					"He was also Jack’s best friend.\nI know they had a fight the night- the night it happened; I have no idea about what.",
+					"But if you’re asking whether I believe he could have killed Jack: No."
+				],
+				[
+					"I will keep it in mind."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"elizabeth": {
+			"type": "linear",
+			"flow": [
+				[
+					"She banned me from her saloon after I got into one too many brawls.\nI bear her no enmity, though. I fucked up; it was my fault."
+				],
+				[
+					"All right, anything else?"
+				],
+				[
+					"No. We have not talked since; she sends her staff when she needs something."
+				],
+				[
+					"I see."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"williamWasFriendsWithJack": {
+			"type": "linear",
+			"flow": [
+				[
+					"I know those rumors; they’ve been around for a while.\nFrom what I know, they held a little merit just after Jack moved here.",
+					"But as soon as Pierce realized what Jack was aiming for, he put a stop to that.\nThe two of them remained close friends, though. And then…"
+				],
+				[
+					"Then?"
+				],
+				[
+					"After… After Jack became… interested in me, I have no doubt that he stopped pining for anyone else."
+				],
+				[
+					"Are you sure?"
+				],
+				[
+					"Absolutely."
+				],
+				[
+					"All right. I will keep it in mind."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"badTemper": {
+			"type": "choice",
+			"npc": "They’d be right.",
+			"me": [
+				{
+					"text": "Is… is there any particular reason for this?",
+					"goto": "badTemper1"
+				},
+				{
+					"text": "I was just asking because Jack was mauled, you know? And you seem to have a thing for violence.",
+					"goto": "badTemper2"
+				}
+			]
+		},
+		"badTemper1": {
+			"type": "linear",
+			"set": ["BettyIsWerewolf", "WilliamHadFightWithJack"],
+			"flow": [
+				[
+					"What do you know about Jack? About his… dietary habits?"
+				],
+				[
+					"He’s a vampire, I know."
+				]
+			],
+			"goto": "badTemper3"
+		},
+		"badTemper2": {
+			"type": "linear",
+			"flow": [
+				[
+					"W- What?! No! You don’t know what you’re talking about!"
+				],
+				[
+					"What am I talking about?"
+				]
+			],
+			"goto": "badTemper3"
+		},
+		"badTemper3": {
+			"type": "linear",
+			"flow": [
+				[
+					"I… I am a werewolf.",
+					"You wouldn’t understand, but whenever the moon is waxing,\nit is… increasingly hard to… to keep calm."
+				],
+				[
+					"Go on."
+				],
+				[
+					"I- I had a pact with Jack.",
+					"He was not supposed to visit me when it was close to full moon, because-\nbecause his presence made me very… emotional.",
+					"It would have been too dangerous."
+				],
+				[
+					"What happened?"
+				],
+				[
+					"He- He had a fight with William.\nHe was very upset and he came to visit me. Despite our pact.",
+					"I don’t- It- We- *Tears suddenly streak Betty’s cheeks.*"
+				],
+				[
+					"Hey… try to calm down and tell me what happened. I want to help you.",
+					"What did you do to him?!"
+				],
+				[
+					"H- he kissed me and I- I am not sure what happened afterwards.",
+					"I remember I started losing control and- and- and I woke up this morning,\nblood all over my hands and Jack was killed!",
+					"Oh god, I did it, didn’t I?!"
+				]
+			],
+			"goto": "wasItMe"
+		},
+		"wasItMe": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Very likely.",
+					"goto": "itWasYou"
+				},
+				{
+					"text": "Let’s… Let’s re-examine things before we come to any conclusions, yes?",
+					"goto": "evidence"
+				}
+			]
+		},
+		"itWasYou": {
+			"type": "linear",
+			"flow": [
+				[
+					"I… I can’t… I loved him…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"evidence": {
+			"type": "choice",
+			"npc": "What do we have to examine?",
+			"me": [
+				{
+					"text": "There was a gunshot. Transformed werewolves are far too animalistic to fire a gun.",
+					"isSet": "GunshotWasHeard",
+					"isNotSet": "DetectiveToldBettyAboutGunshot",
+					"goto": "gunshot"
+				},
+				{
+					"text": "You said Short stalked Jack and requested silver bullets from you.\nSilver bullets are needed for hunting and killing vampires.",
+					"isSet": "LucasIsVampireHunter",
+					"isNotSet": "DetectiveToldBettyAboutVampireHunter",
+					"goto": "vampireHunter"
+				},
+				{
+					"text": "Sheriff Short did not allow anyone to see Jack’s body. What if he hides evidence?\nWhat if Jack was not mauled as he told us, but was shot and he wants to keep it a secret?",
+					"isSet": "LucasHidesCorpse",
+					"isNotSet": "DetectiveToldBettyAboutCorpse",
+					"goto": "corpse"
+				},
+				{
+					"text": "What if you transformed, attacked him, but he fled and someone else killed him?\nThat would explain the blood on your hands.",
+					"isNotSet": "DetectiveToldBettyAboutOtherPossibleMurderer",
+					"goto": "youTransformed"
+				},
+				{
+					"text": "What do you think? Maybe you are not to blame after all!",
+					"isSet": "DetectiveToldAllImportantDetails",
+					"goto": "allClues"
+				},
+				{
+					"text": "What do you think? Maybe you are not to blame after all.",
+					"isNotSet": "DetectiveToldAllImportantDetails",
+					"goto": "notEnoughEvidence"
+				}
+			]
+		},
+		"gunshot": {
+			"type": "linear",
+			"set": "DetectiveToldBettyAboutGunshot",
+			"flow": [
+				[
+					"You… you’re right about that."
+				]
+			],
+			"goto": "evidence"
+		},
+		"vampireHunter": {
+			"type": "linear",
+			"set": "DetectiveToldBettyAboutVampireHunter",
+			"flow": [
+				[
+					"Yes, that was very strange."
+				]
+			],
+			"goto": "evidence"
+		},
+		"corpse": {
+			"type": "linear",
+			"set": "DetectiveToldBettyAboutCorpse",
+			"flow": [
+				[
+					"That is suspicious…"
+				]
+			],
+			"goto": "evidence"
+		},
+		"youTransformed": {
+			"type": "linear",
+			"set": "DetectiveToldBettyAboutOtherPossibleMurderer",
+			"flow": [
+				[
+					"Hmmm…"
+				]
+			],
+			"goto": "evidence"
+		},
+		"allClues": {
+			"type": "linear",
+			"flow": [
+				[
+					"You… You might be on to something. It doesn’t fit, it’s just too strange. I- I really hope you are right about this."
+				],
+				[
+					"I should probably ask Sheriff Short about his… hunting activities."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"notEnoughEvidence": {
+			"type": "linear",
+			"flow": [
+				[
+					"This leaves as many questions as it answers.\nIt is nice that you are looking into it, but you can give up. I- I probably did it."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"youAgain": {
+			"type": "linear",
+			"flow": [
+				[
+					"You again. What do you want?"
+				],
+				[
+					"I have some more questions."
+				],
+				[
+					"*sigh* Make it quick."
+				]
+			],
+			"goto": "menu"
+		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Betty Henderson?\nThis will end the game, even if she is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "menuWithQuestion"
+				}
+			]
+		},
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"Very well. But you picked a bad night for this…"
+				]
+			],
+			"goto": "duel"
+		},
+		"duel": {
+			"type": "choice",
+			"set": "BettyKilled",
+			"npc": "Duel"
+		},
+		"exit": {
+			"type": "choice",
+			"npc": "Exit"
+		}
+	}
+}

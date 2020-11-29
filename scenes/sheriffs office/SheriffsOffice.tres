@@ -117,7 +117,7 @@
 				{
 					"text": "I have made my decision. I challenge you to a duel!",
 					"isSet": "LucasCanBeDueled",
-					"goto": "duelChallenge"
+					"goto": "duelConfirmation"
 				},
 				{
 					"text": "I will be back later.",
@@ -376,29 +376,29 @@
 			],
 			"goto": "menu"
 		},
-		"duelChallenge": {
-			"type": "linear",
-			"flow": [
-				[
-					"Hah! Very well. I should thank you for giving me a reason to be rid of you!",
-					"You think I don’t know what you are, vampire? Ready your gun and I will put you back into your grave."
-				]
-			],
-			"goto": "duelConfirmation"
-		},
 		"duelConfirmation": {
 			"type": "choice",
 			"npc": "[color=white][Are you sure you want to duel Sheriff Short?\nThis will end the game, even if he is not really the murderer.][/color]",
 			"me": [
 				{
 					"text": "[Yes, I am sure.]",
-					"goto": "duel"
+					"goto": "duelChallenge"
 				},
 				{
 					"text": "[No, I'd like to investigate further.]",
 					"goto": "menuWithQuestion"
 				}
 			]
+		},
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! Very well. I should thank you for giving me a reason to be rid of you!\nYou think I don’t know what you are, vampire?",
+					"Ready your gun and I will put you back into your grave - just like I did with Jack."
+				]
+			],
+			"goto": "duel"
 		},
 		"duel": {
 			"type": "choice",

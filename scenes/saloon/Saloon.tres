@@ -243,7 +243,7 @@
 				{
 					"text": "I have made my decision. I challenge you to a duel!",
 					"isSet": "ElizabethCanBeDueled",
-					"goto": "duelChallenge"
+					"goto": "duelConfirmation"
 				},
 				{
 					"text": "I will be back later.",
@@ -589,6 +589,20 @@
 			],
 			"goto": "somethingElse"
 		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Elizabeth Parker?\nThis will end the game, even if she is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "somethingElse"
+				}
+			]
+		},
 		"duelChallenge": {
 			"type": "linear",
 			"flow": [
@@ -597,21 +611,7 @@
 					"Just wait until I have my gun, you’ll pay for this farce!"
 				]
 			],
-			"goto": "duelConfirmation"
-		},
-		"duelConfirmation": {
-			"type": "choice",
-			"npc": "[color=white][Are you sure you want to duel Elizabeth Parker?\nThis will end the game, even if she is not really the murderer.][/color]",
-			"me": [
-				{
-					"text": "[Yes, I am sure.]",
-					"goto": "duel"
-				},
-				{
-					"text": "[No, I'd like to investigate further.]",
-					"goto": "somethingElse"
-				}
-			]
+			"goto": "duel"
 		},
 		"duel": {
 			"type": "choice",

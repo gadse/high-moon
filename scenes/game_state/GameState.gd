@@ -22,6 +22,13 @@ enum KnowledgePiece {
 	
 	GunshotWasHeard,
 	
+	DetectiveToldBettyAboutGunshot,
+	DetectiveToldBettyAboutVampireHunter,
+	DetectiveToldBettyAboutCorpse,
+	DetectiveToldAllImportantDetails,
+	DetectiveToldBettyAboutOtherPossibleMurderer,
+	DetectiveToldBettyHeKnowsAboutRelationshipWithJack,
+	
 	AgnesIsObsessed,
 	AgnesPerformedDissection,
 	
@@ -51,33 +58,38 @@ func append(enumString):
 	self._update_dependent_values()
 
 func _update_dependent_values():
-	self._update_CanBeDueled(KnowledgePiece.AgnesCanBeDueled,
+	self._update_dependent_value(KnowledgePiece.AgnesCanBeDueled,
 		[KnowledgePiece.AgnesIsObsessed, KnowledgePiece.AgnesPerformedDissection],
 		1)
 
-	self._update_CanBeDueled(KnowledgePiece.BettyCanBeDueled,
+	self._update_dependent_value(KnowledgePiece.BettyCanBeDueled,
 		[KnowledgePiece.BettyHasBadTemper, KnowledgePiece.BettyIsWerewolf,
 		 KnowledgePiece.BettyHadRomanceWithJack, KnowledgePiece.BettyHadIncidentWithJack],
 		2)
 
-	self._update_CanBeDueled(KnowledgePiece.ElizabethCanBeDueled,
+	self._update_dependent_value(KnowledgePiece.ElizabethCanBeDueled,
 		[KnowledgePiece.ElizabethsHusbandsDisappeared, KnowledgePiece.ElizabethLoanedMoneyToJack],
 		1)
-	
-	self._update_CanBeDueled(KnowledgePiece.LucasCanBeDueled,
+
+	self._update_dependent_value(KnowledgePiece.LucasCanBeDueled,
 		[KnowledgePiece.LucasIsVampireHunter, KnowledgePiece.LucasHidesCorpse],
 		1)
-	
-	self._update_CanBeDueled(KnowledgePiece.WilliamCanBeDueled,
+
+	self._update_dependent_value(KnowledgePiece.WilliamCanBeDueled,
 		[KnowledgePiece.WilliamWasBandit, KnowledgePiece.WilliamHadFightWithJack],
 		1)
 
-func _update_CanBeDueled(can_be_dueled_enum, test_array, number_of_required_enums):
-	if self.player_knowledge.has(can_be_dueled_enum):
+	self._update_dependent_value(KnowledgePiece.DetectiveToldAllImportantDetails,
+		[KnowledgePiece.DetectiveToldBettyAboutCorpse, KnowledgePiece.DetectiveToldBettyAboutGunshot,
+		KnowledgePiece.DetectiveToldBettyAboutVampireHunter],
+		3)
+
+func _update_dependent_value(dependent_enum, test_array, number_of_required_enums):
+	if self.player_knowledge.has(dependent_enum):
 		return
 	
 	if self._intersect(self.player_knowledge, test_array).size() >= number_of_required_enums:
-		self.player_knowledge.append(can_be_dueled_enum)
+		self.player_knowledge.append(dependent_enum)
 
 func _intersect(left, right):
 	var intersection = []

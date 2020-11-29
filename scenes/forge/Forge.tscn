@@ -3,6 +3,8 @@
 [ext_resource path="res://scenes/templates/dialog/Dialog.tscn" type="PackedScene" id=1]
 
 [node name="Forge" instance=ExtResource( 1 )]
+story_file = "res://scenes/forge/Forge.tres"
+background_image = "res://scenes/forge/BG_forge.png"
 character_image = "res://scenes/forge/Charsprite_Blacksmith_v1.png"
 character_color = Color( 0.705882, 0.498039, 0.498039, 1 )
 

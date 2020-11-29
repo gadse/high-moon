@@ -71,7 +71,7 @@
 				{
 					"text": "I’ve concluded my investigation. I think you killed Jack, Agnes.\nI challenge you to a duel.",
 					"isSet": "AgnesCanBeDueled",
-					"goto": "duelChallenge"
+					"goto": "duelConfirmation"
 				},
 				{
 					"text": "I will be back later.",
@@ -569,6 +569,20 @@
 			],
 			"goto": "menu"
 		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Agnes?\nThis will end the game, even if she is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "menuWithQuestion"
+				}
+			]
+		},
 		"duelChallenge": {
 			"type": "linear",
 			"flow": [
@@ -580,21 +594,7 @@
 					"I’ve never dueled anyone; I’ll need them to record my findings."
 				]
 			],
-			"goto": "duelConfirmation"
-		},
-		"duelConfirmation": {
-			"type": "choice",
-			"npc": "[color=white][Are you sure you want to duel Agnes?\nThis will end the game, even if she is not really the murderer.][/color]",
-			"me": [
-				{
-					"text": "[Yes, I am sure.]",
-					"goto": "duel"
-				},
-				{
-					"text": "[No, I'd like to investigate further.]",
-					"goto": "menuWithQuestion"
-				}
-			]
+			"goto": "duel"
 		},
 		"duel": {
 			"type": "choice",
