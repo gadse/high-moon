@@ -1,0 +1,601 @@
+{
+	"start": [
+			{
+				"passageId": "alreadyTalkedStart",
+				"isSet": "TalkedWithWilliam"
+			},
+			"firstTimeStart"
+	],
+	"passages": {
+		"firstTimeStart": {
+			"type": "choice",
+			"set": "TalkedWithWilliam",
+			"npc": "Oh, a late visitor. Welcome! Our church is always open. Tell me, what can I do for you?\nDo you have a confession weighting on your soul?",
+			"me": [
+				{
+					"text": "Actually, I am looking for one, though I’m not sure yet who’ll confess to me.\nI am investigating Jack’s murder and want to catch the killer.",
+					"goto": "friendlyHello"
+				},
+				{
+					"text": "I hope you’re ready to confess! I came to find out if you murdered Jack!",
+					"goto": "hostileHello"
+				}
+			]
+		},
+		"friendlyHello": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, I see. A horrible tragedy. Are you a friend of Jack’s?\nYou… seem to share his… pallor."
+				]
+			],
+			"goto": "vampirismDiscussion"
+		},
+		"hostileHello": {
+			"type": "linear",
+			"flow": [
+				[
+					"I’ll go ahead and conclude you’re one of his friends and your grief makes you this wrathful. Take a step closer, into the light. Ah, yes. You share his… condition."
+				]
+			],
+			"goto": "vampirismDiscussion"
+		},
+		"vampirismDiscussion": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Yes. He told you about it?",
+					"goto": "vampirismYes"
+				},
+				{
+					"text": "Maybe. Is it of importance?",
+					"goto": "vampirismMaybe"
+				},
+				{
+					"text": "I have no idea what you are talking about.",
+					"goto": "vampirismNo"
+				}
+			]
+		},
+		"vampirismYes": {
+			"type": "linear",
+			"flow": [
+				[
+					"He did. Many, many times. He took great pride in it."
+				],
+				[
+					"Yeah, sounds like him."
+				]
+			],
+			"goto": "whatDoYouWant"
+		},
+		"vampirismMaybe": {
+			"type": "linear",
+			"flow": [
+				[
+					"No, not to me, it is not. But to others it might be. I’ll keep it to myself."
+				],
+				[
+					"Uh, thank you, I guess…"
+				]
+			],
+			"goto": "whatDoYouWant"
+		},
+		"vampirismNo": {
+			"type": "linear",
+			"flow": [
+				[
+					"I understand. Don’t worry, your secret is safe with me."
+				],
+				[
+					"Uh, thank you, I guess…"
+				]
+			],
+			"goto": "whatDoYouWant"
+		},
+		"whatDoYouWant": {
+			"type": "linear",
+			"flow": [
+				[
+					"I take it you came here to ask me questions about last night.",
+					"I have to prepare Jack’s funeral as soon as Sheriff Short delivers his corpse to me,\nbut until then, we can talk, if you insist."
+				],
+				[
+					"It is important. Don’t you want his killer to be brought to justice?"
+				],
+				[
+					"Of course I do. I just usually prefer listening to talking. Oh, very well.\nWhat do you want to know?"
+				]
+			],
+			"goto": "menu"
+		},
+		"menu": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Tell me what you did last night when Jack was murdered.",
+					"goto": "actionsLastNight"
+				},
+				{
+					"text": "Did you notice anything unusual last night?",
+					"goto": "noticeLastNight"
+				},
+				{
+					"text": "Tell me a bit about yourself, please.",
+					"goto": "aboutYou"
+				},
+				{
+					"text": "What do you think of Elizabeth Parker?",
+					"goto": "aboutLiz"
+				},
+				{
+					"text": "Anything interesting you can tell me about Agnes Somerville?",
+					"goto": "aboutAgnes"
+				},
+				{
+					"text": "Do you know anything of interest about Sheriff Short?",
+					"goto": "aboutSheriff"
+				},
+				{
+					"text": "What about Betty Henderson?",
+					"goto": "aboutBetty"
+				},
+				{
+					"text": "I heard you and Jack spent a lot of time together and that you were… very close.\nMore so than friends are.",
+					"isSet": "WilliamWasFriendsWithJack",
+					"goto": "relationshipWithJack"
+				},
+				{
+					"text": "I heard that you and Jack had a fight the night he was killed.",
+					"isSet": "WilliamHadFightWithJack",
+					"goto": "fightWithJack"
+				},
+				{
+					"text": "I have learned some interesting things about your past…",
+					"isSet": "WilliamWasBandit",
+					"goto": "banditPast"
+				},
+				{
+					"text": "I have made my decision, William. You are most likely to be the murderer. Draw!",
+					"isSet": "WilliamCanBeDueled",
+					"goto": "duelConfirmation"
+				},
+				{
+					"text": "I will be back later.",
+					"goto": "exit"
+				}
+			]
+		},
+		"moreQuestions": {
+			"type": "linear",
+			"flow": [
+				[
+					"Did you have any more questions?"
+				]
+			],
+			"goto": "menu"
+		},
+		"actionsLastNight": {
+			"type": "linear",
+			"flow": [
+				[
+					"Jack and I took a walk together. We split up, and I made my way back here.\nI did not leave the house after that and spent my night reading until I went to bed."
+				],
+				[
+					"I see. Can anyone confirm that?"
+				],
+				[
+					"No, I was on my own. If you ask around town, people might tell you that I’m a bit reclusive."
+				],
+				[
+					"I see."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"noticeLastNight": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hmm… No, not especially, I am sorry. As I said, I was here on my own for most of the night."
+				],
+				[
+					"Hm, all right."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"aboutYou": {
+			"type": "linear",
+			"flow": [
+				[
+					"I fear I’m not particularly interesting.\nI moved into town a few years ago and their priest had died about a month before.",
+					"So, I took up the mantle and found it suited me.\nOur old undertaker retired about a year ago, so I’ve been doing that as well ever since.",
+					"I mainly provide guidance and an open ear to anyone who needs it."
+				],
+				[
+					"Did you know Jack well?"
+				],
+				[
+					"Yes. We were close friends actually."
+				]
+			],
+			"goto": "jackDiedReaction"
+		},
+		"jackDiedReaction": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "You don't seem all that moved by his death.",
+					"goto": "notMoved"
+				},
+				{
+					"text": "I am sorry for your loss.",
+					"goto": "sorryLoss"
+				}
+			]
+		},
+		"notMoved": {
+			"type": "linear",
+			"flow": [
+				[
+					"And what? That makes me suspicious?\nI have shed my tears for him in private and I am a pragmatic man.",
+					"Not only do I see no need for turning it into a public spectacle, I also find it distasteful.\nWhat do you expect me to do?",
+					"Cry into your shoulder? My grief for Jack is a private thing\nand I won't defile it by putting on a show for you, no offense."
+				],
+				[
+					"Uh, none taken, I guess…"
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"sorryLoss": {
+			"type": "linear",
+			"flow": [
+				[
+					"Thank you. It is our loss I guess, since you were his friend as well.\nMaybe… Ah, another time."
+				],
+				[
+					"He was a good fellow. *sigh*"
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"aboutLiz": {
+			"type": "linear",
+			"set": [
+				"ElizabethHadManyHusbands",
+				"ElizabethLoanedMoneyToJack"
+			],
+			"flow": [
+				[
+					"I would suggest you put Mrs. Parker under close scrutiny.",
+					"Whenever men vanish under suspicious circumstances in this town, she is never far.\nThe Sheriff said Jack was found behind the saloon?",
+					"We couldn’t prove that she killed her seven husbands back in the day,\nbut maybe we can prove her involvement this time."
+				],
+				[
+					"Seven husbands?!"
+				],
+				[
+					"Oh yes. She took to marrying out of town when I disagreed to give my blessing and conduct the ceremony after the third.",
+					"They all vanished under strange circumstances.\nAfter she got them to change their last wills to endorse her as the sole heir, that is."
+				],
+				[
+					"Very suspicious. Do you know what her relationship with Jack was?"
+				],
+				[
+					"She showed interest in Jack before.\nI guess if he suddenly came upon riches, she would be the second one to know about it.",
+					"She is well-informed. And she would be all over him. The only reason I don't think that's what happened is because I'd be the first to hear about it.",
+					"And while he did not like to talk about it, I am rather sure he owed her a large sum of money. She liked to flirt with him though, so who knows?",
+					"Then again, she is shameless. She even tried to make moves on me before, hah!\nI've seen my share of vipers; I won't fall for one as obvious as her.",
+					"But Jack spent a lot of time in the saloon.\nMaybe he found out something he shouldn't have? About her husbands for example?"
+				],
+				[
+					"Hm, maybe. Thanks."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"aboutAgnes": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hm. Mrs. Somerville is a friendly young lady, I guess.",
+					"I know she has endless curiosity for the world around herself,\nwhich is a good trait if some moderation is applied.",
+					"She lacks that as of yet, but I hope she might acquire it with age.\nI don’t think she committed the murder."
+				],
+				[
+					"Why is that?"
+				],
+				[
+					"Because the corpse was found, obviously.\nIf she had killed Jack, she would have dissected him.",
+					"The Sheriff found the corpse and for all I heard,\nJack was not methodically taken apart as she is wont to do in her studies.",
+					"Trust me, I was the one holding the funeral of someone she dissected a while back.\nShe doesn’t care about conventions, yes, but she is not messy. That’s not her style."
+				],
+				[
+					"I will keep it in mind."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"aboutSheriff": {
+			"type": "linear",
+			"flow": [
+				[
+					"I have to admit that I am… not entirely sure what to make of Sheriff Short.\nHe is always polite, I suppose…"
+				],
+				[
+					"But?"
+				],
+				[
+					"I used to think he was a decent man, but recently, I started having doubts.\nJack mentioned that he kept running into him at night.",
+					"I would not have given that much thought, but a while back,\nhe asked me if I would bless something for him.",
+					"He said he’d show me, but when he visited the following evening, Jack was just here.\nAnd after he had seen us talk, he just left and never asked me about it again.",
+					"He had a bundle with him, about a cubit long and with a pointy end."
+				],
+				[
+					"You think it might have been wooden stakes."
+				],
+				[
+					"Maybe it was. Maybe not. Who knows? Now it is up to you to find out the truth, I guess."
+				],
+				[
+					"It seems so."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"aboutBetty": {
+			"type": "linear",
+			"flow": [
+				[
+					"She keeps to herself, much like myself. That’s why we’ve exchanged few words.\nBut I respect her.",
+					"From what I’ve heard, she’s supremely good at her craft.",
+					"I do not know her well enough to tell you whether\nshe would murder someone though, sorry."
+				],
+				[
+					"I see."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"relationshipWithJack": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! So, you heard the gossip and snatched it right up.",
+					"I had hoped the fate of our town rests in the hands of a more skillful investigator than that, one who does not simply believe the first rumors and hearsay they stumble upon.",
+					"I fear I will have to disappoint you.\nI have no taste for men - and Jack had his heart set on another, anyway.",
+					"We were close, that much is true - close friends, no more and no less."
+				]
+			],
+			"goto": "relationship2"
+		},
+		"relationship2": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "All right, all right.",
+					"goto": "moreQuestions"
+				},
+				{
+					"text": "“Had his heart set on another”?",
+					"goto": "heartAnother"
+				}
+			]
+		},
+		"heartAnother": {
+			"type": "linear",
+			"set": "BettyHadRomanceWithJack",
+			"flow": [
+				[
+					"Yes. He courted a young woman he wished to marry."
+				],
+				[
+					"Does she live here in town?"
+				],
+				[
+					"She does."
+				],
+				[
+					"Well?! Out with it already!",
+					"Her name, William. What is her name?"
+				],
+				[
+					"I… had promised to keep this a secret until they’d taken their vows in front of me.\nBut I guess there is no point anymore, not after what happened.",
+					"It is Betty Henderson."
+				],
+				[
+					"The blacksmith?!"
+				],
+				[
+					"To my knowledge, there is only one Betty Henderson living in this to-"
+				],
+				[
+					"All right, all right. I just… have trouble picturing Jack settling down with anyone."
+				],
+				[
+					"You are not alone with that.\nBut they have been secretly exchanging letters for almost a year now.",
+					"Surprising, is it not? Very steady for Jack’s standards."
+				],
+				[
+					"It is …was. Why the secrecy, though?"
+				],
+				[
+					"Jack was worried because, well, he was a vampire like you.\nBetty is something different entirely…"
+				]
+			],
+			"goto": "bettyWas"
+		},
+		"bettyWas": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Don’t tell me…",
+					"goto": "werewolf"
+				},
+				{
+					"text": "A werewolf, I know.",
+					"isSet": "BettyIsWerewolf",
+					"goto": "werewolf"
+				}
+			]
+		},
+		"werewolf": {
+			"type": "choice",
+			"set": "BettyIsWerewolf",
+			"npc": "Indeed, a werewolf. And because of the feud between your people,\nthey decided to keep it a secret.",
+			"me": [
+				{
+					"text": "Understandable.",
+					"goto": "moreQuestions"
+				},
+				{
+					"text": "Eww. A werewolf. That’s disgusting.",
+					"goto": "werewolvesAreDisgusting"
+				}
+			]
+		},
+		"werewolvesAreDisgusting": {
+			"type": "linear",
+			"flow": [
+				[
+					"Your friendship could not have been worth much if you would judge Jack for who he fell in love with. I am glad he never introduced us."
+				],
+				[
+					"But I-"
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"fightWithJack": {
+			"type": "linear",
+			"flow": [
+				[
+					"Oh, Mrs. Somerville could not keep her mouth shut, I take it."
+				],
+				[
+					"It matters not who told me.",
+					"Uh, yeah. It was her. But how did you know?"
+				],
+				[
+					"It must have been Agnes because she is the only one who was persistent and curious enough to uncover what I had hoped to leave behind.",
+					"So. She told you that she suspects I led a bandit gang, correct?"
+				],
+				[
+					"Yeah."
+				],
+				[
+					"What will you do now? You arrived here without Sheriff Short. All on your own."
+				],
+				[
+					"I am armed."
+				],
+				[
+					"I know. And it is meaningless, since I have no interest in bringing you harm.\nI will not confirm nor deny anything about my past.",
+					"But let me tell you this: I came here to seek refuge from violence and bloodshed.\nI came here to help, not hurt.",
+					"And to be a better man than I was before. Leave my past be.\nIt will not help solve your case."
+				],
+				[
+					"I just thought…"
+				],
+				[
+					"If I wanted to murder someone, do you not think I could find someone better than my only friend in town?"
+				],
+				[
+					"Hm."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"banditPast": {
+			"type": "linear",
+			"flow": [
+				[
+					"Oh, Mrs. Somerville could not keep her mouth shut, I take it."
+				],
+				[
+					"It matters not who told me.",
+					"Uh, yeah. It was her. But how did you know?"
+				],
+				[
+					"It must have been Agnes because she is the only one who was persistent\nand curious enough to uncover what I had hoped to leave behind.",
+					"So. She told you that she suspects I led a bandit gang, correct?"
+				],
+				[
+					"Yeah."
+				],
+				[
+					"What will you do now? You arrived here without Sheriff Short. All on your own."
+				],
+				[
+					"I am armed."
+				],
+				[
+					"I know. And it is meaningless, since I have no interest in bringing you harm.\nI will not confirm nor deny anything about my past.",
+					"But let me tell you this: I came here to seek refuge from violence and bloodshed.\nI came here to help, not hurt.",
+					"And to be a better man than I was before. Leave my past be.\nIt will not help solve your case."
+				],
+				[
+					"I just thought…"
+				],
+				[
+					"If I wanted to murder someone, do you not think I could find someone better\nthan my only friend in town?"
+				],
+				[
+					"Hm."
+				]
+			],
+			"goto": "moreQuestions"
+		},
+		"alreadyTalkedStart": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, you are back. Was there something else you needed?"
+				],
+				[
+					"Indeed. I have some more questions."
+				],
+				[
+					"Very well. Ask away."
+				]
+			],
+			"goto": "menu"
+		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Reverend Pierce?\nThis will end the game, even if he is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "moreQuestions"
+				}
+			]
+		},
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"It seems I must take up my gun again for one last time. Hah, but I don't fear you!",
+					"I won't let an incompetent fool such as yourself drag Jack's memory through the dirt\nwith your laughable farce of an investigation!",
+					"As you wish, prepare yourself!"
+				]
+			],
+			"goto": "duel"
+		},
+		"duel": {
+			"type": "choice",
+			"set": "WilliamKilled",
+			"npc": "Duel"
+		},
+		"exit": {
+			"type": "choice",
+			"npc": "Exit"
+		}
+  }
+}
