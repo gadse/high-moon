@@ -275,6 +275,7 @@
 		},
 		"notice": {
 			"type": "linear",
+			"set": "GunshotWasHeard",
 			"flow": [
 				[
 					"Actually, I did. Was a pretty busy night yesterday and we had a rowdy crowd here,\nbut I remember hearing something.",

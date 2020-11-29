@@ -124,6 +124,7 @@
 		},
 		"notice": {
 			"type": "linear",
+			"set": "GunshotWasHeard",
 			"flow": [
 				[
 					"Oh yes, there was, actually!\nI think I heard a gunshot when I was on my way back to the lab.",

@@ -20,6 +20,8 @@ enum KnowledgePiece {
 	LucasKilled,
 	WilliamKilled,
 	
+	GunshotWasHeard,
+	
 	AgnesIsObsessed,
 	AgnesPerformedDissection,
 	
