@@ -594,12 +594,23 @@
 				[
 					"What?! You’re mad! I told you I didn’t do it! You stupid, pitiful idiot!",
 					"Just wait until I have my gun, you’ll pay for this farce!"
-				],
-				[
-					"Let's get to it!"
 				]
 			],
-			"goto": "duel"
+			"goto": "duelConfirmation"
+		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Elizabeth Parker?\nThis will end the game, even if she is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duel"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "somethingElse"
+				}
+			]
 		},
 		"duel": {
 			"type": "choice",

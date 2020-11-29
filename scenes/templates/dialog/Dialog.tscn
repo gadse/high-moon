@@ -250,7 +250,6 @@ custom_fonts/font = SubResource( 6 )
 text = "Click to continue..."
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
-visible = false
 [connection signal="gui_input" from="." to="." method="_on_Dialog_gui_input"]
 [connection signal="pressed" from="ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton" to="." method="_on_ExpandButton_pressed"]
 

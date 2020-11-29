@@ -1,0 +1,608 @@
+{
+	"start": "start",
+	"passages": {
+		"start": {
+			"set": "TalkedWithAgnes",
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, if it isn’t my very favorite vampire friend!\nWhat can I do for you?"
+				],
+				[
+					"Shh Agnes, keep it down, will you? I need to ask you a few things."
+				],
+				[
+					"Sure! Ask away! But once we’re done, can I touch your fangs?"
+				],
+				[
+					"…Let’s focus on the questions first."
+				],
+				[
+					"All right, all right."
+				]
+			],
+			"goto": "menu"
+		},
+		"menuWithQuestion": {
+			"type": "linear",
+			"flow": [
+				[
+					"Anything else you wanted? Or is it fang-time already?"
+				]
+			],
+			"goto": "menu"
+		},
+		"menu": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Can you tell me what you did last night when Jack was murdered?",
+					"goto": "alibi"
+				},
+				{
+					"text": "Anything unusual you noticed last night?",
+					"goto": "notice"
+				},
+				{
+					"text": "How did we meet again?",
+					"goto": "meet"
+				},
+				{
+					"text": "What do you think of William Pierce?",
+					"goto": "william"
+				},
+				{
+					"text": "Anything interesting you can tell me about Elizabeth Parker?",
+					"goto": "elizabeth"
+				},
+				{
+					"text": "Do you know anything of interest about Betty Henderson?",
+					"goto": "betty"
+				},
+				{
+					"text": "What about Sheriff Short?",
+					"goto": "lucas"
+				},
+				{
+					"text": "I know something about Betty that might interest you. She’s a werewolf.",
+					"isSet": "BettyIsWerewolf",
+					"goto": "bettyIsWerewolf"
+				},
+				{
+					"text": "I’ve concluded my investigation. I think you killed Jack, Agnes.\nI challenge you to a duel.",
+					"isSet": "AgnesCanBeDueled",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "I will be back later.",
+					"goto": "exit"
+				}
+			]
+		},
+		"alibi": {
+			"type": "linear",
+			"flow": [
+				[
+					"I was here at my lab, reading through my notes on local spirit sightings.",
+					"Later, I packed up my equipment and made my way over to the cemetery.",
+					"You see, last time I was there, I collected some fascinating data!\nWait, I have it around here somewhere…"
+				],
+				[
+					"Agnes, focus. What else did you do?"
+				],
+				[
+					"Hmm? Oh. I was not out for long.",
+					"When I was back here, I sorted the records about my findings on reactions of supernatural blood components… and then, I fell asleep on them."
+				],
+				[
+					"Uh, all right?"
+				],
+				[
+					"It happens sometimes. Sleep is for the weak!"
+				],
+				[
+					"Sure. Did you see someone?"
+				],
+				[
+					"No, unfortunately not.\nBut then again, some of the equipment might not be fully functional just yet.",
+					"My nightvision-enhanced ectoplasmatic spiritograph still acts up sometimes-"
+				],
+				[
+					"People, Agnes. Not spirits. Did you run into anyone?"
+				],
+				[
+					"Technically, spirits are- Okay, okay. Don’t give me that look.",
+					"No, I did not see anyone fleshy, but I was wearing my nightvisio- my ghost glasses.",
+					"It is a little hard to see anything else but spirits through them, to be honest.",
+					"I had a concussion three weeks ago because I tripped while wearing them,\nbut thankfully, they were not damaged. Lucky me!"
+				],
+				[
+					"Yeahhh, sure…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"notice": {
+			"type": "linear",
+			"flow": [
+				[
+					"Oh yes, there was, actually!\nI think I heard a gunshot when I was on my way back to the lab.",
+					"Probably scared away all the ghosts.",
+					"And I measured really cryptic endo-lapivastitic waves, which might be caused by the moon phase – but I figured you’d rather be interested in the gunshot."
+				]
+			],
+			"goto": "ghostChoice"
+		},
+		"ghostChoice": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Yeah. Any idea where that shot came from?",
+					"goto": "gunshot"
+				},
+				{
+					"text": "No, please, tell me about the lap-diva waves!",
+					"goto": "ghostStuff"
+				}
+			]
+		},
+		"gunshot": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hm, I didn’t see much to be honest. I was wearing special equipment to see ghosts.",
+					"But I always count my steps wherever I go, so I know it was approximately when I passed the saloon."
+				],
+				[
+					"You count your steps?!"
+				],
+				[
+					"Sure. I thought if one of my experiments ever costs me my eyesight,\nI’ll have an easier time adjusting."
+				],
+				[
+					"You know what, I’m not even going to ask. What did you do after you heard the shot?"
+				],
+				[
+					"What did I do? Uh, nothing, why?"
+				],
+				[
+					"Nothing?!"
+				],
+				[
+					"Yes? A gun going off is not a supernatural phenomenon, is it?"
+				],
+				[
+					"Yes, but- You know what? Forget it."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"ghostStuff": {
+			"type": "linear",
+			"flow": [
+				[
+					"Seriously? Sure!",
+					"So, they are actually called endo-lapivastitic waves because they typically originate from inside of specific rock types of badlands under certain astronomical influences.",
+					"They were discovered in 1673 and can be measured by…",
+					"*Agnes gives you a lengthy lecture and\nshows you a heap of diagrams you don’t understand. This might take a while.*"
+				],
+				[
+					"*You finally manage to interrupt Agnes* Very interesting!\nThank you so much, but I’ll have to get back to the investigation now."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"meet": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah, you’re funny.",
+					"That was back when Jack had that accident with his coat seam,\nthe longhorn bull and the sack of nails.",
+					"Oh, and Liz’s reserve whiskey. You remember?\nYou brought him here for me to patch him up."
+				],
+				[
+					"Oh, dear. Yes, I remember."
+				],
+				[
+					"Lucky him. If he hadn’t been a vampire, he would not have survived that.",
+					"I’d just recently taken over the apothecary back then, after Pa died.\nWas in business for an entirety of two weeks, everything went well…",
+					"And then, the two of you rode into town and the next day, I had my first emergency!"
+				],
+				[
+					"Well, you were calm enough to ask him if he really needed both his kidneys while you were busy stuffing his guts back in."
+				],
+				[
+					"It would have been a contribution to medicine!\nThere is still almost no research on the renal physiology of vampires!"
+				],
+				[
+					"It was almost a contribution to the graveyard."
+				],
+				[
+					"Yes, but lucky for you, I turned out to be a master surgeon!\nWho would’ve thought? Not me for sure!"
+				],
+				[
+					"I remember we later invited you for a drink…"
+				],
+				[
+					"Yup. Because you couldn’t pay my bill and Jack tried to seduce me into letting it go."
+				],
+				[
+					"You threatened to “take some samples where the sun never shines” and pulled out a scalpel…"
+				],
+				[
+					"And then, I enlisted both of you as my field research projects and\nconnection to the supernatural world."
+				],
+				[
+					"I eventually paid you back, though."
+				],
+				[
+					"Yeah, but Jack never did.",
+					"I felt free to transfer his debt to you after his death, since you’re probably the second-closest friend he had and William can be creepy and I’m a tiny bit scared of him."
+				],
+				[
+					"Wait, what?! That’s really unfa-"
+				],
+				[
+					"Do you want to find out if I still have the scalpel?"
+				],
+				[
+					"No! All right, all right."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"william": {
+			"type": "linear",
+			"flow": [
+				[
+					"He’s nice, isn’t he? I like him.\nToo bad he probably isn’t a vampire.",
+					"Just regular pale and creepy.\nI once broke into his house and he wasn’t even that mad."
+				],
+				[
+					"Wait, what?"
+				],
+				[
+					"I wanted to measure something a few years back when I just started my ghost research.\nI thought, where is the most haunted place in town?",
+					"I went there a few nights, but I always saw a flicker of light through the church windows,\nit looked really spooky, so I had to investigate.",
+					"Turns out, William makes an evening round by candlelight to check if everything is in order and then goes to bed to read for a bit.",
+					"But if something is not in order –\nif, say, someone forced open a window and climbed inside to catch a ghost…",
+					"Well, let’s just say he isn’t any less intimidating without his hat on."
+				],
+				[
+					"So, what did he do?"
+				],
+				[
+					"Not much. Asked me what I was doing. Later, we drank a cup of tea together.\nHe’s always pretty nice to me.",
+					"I know you’re asking because of Jack. Don’t worry.\nI don’t think he’s killed anyone in years."
+				],
+				[
+					"Wait. As in, he did so in the past?"
+				],
+				[
+					"Ah, noo… He surely didn’t. Hey, wanna see my notes on an alien rabbit\nI saw some months ago? I even made a cute drawing!"
+				]
+			],
+			"goto": "convinceAgnes"
+		},
+		"convinceAgnes": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Agnes, you are a terrible liar. Tell me what you know about him.",
+					"goto": "moreAboutWilliam"
+				},
+				{
+					"text": "Heh, almost got me. I don’t really have time for your research now though, sorry.",
+					"goto": "menuWithQuestion"
+				},
+				{
+					"text": "Aww, alien rabbit!",
+					"goto": "alienRabbit"
+				}
+			]
+		},
+		"moreAboutWilliam": {
+			"type": "linear",
+			"flow": [
+				[
+					"I… well, when he moved here, I tried to find out more about his past, so I… dug a little.\nOr, like, a lot. And I found… well… something."
+				],
+				[
+					"Agnes, this is important. Please tell me."
+				],
+				[
+					"He- I don’t know how he found out I knew but he told me I really cannot tell anyone.",
+					"He didn’t threaten me or anything, just told me to keep it to myself.\nHe can be so scary if he wants to."
+				]
+			],
+			"goto": "convinceAgnes2"
+		},
+		"convinceAgnes2": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "I am your friend, Agnes. You can trust me.",
+					"goto": "moreAboutWilliam2"
+				},
+				{
+					"text": "All right, maybe it’s for the best if you don’t tell me then.",
+					"goto": "menuWithQuestion"
+				}
+			]
+		},
+		"moreAboutWilliam2": {
+			"type": "linear",
+			"set": "WilliamWasBandit",
+			"flow": [
+				[
+					"I- I think he used to lead a bandit gang.",
+					"His description matches the leader of a group\nthat operated many miles to the South of here.",
+					"An infamous outlaw who disappeared just before he showed up here.\nI am not entirely sure, there is no definite proof, but many things fit very well."
+				],
+				[
+					"Did you know that before or after you decided to break into his home?"
+				],
+				[
+					"After. He… He probably found out because I started to avoid him, by my guess.",
+					"Please, don’t tell anyone I shared this, especially not him!\nWe… Well, we’re not exactly friends, but friendly neighbors. Good acquaintances.",
+					"I really, really want to stay on his good side."
+				],
+				[
+					"Understandable. Do you think he might have killed Jack?"
+				],
+				[
+					"I… I honestly don’t think so. They got along well; I wouldn’t see why.\nVery well, according to some rumors, hee hee. *Agnes turns a deep shade of red.*"
+				],
+				[
+					"Uh, okay."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"alienRabbit": {
+			"type": "linear",
+			"flow": [
+				[
+					"Yes!\nI currently have the theory that they are the ones to blame for corn circles by foraging…",
+					"*You get a lengthy lecture about the fascinating behaviors of extraterrestrial lagomorphs you are most certain don’t exist.*",
+					"*You also feel like you have yourself to blame for that.\nThe drawing was cute, though; so you have that going for you, which is nice.*"
+				],
+				[
+					"Uuuh…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"elizabeth": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, yes. Elizabeth Parker;\nHomo sapiens sanguiphilis, presents as a human woman in her mid-thirties-"
+				],
+				[
+					"I meant related to the murder, Agnes."
+				],
+				[
+					"Oh. Well, then say so. Hm.",
+					"I heard some vague rumors about her, but nothing definite, sorry.\nI am not that interested in gossip.",
+					"But the saloon was pretty busy last night, at least by the sounds of it.\nI bet she was at work."
+				],
+				[
+					"Anything else you can tell me?"
+				],
+				[
+					"Not really, no. Sorry."
+				],
+				[
+					"No worries. Thank you."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"betty": {
+			"type": "linear",
+			"flow": [
+				[
+					"I kept trying to invite her here so I can finally inspect her properly,\nbut she always avoided me at all costs.",
+					"A shame, really. I would like to give you profound insight,\nbut I am not allowed to be in a room with her."
+				],
+				[
+					"Do I want to know how that happened?"
+				],
+				[
+					"It was not really my fault. The Sheriff made me sign something.\nAll because I wanted a blood sample…"
+				],
+				[
+					"You pestered her that much?"
+				],
+				[
+					"Well… I did not exactly pester her… not in the traditional sense…"
+				],
+				[
+					"Oh, dear."
+				],
+				[
+					"Who’ll miss a few drops of blood anyway?!",
+					"I thought if I waited behind that big water barrel by the smithy and\njust quickly pricked her with a syringe…"
+				],
+				[
+					"You just jumped out at her and stabbed a syringe into her?!"
+				],
+				[
+					"Who would have thought she’d notice? Or mind?"
+				],
+				[
+					"ANYONE!"
+				],
+				[
+					"Meh. She smells like wet dog all the time anyway. No big loss."
+				],
+				[
+					"I am still not quite sure what to say…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"lucas": {
+			"type": "linear",
+			"set": "LucasHidesCorpse",
+			"flow": [
+				[
+					"Hm. I don’t like Sheriff Short all that much.",
+					"He can be very strict when it comes to the definition of physical integrity.\nAnd the desecration of graves. He has very strict corpse-laws as well."
+				],
+				[
+					"Is there anyone else in town that thinks so or is that just you?"
+				],
+				[
+					"What does that have to do with anything?\nAnyway, you especially should feel suspicious."
+				],
+				[
+					"I can’t really help but have a constant feeling of suspicion whenever I’m around you,\nto be honest…"
+				],
+				[
+					"What? No, not about me, dummy.\nDon’t you think it’s weird that he allowed no one to see the corpse?",
+					"I am not only a pharmacist and scientist, I am also the local surgeon.",
+					"William usually consults with me when someone dies under suspicious circumstances – though he somehow never leaves me alone with the corpses.",
+					"Huh. Anyway, I heard Short allows no one to see the body. Strange, huh?"
+				],
+				[
+					"Seems a little odd, yeah…"
+				],
+				[
+					"He also asked me some really detailed stuff about vampires a while ago.\nI am not sure what to make of that."
+				],
+				[
+					"That’s a bit unusual. I will keep it in mind. Thanks!"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"bettyIsWerewolf": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah! Homo sapiens lunavenatus! That explains so much.\nLet me quickly grab her file and add that…"
+				],
+				[
+					"You have a file on her?"
+				],
+				[
+					"Of course. I have a file on everyone I know."
+				],
+				[
+					"…Me as well?"
+				],
+				[
+					"Sure."
+				]
+			],
+			"goto": "reactionToFile"
+		},
+		"reactionToFile": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Should I be worried?",
+					"goto": "worried"
+				},
+				{
+					"text": "But we are friends…",
+					"goto": "friends"
+				},
+				{
+					"text": "That's creepy.",
+					"goto": "creepy"
+				}
+			]
+		},
+		"worried": {
+			"type": "linear",
+			"flow": [
+				[
+					"Let me check. No. It says you are in perfect health, right here."
+				],
+				[
+					"Uh, okay…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"friends": {
+			"type": "linear",
+			"flow": [
+				[
+					"Yup, look, here. Your file has a little smiley face.\nBecause we are friends."
+				],
+				[
+					"Uh, okay…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"creepy": {
+			"type": "linear",
+			"flow": [
+				[
+					"No, its thorough.",
+					"It would be creepy if I had only a file for you, but I have one for everyone so the term is ‘scientific’."
+				],
+				[
+					"Uh, okay…"
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"alreadyTalkedStart": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, you're back. Any luck so far?"
+				],
+				[
+					"Maybe. I wanted to ask you something else."
+				],
+				[
+					"Yeah? Well then, spit it out."
+				]
+			],
+			"goto": "menu"
+		},
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"Here, hold my notes real quick. Okay, now.",
+					"What did you say? Wait. You think I killed Jack?!",
+					"But I… But this is your file, it says we are friends here. Look, the little smiley.",
+					"You are serious, aren’t you?\nI… I will cross out your smiley, like that. Give me back my notes.",
+					"I’ve never dueled anyone; I’ll need them to record my findings."
+				]
+			],
+			"goto": "duelConfirmation"
+		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Agnes?\nThis will end the game, even if she is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duel"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "menuWithQuestion"
+				}
+			]
+		},
+		"duel": {
+			"type": "choice",
+			"set": "AgnesKilled",
+			"npc": "Duel"
+		},
+		"exit": {
+			"type": "choice",
+			"npc": "Exit"
+		}
+	}
+}

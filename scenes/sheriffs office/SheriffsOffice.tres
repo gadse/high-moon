@@ -382,12 +382,23 @@
 				[
 					"Hah! Very well. I should thank you for giving me a reason to be rid of you!",
 					"You think I don’t know what you are, vampire? Ready your gun and I will put you back into your grave."
-				],
-				[
-					"Let's get to it!"
 				]
 			],
-			"goto": "duel"
+			"goto": "duelConfirmation"
+		},
+		"duelConfirmation": {
+			"type": "choice",
+			"npc": "[color=white][Are you sure you want to duel Sheriff Short?\nThis will end the game, even if he is not really the murderer.][/color]",
+			"me": [
+				{
+					"text": "[Yes, I am sure.]",
+					"goto": "duel"
+				},
+				{
+					"text": "[No, I'd like to investigate further.]",
+					"goto": "menuWithQuestion"
+				}
+			]
 		},
 		"duel": {
 			"type": "choice",
