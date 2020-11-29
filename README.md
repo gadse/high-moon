@@ -26,5 +26,6 @@ by **handcrafted art** and a **unique soundtrack**.
 
 ## Ready? Get out your gun - it's High Moon!
 
-This game was created during the [GitHub Game Off 2020](https://itch.io/jam/game-off-2020) themed MOONSHOT
+This game was created during the [GitHub Game Off 2020](https://itch.io/jam/game-off-2020) themed MOONSHOT.
+
 This is version 1.0 - Have fun :)
