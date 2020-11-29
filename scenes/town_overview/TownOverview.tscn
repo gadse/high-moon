@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/town_overview/TownOverview.gd" type="Script" id=1]
 [ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=2]
@@ -9,6 +9,13 @@
 [ext_resource path="res://scenes/saloon/Saloon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/forge/Forge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/graveyard/Graveyard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://fonts/staubach/Staubach.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
 [node name="TownOverview" type="TextureRect"]
 mouse_filter = 2
@@ -23,29 +30,103 @@ position = Vector2( 204.107, 226.786 )
 character_icon = "res://scenes/town_overview/Town_icon_researcher.png"
 dialog_scene = ExtResource( 5 )
 
+[node name="AgnesLabel" type="Label" parent="."]
+visible = false
+margin_left = 30.238
+margin_right = 369.238
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.309804, 0.611765, 0.415686, 1 )
+text = "Agnes Summerville"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sheriff" parent="." instance=ExtResource( 4 )]
 position = Vector2( 667.758, 156.23 )
 character_icon = "res://scenes/town_overview/Town_icon_sheriff.png"
 dialog_scene = ExtResource( 6 )
+
+[node name="SheriffLabel" type="Label" parent="."]
+visible = false
+margin_left = 826.509
+margin_top = 55.4366
+margin_right = 1165.51
+margin_bottom = 122.437
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.827451, 0.682353, 0.490196, 1 )
+text = "Lucas Short"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Liz" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1088.57, 468.691 )
 character_icon = "res://scenes/town_overview/Town_icon_saloongirl.png"
 dialog_scene = ExtResource( 7 )
 
+[node name="LizLabel" type="Label" parent="."]
+visible = false
+margin_left = 1214.56
+margin_top = 453.572
+margin_right = 1553.56
+margin_bottom = 520.572
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.686275, 0.309804, 0.309804, 1 )
+text = "Elizabeth Parker"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Betty" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1375.83, 246.945 )
 character_icon = "res://scenes/town_overview/Town_icon_blacksmith.png"
 dialog_scene = ExtResource( 8 )
+
+[node name="BettyLabel" type="Label" parent="."]
+visible = false
+margin_left = 934.862
+margin_top = 156.23
+margin_right = 1273.86
+margin_bottom = 223.23
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.705882, 0.498039, 0.498039, 1 )
+text = "Betty Henderson"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="William" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1610.18, 181.429 )
 character_icon = "res://scenes/town_overview/Town_icon_priest.png"
 dialog_scene = ExtResource( 9 )
 
+[node name="WilliamLabel" type="Label" parent="."]
+visible = false
+margin_left = 1229.68
+margin_top = 15.1191
+margin_right = 1568.68
+margin_bottom = 82.1191
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.309804, 0.392157, 0.576471, 1 )
+text = "William Pierce"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fader" parent="." instance=ExtResource( 2 )]
 [connection signal="clicked" from="Agnes" to="." method="_on_dialog_icon_clicked"]
+[connection signal="mouse_entered" from="Agnes" to="." method="_on_Agnes_mouse_entered"]
+[connection signal="mouse_exited" from="Agnes" to="." method="_on_Agnes_mouse_exited"]
 [connection signal="clicked" from="Sheriff" to="." method="_on_dialog_icon_clicked"]
+[connection signal="mouse_entered" from="Sheriff" to="." method="_on_Sheriff_mouse_entered"]
+[connection signal="mouse_exited" from="Sheriff" to="." method="_on_Sheriff_mouse_exited"]
 [connection signal="clicked" from="Liz" to="." method="_on_dialog_icon_clicked"]
+[connection signal="mouse_entered" from="Liz" to="." method="_on_Liz_mouse_entered"]
+[connection signal="mouse_exited" from="Liz" to="." method="_on_Liz_mouse_exited"]
 [connection signal="clicked" from="Betty" to="." method="_on_dialog_icon_clicked"]
+[connection signal="mouse_entered" from="Betty" to="." method="_on_Betty_mouse_entered"]
+[connection signal="mouse_exited" from="Betty" to="." method="_on_Betty_mouse_exited"]
 [connection signal="clicked" from="William" to="." method="_on_dialog_icon_clicked"]
+[connection signal="mouse_entered" from="William" to="." method="_on_William_mouse_entered"]
+[connection signal="mouse_exited" from="William" to="." method="_on_William_mouse_exited"]

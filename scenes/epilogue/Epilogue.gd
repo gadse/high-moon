@@ -11,39 +11,43 @@ func _ready():
 
 func _fill_page_list():
 	page_list.append(preload("res://scenes/epilogue/DuelSummary.tscn"))
-	match GameState.killed:
-		GameState.Npc.SaloonOwnerElizabethParker:
-			page_list.append(preload("res://scenes/epilogue/Elizabeth0.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Elizabeth1.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Elizabeth2.tscn"))
-			page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
-		GameState.Npc.ScientistAgnesSummerville:
-			page_list.append(preload("res://scenes/epilogue/Agnes0.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Agnes1.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Agnes2.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Agnes3.tscn"))
-			page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
-		GameState.Npc.PriestWilliamPierce:
-			page_list.append(preload("res://scenes/epilogue/William0.tscn"))
-			page_list.append(preload("res://scenes/epilogue/William1.tscn"))
-			page_list.append(preload("res://scenes/epilogue/William2.tscn"))
-			page_list.append(preload("res://scenes/epilogue/William3.tscn"))
-			page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
-		GameState.Npc.SheriffLucasShort:
-			page_list.append(preload("res://scenes/epilogue/Lucas0.tscn"))
+	if GameState.player_knowledge.has(GameState.KnowledgePiece.ElizabethKilled):
+		page_list.append(preload("res://scenes/epilogue/Elizabeth0.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Elizabeth1.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Elizabeth2.tscn"))
+		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
+	elif GameState.player_knowledge.has(GameState.KnowledgePiece.AgnesKilled):
+		page_list.append(preload("res://scenes/epilogue/Agnes0.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Agnes1.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Agnes2.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Agnes3.tscn"))
+		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
+	elif GameState.player_knowledge.has(GameState.KnowledgePiece.WilliamKilled):
+		page_list.append(preload("res://scenes/epilogue/William0.tscn"))
+		page_list.append(preload("res://scenes/epilogue/William1.tscn"))
+		page_list.append(preload("res://scenes/epilogue/William2.tscn"))
+		page_list.append(preload("res://scenes/epilogue/William3.tscn"))
+		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
+	elif GameState.player_knowledge.has(GameState.KnowledgePiece.LucasKilled):
+		page_list.append(preload("res://scenes/epilogue/Lucas0.tscn"))
+		if GameState.player_knowledge.has(GameState.KnowledgePiece.LucasHidesCorpse):
 			page_list.append(preload("res://scenes/epilogue/Lucas1.tscn"))
+		if GameState.player_knowledge.has(GameState.KnowledgePiece.LucasIsVampireHunter):
 			page_list.append(preload("res://scenes/epilogue/Lucas2.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Lucas3.tscn"))
-			page_list.append(preload("res://scenes/epilogue/PeacefulEnding0.tscn"))
-			page_list.append(preload("res://scenes/epilogue/PeacefulEnding1.tscn"))
-		GameState.Npc.BlacksmithBettyHenderson:
-			page_list.append(preload("res://scenes/epilogue/Betty0.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Lucas3.tscn"))
+		page_list.append(preload("res://scenes/epilogue/PeacefulEnding0.tscn"))
+		page_list.append(preload("res://scenes/epilogue/PeacefulEnding1.tscn"))
+	elif GameState.player_knowledge.has(GameState.KnowledgePiece.BettyKilled):
+		page_list.append(preload("res://scenes/epilogue/Betty0.tscn"))
+		if GameState.player_knowledge.has(GameState.KnowledgePiece.BettyIsWerewolf):
 			page_list.append(preload("res://scenes/epilogue/Betty1.tscn"))
+		if GameState.player_knowledge.has(GameState.KnowledgePiece.BettyHadRomanceWithJack):
 			page_list.append(preload("res://scenes/epilogue/Betty2.tscn"))
+		if GameState.player_knowledge.has(GameState.KnowledgePiece.BettyHasBadTemper):
 			page_list.append(preload("res://scenes/epilogue/Betty3.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Betty4.tscn"))
-			page_list.append(preload("res://scenes/epilogue/Betty5.tscn"))
-			page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Betty4.tscn"))
+		page_list.append(preload("res://scenes/epilogue/Betty5.tscn"))
+		page_list.append(preload("res://scenes/epilogue/KillerStruckAgain.tscn"))
 
 func _on_next_screen_requested():
 	if self._is_next_screen_available():

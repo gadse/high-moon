@@ -1,865 +1,402 @@
 {
-  "passages": [
-    {
-      "text": "(if:$talkedToSheriff)[\nAh, you’re back. Any luck so far?\n[[Maybe. I wanted to ask you something else.->Menu]]\n]\n(else:)[\n(set:$talkedToSheriff)\nHowdy! What can I do for you?\n[[Greetings, Sheriff. Agnes just told me about Jack. He was my friend and I want to help investigate his murder.]]\n[[Agnes told me about Jack’s murder. I will bring the killer to justice.]]\n]",
-      "links": [
-        {
-          "name": "Maybe. I wanted to ask you something else.",
-          "link": "Menu",
-          "pid": "12"
-        },
-        {
-          "name": "Greetings, Sheriff. Agnes just told me about Jack. He was my friend and I want to help investigate his murder.",
-          "link": "Greetings, Sheriff. Agnes just told me about Jack. He was my friend and I want to help investigate his murder.",
-          "pid": "2"
-        },
-        {
-          "name": "Agnes told me about Jack’s murder. I will bring the killer to justice.",
-          "link": "Agnes told me about Jack’s murder. I will bring the killer to justice.",
-          "pid": "3"
-        }
-      ],
-      "name": "First time",
-      "pid": "1",
-      "position": {
-        "x": "860",
-        "y": "390"
-      }
-    },
-    {
-      "text": "While I appreciate your enthusiasm, I am the Sheriff in this town and not you. \n[[...]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "...",
-          "pid": "4"
-        }
-      ],
-      "name": "Greetings, Sheriff. Agnes just told me about Jack. He was my friend and I want to help investigate his murder.",
-      "pid": "2",
-      "position": {
-        "x": "860",
-        "y": "540"
-      }
-    },
-    {
-      "text": "Hold your horses, all right? The last thing I need right now is another maniac with a gun on the loose.\n[[...]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "...",
-          "pid": "4"
-        }
-      ],
-      "name": "Agnes told me about Jack’s murder. I will bring the killer to justice.",
-      "pid": "3",
-      "position": {
-        "x": "980",
-        "y": "540"
-      }
-    },
-    {
-      "text": "But then again… I have to admit I haven’t really found out much so far. It’s not like I can afford to turn down a hand if it’s offered, I guess.\n[[...->0]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "0",
-          "pid": "5"
-        }
-      ],
-      "name": "...",
-      "pid": "4",
-      "position": {
-        "x": "860",
-        "y": "690"
-      }
-    },
-    {
-      "text": "*Sigh* I get wanting to avenge your friend, I really do. Just… don’t make me regret this, yeah?\n[[Sure.]]",
-      "links": [
-        {
-          "name": "Sure.",
-          "link": "Sure.",
-          "pid": "6"
-        }
-      ],
-      "name": "0",
-      "pid": "5",
-      "position": {
-        "x": "860",
-        "y": "840"
-      }
-    },
-    {
-      "text": "No need to go around bothering random townsfolk though, all right? I’ve narrowed this down on four suspects and I’m pretty sure one of them did it.\n[[Who are they?]]",
-      "links": [
-        {
-          "name": "Who are they?",
-          "link": "Who are they?",
-          "pid": "7"
-        }
-      ],
-      "name": "Sure.",
-      "pid": "6",
-      "position": {
-        "x": "860",
-        "y": "990"
-      }
-    },
-    {
-      "text": "Well, we have Elizabeth Parker, our local saloon owner.\n[[...->1]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "1",
-          "pid": "8"
-        }
-      ],
-      "name": "Who are they?",
-      "pid": "7",
-      "position": {
-        "x": "860",
-        "y": "1140"
-      }
-    },
-    {
-      "text": "Then there’s your friend Agnes Somerville. Don’t give me that look – we can’t rule her out just yet. \n[[...->2]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "2",
-          "pid": "9"
-        }
-      ],
-      "name": "1",
-      "pid": "8",
-      "position": {
-        "x": "860",
-        "y": "1290"
-      }
-    },
-    {
-      "text": "We also have our Reverend William Pierce and finally our blacksmith, Betty Henderson.\n[[...->3]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "3",
-          "pid": "10"
-        }
-      ],
-      "name": "2",
-      "pid": "9",
-      "position": {
-        "x": "860",
-        "y": "1440"
-      }
-    },
-    {
-      "text": "Find out who did it, and then, well… For murder, I’d hang or shoot them. Seeing as you probably don’t hide gallows under your coat, you might want to challenge the bastard to a duel.\n[[Got it.]]",
-      "links": [
-        {
-          "name": "Got it.",
-          "link": "Got it.",
-          "pid": "11"
-        }
-      ],
-      "name": "3",
-      "pid": "10",
-      "position": {
-        "x": "860",
-        "y": "1590"
-      }
-    },
-    {
-      "text": "That’s also why it might be good to make sure you have the right guy, yeah? Good.\n[[...->Menu]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "Got it.",
-      "pid": "11",
-      "position": {
-        "x": "860",
-        "y": "1740"
-      }
-    },
-    {
-      "text": "Any more questions?\n[[Can I see Jack’s corpse?]]\n[[What can you tell me about Elizabeth Parker?]]\n[[What has Agnes done to be among the suspects?]]\n[[Tell me more about Reverend Pierce.]]\n[[What should I know about Betty Henderson?]]\n[[Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?]]\n(if: $sheriffIsVampireHunter)[[I wanted to talk about your… other occupation. You know, the one involving stakes and silver bullets.]]\n(if: $sheriffCanBeDueled)[[I have made my decision. I challenge you to a duel.]]\n[[I will be back later.->Exit]]",
-      "links": [
-        {
-          "name": "Can I see Jack’s corpse?",
-          "link": "Can I see Jack’s corpse?",
-          "pid": "13"
-        },
-        {
-          "name": "What can you tell me about Elizabeth Parker?",
-          "link": "What can you tell me about Elizabeth Parker?",
-          "pid": "14"
-        },
-        {
-          "name": "What has Agnes done to be among the suspects?",
-          "link": "What has Agnes done to be among the suspects?",
-          "pid": "15"
-        },
-        {
-          "name": "Tell me more about Reverend Pierce.",
-          "link": "Tell me more about Reverend Pierce.",
-          "pid": "16"
-        },
-        {
-          "name": "What should I know about Betty Henderson?",
-          "link": "What should I know about Betty Henderson?",
-          "pid": "17"
-        },
-        {
-          "name": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
-          "link": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
-          "pid": "31"
-        },
-        {
-          "name": "I wanted to talk about your… other occupation. You know, the one involving stakes and silver bullets.",
-          "link": "I wanted to talk about your… other occupation. You know, the one involving stakes and silver bullets.",
-          "pid": "41"
-        },
-        {
-          "name": "I have made my decision. I challenge you to a duel.",
-          "link": "I have made my decision. I challenge you to a duel.",
-          "pid": "48"
-        },
-        {
-          "name": "I will be back later.",
-          "link": "Exit",
-          "pid": "50"
-        }
-      ],
-      "name": "Menu",
-      "pid": "12",
-      "position": {
-        "x": "860",
-        "y": "1890"
-      }
-    },
-    {
-      "text": "No, I don’t think that’s a good idea. It is… rather gruesome, you know. You were his friend and all…\n[[But I should probably see what exactly killed him so I can investigate properly. You said you don’t want me to shoot anyone wrong. I can handle seeing him.]]\n[[Oh, all right.->Menu]]",
-      "links": [
-        {
-          "name": "But I should probably see what exactly killed him so I can investigate properly. You said you don’t want me to shoot anyone wrong. I can handle seeing him.",
-          "link": "But I should probably see what exactly killed him so I can investigate properly. You said you don’t want me to shoot anyone wrong. I can handle seeing him.",
-          "pid": "18"
-        },
-        {
-          "name": "Oh, all right.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "Can I see Jack’s corpse?",
-      "pid": "13",
-      "position": {
-        "x": "485",
-        "y": "2040"
-      }
-    },
-    {
-      "text": "Hm, Mrs. Parker is our local saloon owner. If you ask me, she’s among the top suspects for at least two reasons: One, we found Jack’s corpse behind her damn saloon, and two, she was involved into the strange disappearances of folks before.\n[[How so?]]",
-      "links": [
-        {
-          "name": "How so?",
-          "link": "How so?",
-          "pid": "19"
-        }
-      ],
-      "name": "What can you tell me about Elizabeth Parker?",
-      "pid": "14",
-      "position": {
-        "x": "635",
-        "y": "2040"
-      }
-    },
-    {
-      "text": "Agnes, yeah… She seems like a sweetheart, doesn’t she? But townsfolk have been telling me she keeps pestering them with weird stuff and she got into some shady stuff in the name of science for a while now. I know she’s your friend, but I can’t rule her out just yet.\n[[What... what shady stuff?]]",
-      "links": [
-        {
-          "name": "What... what shady stuff?",
-          "link": "What... what shady stuff?",
-          "pid": "22"
-        }
-      ],
-      "name": "What has Agnes done to be among the suspects?",
-      "pid": "15",
-      "position": {
-        "x": "785",
-        "y": "2040"
-      }
-    },
-    {
-      "text": "Reverend Pierce is… sort of his own phenomenon. Keeps to himself, that one. I think I’ve never seen him outside during the day, to be honest.\n[[...->6]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "6",
-          "pid": "24"
-        }
-      ],
-      "name": "Tell me more about Reverend Pierce.",
-      "pid": "16",
-      "position": {
-        "x": "935",
-        "y": "2040"
-      }
-    },
-    {
-      "text": "Betty is our local blacksmith. Hard-working woman, that one. I like her.\n[[...->9]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "9",
-          "pid": "27"
-        }
-      ],
-      "name": "What should I know about Betty Henderson?",
-      "pid": "17",
-      "position": {
-        "x": "1085",
-        "y": "2040"
-      }
-    },
-    {
-      "text": "No, I insist. We’ll have enough trouble getting him in some form of shape for the funeral, don’t need you poking around in there too. He looks like he was mauled by something, all right? See how that helps you.\n[[Okay, okay.->Menu]]",
-      "links": [
-        {
-          "name": "Okay, okay.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "But I should probably see what exactly killed him so I can investigate properly. You said you don’t want me to shoot anyone wrong. I can handle seeing him.",
-      "pid": "18",
-      "position": {
-        "x": "410",
-        "y": "2190"
-      }
-    },
-    {
-      "text": "She swims in money, but not of her own makin’. Well, not all of it, that is. A newly-rich guy makes a stop here on his way home from his gold claim or oil well or whatever and gloats at the saloon.\n[[...->4]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "4",
-          "pid": "20"
-        }
-      ],
-      "name": "How so?",
-      "pid": "19",
-      "position": {
-        "x": "635",
-        "y": "2190"
-      }
-    },
-    {
-      "text": "Liz chats him up, plays her charms and the poor soul decides it probably won’t hurt to stay a few more days. They fall for her, conveniently change their will and vanish soon after.\n[[Sounds indeed rather suspicious.]]",
-      "links": [
-        {
-          "name": "Sounds indeed rather suspicious.",
-          "link": "Sounds indeed rather suspicious.",
-          "pid": "21"
-        }
-      ],
-      "name": "4",
-      "pid": "20",
-      "position": {
-        "x": "635",
-        "y": "2340"
-      }
-    },
-    {
-      "text": "Probably because it is. Has happened so many times now, Pierce refuses to re-marry her when she finds a new one. He could maybe tell ya a thing or two about Elizabeth.\n[[I will look into it.->Menu]]",
-      "links": [
-        {
-          "name": "I will look into it.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "Sounds indeed rather suspicious.",
-      "pid": "21",
-      "position": {
-        "x": "635",
-        "y": "2490"
-      }
-    },
-    {
-      "text": "She gets on people’s nerves about blood samples and nonsense like that. Can’t really tell you why, though. Just… Let me tell you, something’s not all that right about that girl.\n[[...->5]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "5",
-          "pid": "23"
-        }
-      ],
-      "name": "What... what shady stuff?",
-      "pid": "22",
-      "position": {
-        "x": "785",
-        "y": "2190"
-      }
-    },
-    {
-      "text": "She already asked me what the corpse looks like and if she could take notes and whatnot. That’s not a normal reaction to hearing someone was murdered, that’s for sure.\n[[I see.->Menu]]",
-      "links": [
-        {
-          "name": "I see.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "5",
-      "pid": "23",
-      "position": {
-        "x": "785",
-        "y": "2340"
-      }
-    },
-    {
-      "text": "But, despite his weirdness, he’s a cornerstone of our community, that’s for sure; what with him being our priest and our undertaker.\n[[...->7]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "7",
-          "pid": "25"
-        }
-      ],
-      "name": "6",
-      "pid": "24",
-      "position": {
-        "x": "935",
-        "y": "2190"
-      }
-    },
-    {
-      "text": "But I know him and Jack had a fight the night he turned up dead, which is kinda suspicious, don’t ya think?\n[[...->8]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "8",
-          "pid": "26"
-        }
-      ],
-      "name": "7",
-      "pid": "25",
-      "position": {
-        "x": "935",
-        "y": "2340"
-      }
-    },
-    {
-      "text": "I’ve also heard that those two have history, though you better ask someone else about that, I’m not big on gossip. Maybe Elizabeth at the saloon, she always seems to know everything.\n[[All right, maybe I will.->Menu]]",
-      "links": [
-        {
-          "name": "All right, maybe I will.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "8",
-      "pid": "26",
-      "position": {
-        "x": "935",
-        "y": "2490"
-      }
-    },
-    {
-      "text": "But when I stopped by this morning to ask her if she saw anything suspicious, she wouldn’t even look at me. She answered my questions but you could tell she was really itchin’ for me to go away.\n[[...->10]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "10",
-          "pid": "28"
-        }
-      ],
-      "name": "9",
-      "pid": "27",
-      "position": {
-        "x": "1085",
-        "y": "2190"
-      }
-    },
-    {
-      "text": "She’s usually not the cheeriest of spirits, that much is true, but I’ve not seen her like this before.\n[[...->11]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "11",
-          "pid": "29"
-        }
-      ],
-      "name": "10",
-      "pid": "28",
-      "position": {
-        "x": "1085",
-        "y": "2340"
-      }
-    },
-    {
-      "text": "And y’know, Jack was… mutilated. Betty was in brawls before, she has trouble controlling that temper of hers.\n[[...->12]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "12",
-          "pid": "30"
-        }
-      ],
-      "name": "11",
-      "pid": "29",
-      "position": {
-        "x": "1084",
-        "y": "2490"
-      }
-    },
-    {
-      "text": "I don’t know what her angle is with Jack, but what if she did it? She has been behaving very strange today…\n[[If she did it, I will find out.->Menu]]",
-      "links": [
-        {
-          "name": "If she did it, I will find out.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "12",
-      "pid": "30",
-      "position": {
-        "x": "1085",
-        "y": "2641"
-      }
-    },
-    {
-      "text": "She told you that, huh? Did she also tell you what she did to the last corpse I left with her for ‘examination’?\n[[Uh, no, she actually didn't.]]",
-      "links": [
-        {
-          "name": "Uh, no, she actually didn't.",
-          "link": "Uh, no, she actually didn't.",
-          "pid": "32"
-        }
-      ],
-      "name": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
-      "pid": "31",
-      "position": {
-        "x": "1230",
-        "y": "2043"
-      }
-    },
-    {
-      "text": "Well, she fucking dissected him! Completely! He had been shot once and she mutilated him to the point he was all but butchered, she cut him up so bad!\n[[...->13]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "13",
-          "pid": "33"
-        }
-      ],
-      "name": "Uh, no, she actually didn't.",
-      "pid": "32",
-      "position": {
-        "x": "1230",
-        "y": "2193"
-      }
-    },
-    {
-      "text": "I had to come up with a reason as to why the family was not allowed to open the casket so they wouldn’t faint from shock!\n[[I… I can somehow see her doing that, actually. My bad.]]\n[[Dear god. That’s horrible. I wouldn’t thought she could do something like that.]]\n[[But… she must have good investigative reasons for that, yes?]]",
-      "links": [
-        {
-          "name": "I… I can somehow see her doing that, actually. My bad.",
-          "link": "I… I can somehow see her doing that, actually. My bad.",
-          "pid": "34"
-        },
-        {
-          "name": "Dear god. That’s horrible. I wouldn’t thought she could do something like that.",
-          "link": "Dear god. That’s horrible. I wouldn’t thought she could do something like that.",
-          "pid": "35"
-        },
-        {
-          "name": "But… she must have good investigative reasons for that, yes?",
-          "link": "But… she must have good investigative reasons for that, yes?",
-          "pid": "36"
-        }
-      ],
-      "name": "13",
-      "pid": "33",
-      "position": {
-        "x": "1230",
-        "y": "2343"
-      }
-    },
-    {
-      "text": "Good for you. Most of the townsfolk think she’s a sweet girl, a bit crazy maybe and with a slightly annoying obsession with science, but I sometimes wonder how far she would really go. You don’t wanna know the stuff she asks people.\n[[Actually, I do want to know about that.->Oh yeah? Like what?]]",
-      "links": [
-        {
-          "name": "Actually, I do want to know about that.",
-          "link": "Oh yeah? Like what?",
-          "pid": "38"
-        }
-      ],
-      "name": "I… I can somehow see her doing that, actually. My bad.",
-      "pid": "34",
-      "position": {
-        "x": "1398",
-        "y": "2340"
-      }
-    },
-    {
-      "text": "Hah! Cute Agnes, huh? You think she’s just a sweet girl who’s lost some of her marbles? A bit crazy maybe, but generally harmless?\n[[...->14]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "14",
-          "pid": "37"
-        }
-      ],
-      "name": "Dear god. That’s horrible. I wouldn’t thought she could do something like that.",
-      "pid": "35",
-      "position": {
-        "x": "1230",
-        "y": "2493"
-      }
-    },
-    {
-      "text": "You think? If she had them, she sure as hell hasn’t shared them with me. I don’t trust it. You should hear about some of the stuff she has asked from people.\n[[Oh yeah? Like what?]]",
-      "links": [
-        {
-          "name": "Oh yeah? Like what?",
-          "link": "Oh yeah? Like what?",
-          "pid": "38"
-        }
-      ],
-      "name": "But… she must have good investigative reasons for that, yes?",
-      "pid": "36",
-      "position": {
-        "x": "1380",
-        "y": "2493"
-      }
-    },
-    {
-      "text": "I’m not so sure, and the stuff she keeps pestering townsfolk about is creepy enough to have me taking her sweet attitude with a grain of salt.\n[[Oh yeah? Like what?]]",
-      "links": [
-        {
-          "name": "Oh yeah? Like what?",
-          "link": "Oh yeah? Like what?",
-          "pid": "38"
-        }
-      ],
-      "name": "14",
-      "pid": "37",
-      "position": {
-        "x": "1230",
-        "y": "2643"
-      }
-    },
-    {
-      "text": "She keeps harassing folks for stuff like blood samples and wants to measure people, but she’s also asked some if she could operate on them.\n[[...->15]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "15",
-          "pid": "39"
-        }
-      ],
-      "name": "Oh yeah? Like what?",
-      "pid": "38",
-      "position": {
-        "x": "1230",
-        "y": "2793"
-      }
-    },
-    {
-      "text": "And I know she once asked Elizabeth for one of her fingers! A bloody finger, can you imagine? Said Mrs. Parker would be able to serve drinks even if she missed a finger! She’s crazy, I tell you.\n[[I… have to admit, that’s rather… extreme. I should probably go talk to her again.]]",
-      "links": [
-        {
-          "name": "I… have to admit, that’s rather… extreme. I should probably go talk to her again.",
-          "link": "I… have to admit, that’s rather… extreme. I should probably go talk to her again.",
-          "pid": "40"
-        }
-      ],
-      "name": "15",
-      "pid": "39",
-      "position": {
-        "x": "1230",
-        "y": "2943"
-      }
-    },
-    {
-      "text": "Hah! I’m not sure if that’s of any use with that one.\n[[...->Menu]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "I… have to admit, that’s rather… extreme. I should probably go talk to her again.",
-      "pid": "40",
-      "position": {
-        "x": "1230",
-        "y": "3093"
-      }
-    },
-    {
-      "text": "Hah! What’s that supposed to mean?\n[[I think you know quite well, Sheriff. You are a vampire hunter, and you’ve had Jack in your sights for quite a while now, haven’t you? And then, you saw your chance to strike.]]",
-      "links": [
-        {
-          "name": "I think you know quite well, Sheriff. You are a vampire hunter, and you’ve had Jack in your sights for quite a while now, haven’t you? And then, you saw your chance to strike.",
-          "link": "I think you know quite well, Sheriff. You are a vampire hunter, and you’ve had Jack in your sights for quite a while now, haven’t you? And then, you saw your chance to strike.",
-          "pid": "42"
-        }
-      ],
-      "name": "I wanted to talk about your… other occupation. You know, the one involving stakes and silver bullets.",
-      "pid": "41",
-      "position": {
-        "x": "1423",
-        "y": "1967"
-      }
-    },
-    {
-      "text": "Who told you that?\n[[Who told me is of no importance – I just want to hear the truth from your lips, Sheriff. Did you kill Jack?->It has to be Henderson]]\n[[The suspects you pointed me to had some interesting tales to tell, to put it mildly. Now, Sheriff – did you kill Jack?->It has to be Henderson]]",
-      "links": [
-        {
-          "name": "Who told me is of no importance – I just want to hear the truth from your lips, Sheriff. Did you kill Jack?",
-          "link": "It has to be Henderson",
-          "pid": "43"
-        },
-        {
-          "name": "The suspects you pointed me to had some interesting tales to tell, to put it mildly. Now, Sheriff – did you kill Jack?",
-          "link": "It has to be Henderson",
-          "pid": "43"
-        }
-      ],
-      "name": "I think you know quite well, Sheriff. You are a vampire hunter, and you’ve had Jack in your sights for quite a while now, haven’t you? And then, you saw your chance to strike.",
-      "pid": "42",
-      "position": {
-        "x": "1423",
-        "y": "2117"
-      }
-    },
-    {
-      "text": "It has to be Henderson, right? Damn her. Or Parker? She always knows more than-\n[[Answer me, please.]]",
-      "links": [
-        {
-          "name": "Answer me, please.",
-          "link": "Answer me, please.",
-          "pid": "44"
-        }
-      ],
-      "name": "It has to be Henderson",
-      "pid": "43",
-      "position": {
-        "x": "1583",
-        "y": "2115"
-      }
-    },
-    {
-      "text": "You just believe them? Hell, I shouldn’t have allowed you to investigate anything! Whoever said it probably wants to distract from their own guilt, you know that, yes?\n[[...->16]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "16",
-          "pid": "45"
-        }
-      ],
-      "name": "Answer me, please.",
-      "pid": "44",
-      "position": {
-        "x": "1583",
-        "y": "2265"
-      }
-    },
-    {
-      "text": "I am the only one keeping this town safe! With me gone, bandits and- and monsters will raze it to the ground in no time! This town needs me!\n[[We'll see about that.]]",
-      "links": [
-        {
-          "name": "We'll see about that.",
-          "link": "We'll see about that.",
-          "pid": "46"
-        }
-      ],
-      "name": "16",
-      "pid": "45",
-      "position": {
-        "x": "1583",
-        "y": "2415"
-      }
-    },
-    {
-      "text": "You are about to make a dire mistake if you think I could be the killer.\n[[...->Menu]]",
-      "links": [
-        {
-          "name": "...",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "We'll see about that.",
-      "pid": "46",
-      "position": {
-        "x": "1583",
-        "y": "2565"
-      }
-    },
-    {
-      "text": "Ah, you’re back. Any luck so far?\n[[Maybe. I wanted to ask you something else.->Menu]]",
-      "links": [
-        {
-          "name": "Maybe. I wanted to ask you something else.",
-          "link": "Menu",
-          "pid": "12"
-        }
-      ],
-      "name": "Second time",
-      "pid": "47",
-      "position": {
-        "x": "1147",
-        "y": "527"
-      }
-    },
-    {
-      "text": "Hah! Very well. I should thank you for giving me a reason to be rid of you! You think I don’t know what you are, vampire? Ready your gun and I will put you back into your grave.\n[[Start the duel.->Duel]]",
-      "links": [
-        {
-          "name": "Start the duel.",
-          "link": "Duel",
-          "pid": "49"
-        }
-      ],
-      "name": "I have made my decision. I challenge you to a duel.",
-      "pid": "48",
-      "position": {
-        "x": "466",
-        "y": "1801"
-      }
-    },
-    {
-      "text": "Double-click this passage to edit it.",
-      "name": "Duel",
-      "pid": "49",
-      "position": {
-        "x": "466",
-        "y": "1920"
-      }
-    },
-    {
-      "text": "Double-click this passage to edit it.",
-      "name": "Exit",
-      "pid": "50",
-      "position": {
-        "x": "1287",
-        "y": "1738"
-      }
-    }
-  ],
-  "name": "Sheriff",
-  "startnode": "1",
-  "creator": "Twine",
-  "creator-version": "2.3.9",
-  "ifid": "CA9D671F-12AB-4CDD-986F-E85BA77CE6FD"
+	"start": [
+			{
+				"passageId": "alreadyTalkedStart",
+				"isSet": "TalkedWithLucas"
+			},
+			"firstTimeStart"
+	],
+	"passages": {
+		"firstTimeStart": {
+			"type": "choice",
+			"set": "TalkedWithLucas",
+			"npc": "Howdy! What can I do for you?",
+			"me": [
+				{
+					"text": "Greetings, Sheriff. Agnes just told me about Jack.\nHe was my friend and I want to help investigate his murder.",
+					"goto": "enthusiastic"
+				},
+				{
+					"text": "Agnes told me about Jack’s murder. I will bring the killer to justice.",
+					"goto": "direct"
+				}
+			]
+		},
+		"enthusiastic": {
+			"type": "linear",
+			"flow": [
+				[
+					"While I appreciate your enthusiasm, I am the Sheriff in this town and not you."
+				]
+			],
+			"goto": "offeredHelp"
+		},
+		"direct": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hold your horses, all right?\nThe last thing I need right now is another maniac with a gun on the loose."
+				]
+			],
+			"goto": "offeredHelp"
+		},
+		"offeredHelp": {
+			"type": "linear",
+			"flow": [
+				[
+					"But then again… I have to admit I haven’t really found out much so far.\nIt’s not like I can afford to turn down a hand if it’s offered, I guess.",
+					"*Sigh*\nI get wanting to avenge your friend, I really do. Just… don’t make me regret this, yeah?"
+				],
+				[
+					"Sure."
+				],
+				[
+					"No need to go around bothering random townsfolk though, all right?\nI’ve narrowed this down on four suspects and I’m pretty sure one of them did it."
+				],
+				[
+					"Who are they?"
+				],
+				[
+					"Well, we have Elizabeth Parker, our local saloon owner.",
+					"Then there’s your friend Agnes Somerville.\nDon’t give me that look – we can’t rule her out just yet.",
+					"We also have our Reverend William Pierce and finally our blacksmith, Betty Henderson.",
+					"Find out who did it, and then, well…\nFor murder, I’d hang or shoot them.",
+					"Seeing as you probably don’t hide gallows under your coat,\nyou might want to challenge the bastard to a duel."
+				],
+				[
+					"Got it."
+				],
+				[
+					"That’s also why it might be good to make sure you have the right guy, yeah? Good."
+				]
+			],
+			"goto": "menu"
+		},
+		"menuWithQuestion": {
+			"type": "linear",
+			"flow": [
+				[
+					"Any further questions?"
+				]
+			],
+			"goto": "menu"
+		},
+		"menu": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Can I see Jack’s corpse?",
+					"goto": "corpse"
+				},
+				{
+					"text": "What can you tell me about Elizabeth Parker?",
+					"goto": "elizabeth"
+				},
+				{
+					"text": "What has Agnes done to be among the suspects?",
+					"goto": "agnes"
+				},
+				{
+					"text": "Tell me more about Reverend Pierce.",
+					"goto": "william"
+				},
+				{
+					"text": "What should I know about Betty Henderson?",
+					"goto": "betty"
+				},
+				{
+					"text": "Agnes told me you let no one see Jack’s corpse. Not even her, though she’s certainly not squeamish and we might need her insight as a scientist. Why is that?",
+					"isSet": "LucasHidesCorpse",
+					"goto": "agnesAndCorpse"
+				},
+				{
+					"text": "I wanted to talk about your… other occupation. You know, the one involving stakes and silver bullets.",
+					"isSet": "LucasIsVampireHunter",
+					"goto": "vampireHunter"
+				},
+				{
+					"text": "I have made my decision. I challenge you to a duel!",
+					"isSet": "LucasCanBeDueled",
+					"goto": "duelChallenge"
+				},
+				{
+					"text": "I will be back later.",
+					"goto": "exit"
+				}
+			]
+		},
+		"corpse": {
+			"type": "choice",
+			"npc": "No, I don’t think that’s a good idea. It is… rather gruesome, you know.\nYou were his friend and all…",
+			"me": [
+				{
+					"text": "But I should probably see what exactly killed him so I can investigate properly.\nYou said you don’t want me to shoot anyone wrong. I can handle seeing him.",
+					"goto": "seeCorpse"
+				},
+				{
+					"text": "Oh, all right.",
+					"goto": "menuWithQuestion"
+				}
+			]
+		},
+		"seeCorpse": {
+			"type": "linear",
+			"flow": [
+				[
+					"No, I insist. We’ll have enough trouble getting him in some form of shape for the funeral,\ndon’t need you poking around in there too.",
+					"He looks like he was mauled by something, all right? See how that helps you."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"elizabeth": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hm, Mrs. Parker is our local saloon owner.",
+					"If you ask me, she’s among the top suspects for at least two reasons:\nOne, we found Jack’s corpse behind her damn saloon, and two,\nshe was involved into the strange disappearances of folks before."
+				],
+				[
+					"How so?"
+				],
+				[
+					"She swims in money, but not of her own makin’. Well, not all of it, that is.",
+					"Once in a while, a newly-rich guy makes a stop here on his way home from his gold claim or oil well or whatever and gloats at the saloon.",
+					"Liz chats him up, plays her charms and the poor soul decides it probably won’t hurt to stay a few more days.",
+					"They fall for her, conveniently change their will and vanish soon after."
+				],
+				[
+					"Sound indeed rather suspicious."
+				],
+				[
+					"Probably because it is. Has happened so many times now, Pierce refuses to re-marry her when she finds a new one. He could maybe tell ya a thing or two about Elizabeth."
+				],
+				[
+					"I will look into it."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"agnes": {
+			"type": "linear",
+			"flow": [
+				[
+					"Agnes, yeah… She seems like a sweetheart, doesn’t she?",
+					"But townsfolk have been telling me she keeps pestering them with weird stuff and she got into some shady stuff in the name of science for a while now.",
+					"I know she’s your friend, but I can’t rule her out just yet."
+				],
+				[
+					"What… what shady stuff?"
+				],
+				[
+					"She gets on people’s nerves about blood samples and nonsense like that.\nCan’t really tell you why, though.",
+					"Just… Let me tell you, something’s not all that right about that girl.",
+					"She already asked me what the corpse looks like and if she could take notes and whatnot.",
+					"That’s not a normal reaction to hearing someone was murdered, that’s for sure."
+				],
+				[
+					"I see."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"william": {
+			"set": "WilliamHadFightWithJack",
+			"type": "linear",
+			"flow": [
+				[
+					"Reverend Pierce is… sort of his own phenomenon. Keeps to himself, that one.",
+					"I think I’ve never seen him outside during the day, to be honest.",
+					"But, despite his weirdness, he’s a cornerstone of our community, that’s for sure;\nwhat with him being our priest and our undertaker.",
+					"But I know him and Jack had a fight the night he turned up dead,\nwhich is kinda suspicious, don’t ya think?",
+					"I’ve also heard that those two have history,\nthough you better ask someone else about that, I’m not big on gossip.",
+					"Maybe Elizabeth at the saloon, she always seems to know everything."
+				],
+				[
+					"I see."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"betty": {
+			"set": "BettyHasBadTemper",
+			"type": "linear",
+			"flow": [
+				[
+					"Betty is our local blacksmith. Hard-working woman, that one. I like her.",
+					"But when I stopped by this morning to ask her if she saw anything suspicious,\nshe wouldn’t even look at me.",
+					"She answered my questions, but you could tell she was really itchin’ for me to go away.",
+					"She’s usually not the cheeriest of spirits, that much is true,\nbut I’ve not seen her like this before.",
+					"And y’know, Jack was… mutilated. Betty was in brawls before,\nshe has trouble controlling that temper of hers.",
+					"I don’t know what her angle is with Jack, but what if she did it?\nShe has been behaving very strange today…"
+				],
+				[
+					"If she did it, I will find out."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"agnesAndCorpse": {
+			"set": "AgnesPerformedDissection",
+			"type": "linear",
+			"flow": [
+				[
+					"She told you that, huh?\nDid she also tell you what she did to the last corpse I left with her for ‘examination’?"
+				],
+				[
+					"Uh, no, she actually didn’t."
+				],
+				[
+					"Well, she fucking dissected him! Completely!",
+					"He had been shot once and she mutilated him to the point he was all but butchered,\nshe cut him up so bad!",
+					"I had to come up with a reason as to why the family was not allowed to open the casket so they wouldn’t faint from shock!"
+				]
+			],
+			"goto": "defendingAgnes"
+		},
+		"defendingAgnes": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "I… I can somehow see her doing that, actually. My bad.",
+					"goto": "myBad"
+				},
+				{
+					"text": "Dear god. That’s horrible. I wouldn’t thought she could do something like that.",
+					"goto": "dearGod"
+				},
+				{
+					"text": "But… she must have good investigative reasons for that, yes?",
+					"goto": "investigativeReasons"
+				}
+			]
+		},
+		"myBad": {
+			"type": "linear",
+			"flow": [
+				[
+					"Good for you. Most of the townsfolk think she’s a sweet girl, a bit crazy maybe and with a slightly annoying obsession with science, but I sometimes wonder how far she would really go.",
+					"You don’t wanna know the stuff she asks people."
+				],
+				[
+					"Actually, I do want to know about that."
+				]
+			],
+			"goto": "strangeAgnes"
+		},
+		"dearGod": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! Cute Agnes, huh?",
+					"You think she’s just a sweet girl who’s lost some of her marbles?\nA bit crazy maybe, but generally harmless?",
+					"I’m not so sure, and the stuff she keeps pestering townsfolk about is creepy enough to have me taking her sweet attitude with a grain of salt."
+				],
+				[
+					"Oh yeah? Like what?"
+				]
+			],
+			"goto": "strangeAgnes"
+		},
+		"investigativeReasons": {
+			"type": "linear",
+			"flow": [
+				[
+					"You think? If she had them, she sure as hell hasn’t shared them with me.",
+					"I don’t trust her. You should hear about some of the stuff she has asked from people."
+				]
+			],
+			"goto": "strangeAgnes"
+		},
+		"strangeAgnes": {
+			"type": "linear",
+			"flow": [
+				[
+					"She keeps harassing folks for stuff like blood samples and wants to measure people,\nbut she’s also asked some if she could operate on them.",
+					"And I know she once asked Elizabeth for one of her fingers!\nA bloody finger, can you imagine?",
+					"Said Mrs. Parker would be able to serve drinks even if she missed a finger!\nShe’s crazy, I tell you."
+				],
+				[
+					"I… have to admit, that’s rather… extreme. I should probably go talk to her again."
+				],
+				[
+					"Hah! I’m not sure if that’s of any use with that one."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"vampireHunter": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! What’s that supposed to mean?"
+				],
+				[
+					"I think you know quite well, Sheriff. You are a vampire hunter, and you’ve had Jack in your sights for quite a while now, haven’t you? And then, you saw your chance to strike."
+				],
+				[
+					"Who told you that?"
+				],
+				[
+					"Who told me is of no importance – I just want to hear the truth from your lips, Sheriff. Did you kill Jack?",
+					"The suspects you pointed me to had some interesting tales to tell, to put it mildly. Now, Sheriff – did you kill Jack?"
+				],
+				[
+					"It has to be Henderson, right? Damn her. Or Parker? She always knows more than-"
+				],
+				[
+					"Answer me, please."
+				],
+				[
+					"You just believe them? Hell, I shouldn’t have allowed you to investigate anything!",
+					"Whoever said it probably wants to distract from their own guilt, you know that, yes?",
+					"I am the only one keeping this town safe! With me gone, bandits and- and monsters will raze it to the ground in no time! This town needs me!"
+				],
+				[
+					"We'll see about that."
+				],
+				[
+					"You are about to make a dire mistake if you think I could be the killer."
+				]
+			],
+			"goto": "menuWithQuestion"
+		},
+		"alreadyTalkedStart": {
+			"type": "linear",
+			"flow": [
+				[
+					"Ah, you're back. Any luck so far?"
+				],
+				[
+					"Maybe. I wanted to ask you something else."
+				],
+				[
+					"Yeah? Well then, spit it out."
+				]
+			],
+			"goto": "menu"
+		},
+		"duelChallenge": {
+			"type": "linear",
+			"flow": [
+				[
+					"Hah! Very well. I should thank you for giving me a reason to be rid of you!",
+					"You think I don’t know what you are, vampire? Ready your gun and I will put you back into your grave."
+				],
+				[
+					"Let's get to it!"
+				]
+			],
+			"goto": "duel"
+		},
+		"duel": {
+			"type": "choice",
+			"set": "LucasKilled",
+			"npc": "Duel"
+		},
+		"exit": {
+			"type": "choice",
+			"npc": "Exit"
+		}
+	}
 }

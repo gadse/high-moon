@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Agnes_what_is_it.wav-3463874634609373383e287a3499189d.sample"
+
+[deps]
+
+source_file="res://scenes/lab/Agnes_what_is_it.wav"
+dest_files=[ "res://.import/Agnes_what_is_it.wav-3463874634609373383e287a3499189d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

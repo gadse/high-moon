@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/staubach/Staubach.ttf" type="DynamicFontData" id=2]
@@ -8,22 +8,25 @@
 [ext_resource path="res://scenes/templates/dialog/keyboard_arrow_up-white-18dp.svg" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-bg_color = Color( 0.2, 0.160784, 0.12549, 1 )
+bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 20
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 extra_spacing_top = -10
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.2, 0.2, 0.2, 0.784314 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -32,7 +35,7 @@ corner_radius_bottom_left = 10
 expand_margin_left = 10.0
 expand_margin_right = 10.0
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 2 )
 
@@ -52,13 +55,14 @@ margin_right = 1.33484
 margin_bottom = -1.33484
 size_flags_horizontal = 3
 custom_constants/margin_right = 600
-custom_constants/margin_top = 400
+custom_constants/margin_top = 600
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
 [node name="PanelContainer" type="PanelContainer" parent="ExtendableMarginContainer"]
+self_modulate = Color( 0.929412, 0.929412, 0.929412, 1 )
 margin_left = 20.0
-margin_top = 400.0
+margin_top = 600.0
 margin_right = 1320.0
 margin_bottom = 1060.0
 size_flags_horizontal = 3
@@ -68,9 +72,8 @@ size_flags_vertical = 3
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1293.0
-margin_bottom = 653.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
-custom_constants/separation = 30
 
 [node name="ExpandButton" type="Button" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
 margin_right = 1286.0
@@ -79,50 +82,57 @@ text = "Show dialog history"
 icon = ExtResource( 6 )
 align = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
-margin_top = 54.0
+[node name="HistoryContainer" type="PanelContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_top = 28.0
 margin_right = 1286.0
-margin_bottom = 116.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 0, 576 )
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/HistoryContainer"]
+margin_right = 1286.0
+margin_bottom = 576.0
+rect_min_size = Vector2( 0, 576 )
+size_flags_vertical = 3
+
+[node name="DialogHistory" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/HistoryContainer/ScrollContainer"]
+margin_right = 1286.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 1286.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 104 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="NpcText" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1276.0
-margin_bottom = 52.0
-
-[node name="HistoryContainer" type="ScrollContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-visible = false
-margin_right = 1266.0
-margin_bottom = 380.0
-rect_min_size = Vector2( 0, 376 )
-size_flags_vertical = 3
-
-[node name="DialogHistory" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HistoryContainer"]
-margin_right = 1266.0
-margin_bottom = 35.0
-size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="NpcText" type="RichTextLabel" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-margin_right = 1266.0
-margin_bottom = 42.0
-custom_fonts/normal_font = SubResource( 3 )
+margin_bottom = 94.0
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 fit_content_height = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer"]
-margin_top = 146.0
+margin_top = 136.0
 margin_right = 1286.0
-margin_bottom = 646.0
+margin_bottom = 446.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer"]
 margin_right = 1286.0
-margin_bottom = 164.0
+margin_bottom = 284.0
 size_flags_horizontal = 3
 alignment = 2
 
@@ -132,7 +142,6 @@ anchor_bottom = 0.0
 margin_right = 1286.0
 margin_bottom = 20.0
 shortcut_in_tooltip = false
-caption = "I have no idea what I'm doing, so I'm just rambling on and on until eventually, I will trigger a new line."
 
 [node name="Label" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button/MarginContainer" index="0"]
 margin_top = 15.0
@@ -145,7 +154,6 @@ anchor_bottom = 0.0
 margin_top = 24.0
 margin_right = 1286.0
 margin_bottom = 44.0
-caption = "I'm going to kill you!"
 
 [node name="Button7" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -153,7 +161,6 @@ anchor_bottom = 0.0
 margin_top = 48.0
 margin_right = 1286.0
 margin_bottom = 68.0
-caption = "All evil shall be vanquished forever in this city..."
 
 [node name="Button4" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -161,7 +168,6 @@ anchor_bottom = 0.0
 margin_top = 72.0
 margin_right = 1286.0
 margin_bottom = 92.0
-caption = "I'm getting my good friend Van Helsing."
 
 [node name="Button5" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -169,7 +175,6 @@ anchor_bottom = 0.0
 margin_top = 96.0
 margin_right = 1286.0
 margin_bottom = 116.0
-caption = "Where wolf?"
 
 [node name="Button6" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -177,7 +182,6 @@ anchor_bottom = 0.0
 margin_top = 120.0
 margin_right = 1286.0
 margin_bottom = 140.0
-caption = "Vampirates are better than Ninjazis."
 
 [node name="Button8" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -185,9 +189,41 @@ anchor_bottom = 0.0
 margin_top = 144.0
 margin_right = 1286.0
 margin_bottom = 164.0
-caption = "I want you to display a scroll bar, you stupid f*ck!!!!
-Do it already!
-Finally..."
+
+[node name="Button9" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 168.0
+margin_right = 1286.0
+margin_bottom = 188.0
+
+[node name="Button10" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 192.0
+margin_right = 1286.0
+margin_bottom = 212.0
+
+[node name="Button11" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 1286.0
+margin_bottom = 236.0
+
+[node name="Button12" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 240.0
+margin_right = 1286.0
+margin_bottom = 260.0
+
+[node name="Button13" parent="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 264.0
+margin_right = 1286.0
+margin_bottom = 284.0
 
 [node name="CharacterPicture" type="TextureRect" parent="."]
 anchor_left = 1.0
@@ -209,11 +245,12 @@ margin_left = -587.0
 margin_top = -200.0
 margin_right = -100.0
 margin_bottom = -100.0
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Click to continue..."
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
+visible = false
 [connection signal="gui_input" from="." to="." method="_on_Dialog_gui_input"]
 [connection signal="pressed" from="ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton" to="." method="_on_ExpandButton_pressed"]
 
