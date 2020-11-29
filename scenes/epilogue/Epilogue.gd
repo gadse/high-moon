@@ -53,6 +53,7 @@ func _on_next_screen_requested():
 	if self._is_next_screen_available():
 		self._switch_to_next_screen()
 	else:
+		GameState.clear()
 		queue_free()
 
 func _is_next_screen_available():

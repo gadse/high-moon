@@ -84,6 +84,9 @@ func _intersect(left, right):
 			intersection.append(item)
 	return intersection
 
+func clear():
+	self.player_knowledge.clear()
+
 func has(enumString):
 	var enumValue = self._stringToEnum(enumString)
 	return self.player_knowledge.has(enumValue)
