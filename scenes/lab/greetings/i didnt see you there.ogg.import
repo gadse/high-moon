@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/i didnt see you there.ogg-1669ac2e4fba6e13250817775886557b.oggstr"
+
+[deps]
+
+source_file="res://scenes/lab/greetings/i didnt see you there.ogg"
+dest_files=[ "res://.import/i didnt see you there.ogg-1669ac2e4fba6e13250817775886557b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -7,5 +7,7 @@ story_file = "res://scenes/forge/Forge.tres"
 background_image = "res://scenes/forge/BG_forge.png"
 character_image = "res://scenes/forge/Charsprite_Blacksmith_v1.png"
 character_color = Color( 0.705882, 0.498039, 0.498039, 1 )
+background_music = "res://scenes/forge/Betty's Bassoons.ogg"
+greetings = [ "res://scenes/forge/greetings/huh.ogg", "res://scenes/forge/greetings/what is it now.ogg", "res://scenes/forge/greetings/yes.ogg" ]
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

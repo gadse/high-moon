@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Its High Moon.ogg-6436bb7545208491208b63b37fe42c84.oggstr"
+
+[deps]
+
+source_file="res://scenes/kill_scene/Its High Moon.ogg"
+dest_files=[ "res://.import/Its High Moon.ogg-6436bb7545208491208b63b37fe42c84.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

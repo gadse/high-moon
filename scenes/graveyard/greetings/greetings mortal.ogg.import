@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/greetings mortal.ogg-acdb052431d6599f161e8983ff41ed0a.oggstr"
+
+[deps]
+
+source_file="res://scenes/graveyard/greetings/greetings mortal.ogg"
+dest_files=[ "res://.import/greetings mortal.ogg-acdb052431d6599f161e8983ff41ed0a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ah yes.ogg-640cf8769124ba63d4537c57447737cf.oggstr"
+
+[deps]
+
+source_file="res://scenes/graveyard/greetings/ah yes.ogg"
+dest_files=[ "res://.import/ah yes.ogg-640cf8769124ba63d4537c57447737cf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

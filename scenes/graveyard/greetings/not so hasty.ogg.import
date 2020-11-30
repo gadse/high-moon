@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/not so hasty.ogg-dc0f8ff564039d6cc9384606b1b37ad6.oggstr"
+
+[deps]
+
+source_file="res://scenes/graveyard/greetings/not so hasty.ogg"
+dest_files=[ "res://.import/not so hasty.ogg-dc0f8ff564039d6cc9384606b1b37ad6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

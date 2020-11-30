@@ -8,5 +8,6 @@ background_image = "res://scenes/lab/BG_lab.png"
 character_image = "res://scenes/lab/Charsprite_researcher_v2.png"
 character_color = Color( 0.309804, 0.611765, 0.415686, 1 )
 background_music = "res://scenes/lab/Four_Chord_Agnes.ogg"
+greetings = [ "res://scenes/lab/greetings/anything interesting.ogg", "res://scenes/lab/greetings/are you alright.ogg", "res://scenes/lab/greetings/hey youre back.ogg", "res://scenes/lab/greetings/hi.ogg", "res://scenes/lab/greetings/i didnt see you there.ogg", "res://scenes/lab/greetings/what is it.ogg" ]
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/are you alright.ogg-6df0db3fc122631680e6c5779abc812c.oggstr"
+
+[deps]
+
+source_file="res://scenes/lab/greetings/are you alright.ogg"
+dest_files=[ "res://.import/are you alright.ogg-6df0db3fc122631680e6c5779abc812c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

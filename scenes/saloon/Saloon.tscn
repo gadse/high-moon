@@ -8,5 +8,6 @@ background_image = "res://scenes/saloon/BG_saloon_final.png"
 character_image = "res://scenes/saloon/Charsprite_saloongirl_v1.png"
 character_color = Color( 0.686275, 0.309804, 0.309804, 1 )
 background_music = "res://scenes/saloon/Saloon_Swing.ogg"
+greetings = [ "res://scenes/saloon/greetings/hi.ogg", "res://scenes/saloon/greetings/uh hello.ogg", "res://scenes/saloon/greetings/wanna come upstairs.ogg", "res://scenes/saloon/greetings/wanna drink something special.ogg", "res://scenes/saloon/greetings/well hello there.ogg" ]
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]

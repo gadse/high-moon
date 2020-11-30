@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wanna come upstairs.ogg-29903462eacce8278f5bf6a692aa2f74.oggstr"
+
+[deps]
+
+source_file="res://scenes/saloon/greetings/wanna come upstairs.ogg"
+dest_files=[ "res://.import/wanna come upstairs.ogg-29903462eacce8278f5bf6a692aa2f74.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

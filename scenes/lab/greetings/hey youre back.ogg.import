@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hey youre back.ogg-65c43859fbd16d874f11b55cf45ae425.oggstr"
+
+[deps]
+
+source_file="res://scenes/lab/greetings/hey youre back.ogg"
+dest_files=[ "res://.import/hey youre back.ogg-65c43859fbd16d874f11b55cf45ae425.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

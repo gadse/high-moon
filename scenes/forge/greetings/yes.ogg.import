@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/yes.ogg-3ffd9199ed70a680bdd1543dd45c41df.oggstr"
+
+[deps]
+
+source_file="res://scenes/forge/greetings/yes.ogg"
+dest_files=[ "res://.import/yes.ogg-3ffd9199ed70a680bdd1543dd45c41df.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

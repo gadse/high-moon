@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/good evening.ogg-ac21f302b7c05601553976774bbab06d.oggstr"
+
+[deps]
+
+source_file="res://scenes/graveyard/greetings/good evening.ogg"
+dest_files=[ "res://.import/good evening.ogg-ac21f302b7c05601553976774bbab06d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

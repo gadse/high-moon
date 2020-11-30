@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Betty's Bassoons.ogg-2533ae1fa31d652c4e62258d3eb9498c.oggstr"
+
+[deps]
+
+source_file="res://scenes/forge/Betty's Bassoons.ogg"
+dest_files=[ "res://.import/Betty's Bassoons.ogg-2533ae1fa31d652c4e62258d3eb9498c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

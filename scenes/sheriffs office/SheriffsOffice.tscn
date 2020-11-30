@@ -8,5 +8,6 @@ background_image = "res://scenes/sheriffs office/BG_sheriffs_office.png"
 character_image = "res://scenes/sheriffs office/Charsprite_Sheriff_v1.png"
 character_color = Color( 0.827451, 0.682353, 0.490196, 1 )
 background_music = "res://scenes/sheriffs office/Cool_Shorty_V2.ogg"
+greetings = [ "res://scenes/sheriffs office/greeting/howdy.ogg", "res://scenes/sheriffs office/greeting/huh.ogg", "res://scenes/sheriffs office/greeting/yeah.ogg" ]
 
 [editable path="ExtendableMarginContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Button"]
