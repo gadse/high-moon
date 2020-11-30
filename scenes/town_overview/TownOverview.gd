@@ -1,5 +1,8 @@
 extends TextureRect
 
+var MusicFader = preload("res://scenes/templates/music_fader/MusicFader.tscn")
+
+var background_music = null
 var dialog = null
 
 func _ready():
@@ -16,11 +19,19 @@ func _on_dialog_icon_clicked(dialog_scene):
 	dialog = dialog_scene.instance()
 	dialog.connect("kill_scene_triggered", self, "_enable_kill_scene")
 	dialog.connect("tree_exited", self, "_show_this")
+
+	background_music.fade_out()
 	$Fader.fade_out()
 
 func _show_this():
 	dialog = null
 	$Fader.fade_in()
+	
+	background_music = MusicFader.instance()
+	background_music.connect("finished", background_music, "queue_free")
+	background_music.stream = load("res://scenes/town_overview/Town Winds.ogg")
+	self.add_child(background_music)
+	background_music.fade_in()
 
 func _enable_kill_scene():
 	dialog.disconnect("tree_exited", self, "_show_this")

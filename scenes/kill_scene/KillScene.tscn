@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/kill_scene/Bloodsplatter_vA_v2.png" type="Texture" id=5]
 [ext_resource path="res://scenes/kill_scene/BG_HighMoon_Killingscene.png" type="Texture" id=6]
 [ext_resource path="res://scenes/templates/music_fader/MusicFader.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/kill_scene/Kill Scene.ogg" type="AudioStream" id=8]
+[ext_resource path="res://scenes/town_overview/Town Winds.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BloodAnimation"
@@ -36,7 +36,6 @@ __meta__ = {
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 7 )]
 stream = ExtResource( 8 )
-target_volume = 5
 
 [node name="GunShot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

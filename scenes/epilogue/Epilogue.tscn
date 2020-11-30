@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://scenes/templates/music_fader/MusicFader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/epilogue/Epilogue.gd" type="Script" id=2]
+[ext_resource path="res://scenes/kill_scene/Kill Scene.ogg" type="AudioStream" id=3]
 
 [node name="Epilogue" type="ColorRect"]
 anchor_right = 1.0
@@ -10,3 +12,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackgroundMusic" parent="." instance=ExtResource( 1 )]
+stream = ExtResource( 3 )
+target_volume = 5

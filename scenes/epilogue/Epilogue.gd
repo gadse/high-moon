@@ -7,6 +7,7 @@ var page_list = []
 
 func _ready():
 	self._fill_page_list()
+	$BackgroundMusic.fade_in()
 	self._on_next_screen_requested()
 
 func _fill_page_list():

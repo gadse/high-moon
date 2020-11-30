@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/town_overview/TownOverview.gd" type="Script" id=1]
 [ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scenes/forge/Forge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/graveyard/Graveyard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://fonts/staubach/Staubach.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/templates/music_fader/MusicFader.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/town_overview/Town Winds.ogg" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -115,6 +117,9 @@ __meta__ = {
 }
 
 [node name="Fader" parent="." instance=ExtResource( 2 )]
+
+[node name="BackgroundMusic" parent="." instance=ExtResource( 11 )]
+stream = ExtResource( 12 )
 [connection signal="clicked" from="Agnes" to="." method="_on_dialog_icon_clicked"]
 [connection signal="mouse_entered" from="Agnes" to="." method="_on_Agnes_mouse_entered"]
 [connection signal="mouse_exited" from="Agnes" to="." method="_on_Agnes_mouse_exited"]
