@@ -11,5 +11,5 @@ dest_files=[ "res://.import/wanna drink something special.ogg-6fb768b683b1bd2ebd
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

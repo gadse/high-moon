@@ -11,5 +11,5 @@ dest_files=[ "res://.import/wanna come upstairs.ogg-29903462eacce8278f5bf6a692aa
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

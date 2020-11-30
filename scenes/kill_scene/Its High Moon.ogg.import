@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Its High Moon.ogg-6436bb7545208491208b63b37fe42c84.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

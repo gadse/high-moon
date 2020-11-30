@@ -11,5 +11,5 @@ dest_files=[ "res://.import/you seem to be early.ogg-21fe9f353a8a31898ce169f6245
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

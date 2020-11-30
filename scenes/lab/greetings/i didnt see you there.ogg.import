@@ -11,5 +11,5 @@ dest_files=[ "res://.import/i didnt see you there.ogg-1669ac2e4fba6e132508177758
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

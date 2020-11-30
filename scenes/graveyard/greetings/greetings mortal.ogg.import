@@ -11,5 +11,5 @@ dest_files=[ "res://.import/greetings mortal.ogg-acdb052431d6599f161e8983ff41ed0
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

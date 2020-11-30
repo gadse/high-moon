@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/kill_scene/DesertEagle.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scenes/kill_scene/KillScene.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/templates/scene_fader/SceneFader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/kill_scene/Bloodsplatter_vA_v2.png" type="Texture" id=5]
 [ext_resource path="res://scenes/kill_scene/BG_HighMoon_Killingscene.png" type="Texture" id=6]
+[ext_resource path="res://scenes/templates/music_fader/MusicFader.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/kill_scene/Kill Scene.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BloodAnimation"
@@ -31,6 +33,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackgroundMusic" parent="." instance=ExtResource( 7 )]
+stream = ExtResource( 8 )
+target_volume = 5
 
 [node name="GunShot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
