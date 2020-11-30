@@ -253,6 +253,8 @@ text = "Click to continue..."
 [node name="Fader" parent="." instance=ExtResource( 1 )]
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 7 )]
+
+[node name="Greeting" type="AudioStreamPlayer" parent="."]
 [connection signal="gui_input" from="." to="." method="_on_Dialog_gui_input"]
 [connection signal="pressed" from="ExtendableMarginContainer/PanelContainer/VBoxContainer/ExpandButton" to="." method="_on_ExpandButton_pressed"]
 

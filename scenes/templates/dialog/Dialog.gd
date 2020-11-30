@@ -21,6 +21,7 @@ export(String, FILE) var background_image
 export(String, FILE) var character_image
 export(Color, RGB) var character_color
 export(String, FILE) var background_music
+export(Array, String, FILE) var greetings
 
 var is_click_to_leave_scene_enabled = false
 var expanded = false
@@ -40,6 +41,7 @@ onready var npc_text = $ExtendableMarginContainer/PanelContainer/VBoxContainer/P
 
 func _ready():
 	self._fill_button_numbers_and_wire_signals()
+	self._assign_random_greeting()
 
 	$BackgroundMusic.stream = load(background_music)
 	self.texture = load(background_image)
@@ -50,6 +52,7 @@ func _ready():
 		self._load_story()
 		self._update_content_to_current_passage()
 
+	$Fader.connect("faded_in", $Greeting, "play")
 	$Fader.connect("faded_out", self, "queue_free")
 	$Fader.fade_in()
 	$BackgroundMusic.fade_in()
@@ -61,6 +64,11 @@ func _fill_button_numbers_and_wire_signals():
 			button_numbers[button] = ix
 			button.connect("answer_button_pressed", self, "_on_button_pressed")
 			ix += 1
+
+func _assign_random_greeting():
+	if greetings.size() > 0:
+		var greeting = greetings[randi() % greetings.size()]
+		$Greeting.stream = load(greeting)
 
 func _load_story():
 	var file = File.new()

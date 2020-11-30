@@ -6,6 +6,7 @@ const Game = preload("res://scenes/game/Game.tscn")
 var game = null
 
 func _ready():
+	randomize()
 	self._show_menu()
 
 func _show_menu():
