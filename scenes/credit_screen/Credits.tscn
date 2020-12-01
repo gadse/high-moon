@@ -186,16 +186,16 @@ margin_bottom = 1040.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "
-[center]We'd also like to thank:[/center]
+bbcode_text = "[center]We'd also like to thank:[/center]
 - The creators and contributors of the Godot game engine
 - The makers of What We Do In The Shadows for their wonderfully inspring Episode \"On The Run\"
-- Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic"
-text = "
-We'd also like to thank:
+- Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic
+- Spitfire Audio for the amazing free tier of their BBC Symphony Orchestra package"
+text = "We'd also like to thank:
 - The creators and contributors of the Godot game engine
 - The makers of What We Do In The Shadows for their wonderfully inspring Episode \"On The Run\"
-- Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic"
+- Matt Mercer for lending his voice to the single voice line that never fails to instantly put us into an advanced stage of alarm and headless panic
+- Spitfire Audio for the amazing free tier of their BBC Symphony Orchestra package"
 
 [node name="Fader" parent="." instance=ExtResource( 1 )]
 [connection signal="gui_input" from="." to="." method="_on_Credits_gui_input"]
