@@ -24,6 +24,10 @@ all with their own special quirks and shady backgrounds.
 Dive into a **rich story** of passion, crime, gold and guns brought to life
 by **handcrafted art** and a **unique soundtrack**.
 
+![town](screenshots/town.png "Our small town")
+![dialog](screenshots/dialog.png "A talk with Agnes")
+
+
 ## Ready? Get out your gun - it's High Moon!
 
 This game was created during the [GitHub Game Off 2020](https://itch.io/jam/game-off-2020) themed MOONSHOT.
