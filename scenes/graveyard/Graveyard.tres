@@ -264,7 +264,7 @@
 		"aboutLiz": {
 			"type": "linear",
 			"set": [
-				"ElizabethHadManyHusbands",
+				"ElizabethsHusbandsDisappeared",
 				"ElizabethLoanedMoneyToJack"
 			],
 			"flow": [
