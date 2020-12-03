@@ -264,7 +264,7 @@
 		"aboutLiz": {
 			"type": "linear",
 			"set": [
-				"ElizabethHadManyHusbands",
+				"ElizabethsHusbandsDisappeared",
 				"ElizabethLoanedMoneyToJack"
 			],
 			"flow": [
@@ -472,38 +472,46 @@
 			"type": "linear",
 			"flow": [
 				[
-					"Oh, Mrs. Somerville could not keep her mouth shut, I take it."
+					"Yes. I... I cannot express my regrets that my last words to him were... not those of a friend.",
+					"It was a disagreement about something concerning a certain...\npastime of his that I did not condone of."
 				],
 				[
-					"It matters not who told me.",
-					"Uh, yeah. It was her. But how did you know?"
+					"What kind of pastime?"
 				],
 				[
-					"It must have been Agnes because she is the only one who was persistent and curious enough to uncover what I had hoped to leave behind.",
-					"So. She told you that she suspects I led a bandit gang, correct?"
+					"In upholding the memory of my dear friend, I will not tell you what it was, only that it was perfectly legal, even though I disapproved of it since it cost him large sums of money.",
+					"But you do realize that even friends as old as we can have a disagreement\nwithout it culminating in murder, yes?"
 				],
 				[
-					"Yeah."
+					"Well, I have to find the truth."
 				],
 				[
-					"What will you do now? You arrived here without Sheriff Short. All on your own."
+					"...I understand why you must ask, Detective, but I'd rather talk about this fight no more.\nI... I miss Jack greatly and I sorely regret my harsh words."
+				]
+			],
+			"goto": "reactionToFight"
+		},
+		"reactionToFight": {
+			"type": "choice",
+			"me": [
+				{
+					"text": "Thank you for sharing this. It will help.",
+					"goto": "moreQuestions"
+				},
+				{
+					"text": "I need to ask one more question about it-",
+					"goto": "moreAboutFight"
+				}
+			]
+		},
+		"moreAboutFight": {
+			"type": "linear",
+			"flow": [
+				[
+					"No. I’ve told you anything of interest there was about it."
 				],
 				[
-					"I am armed."
-				],
-				[
-					"I know. And it is meaningless, since I have no interest in bringing you harm.\nI will not confirm nor deny anything about my past.",
-					"But let me tell you this: I came here to seek refuge from violence and bloodshed.\nI came here to help, not hurt.",
-					"And to be a better man than I was before. Leave my past be.\nIt will not help solve your case."
-				],
-				[
-					"I just thought…"
-				],
-				[
-					"If I wanted to murder someone, do you not think I could find someone better than my only friend in town?"
-				],
-				[
-					"Hm."
+					"But-"
 				]
 			],
 			"goto": "moreQuestions"
